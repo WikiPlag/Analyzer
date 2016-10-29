@@ -15,3 +15,27 @@ project/plugins/project/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+
+**/bin/
+**/target/
+project/project
+.idea
+
+*.iml
+*.classpath
+*.properties
+*.project
+
+# #ignore everything expected...->
+# *
+# !*.scala
+# !*.sc
+# !README.md
+# !*.xml
+# !*.iml
+# !*.classpath
+# !*.properties
+# !.gitignore
+#
+# #even sub dirs
+# */
