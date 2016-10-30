@@ -35,3 +35,10 @@ lazy val parser = (project in file("parser"))
       unbescaped, xml
     )
   )
+
+lazy val similarity = (project in file("similarity"))
+  .settings(commonSettings: _*)
+  .settings(
+    name := "Similarity",
+    excludeFilter in unmanagedResources := "*"
+  )

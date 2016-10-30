@@ -20,271 +20,196 @@ class ParserTest extends FunSuite {
   /**
     *
     */
-  test("testRemoveMatchWithGroup goupId=2") {
+  test("removeMatchWithGroup groupId=2") {
     new TestParser {
       val text = "<test>word1</test>"
       val regexList = List("""(?s)<test(>| .*?>)(.*?)</test>""".r)
-      val regexListIndex = 0
       val groupId = 2
       val expected = "word1"
-      val result = parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
+      val result = parser.removeMatchWithGroup(text, regexList, groupId)
 
       assert(expected === result)
     }
   }
 
-  test("testRemoveMatchWithGroup goupId out of range") {
+  test("removeMatchWithGroup groupId out of range") {
     new TestParser {
       val text = "<test>word1</test>"
       val regexList = List("""(?s)<test(>| .*?>)(.*?)</test>""".r)
-      val regexListIndex = 0
       val groupId = 6
       val expected = "6"
       val result = intercept[ArrayIndexOutOfBoundsException] {
-        parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
+        parser.removeMatchWithGroup(text, regexList, groupId)
       }
 
       assert(expected === result.getMessage)
     }
   }
 
-  test("testRemoveMatchWithGroup empty regexList") {
+  test("removeMatchWithGroup empty regexList") {
     new TestParser {
       val text = "<test>word1</test>"
       val regexList = List()
-      val regexListIndex = 0
       val groupId = 2
       val expected = "<test>word1</test>"
-      val result = parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
+      val result = parser.removeMatchWithGroup(text, regexList, groupId)
 
       assert(expected === result)
     }
   }
 
-  test("testRemoveMatchWithGroup regexList=null") {
+  test("removeMatchWithGroup regexList=null") {
     new TestParser {
       val text = "<test>word1</test>"
       val regexList = null
-      val regexListIndex = 0
       val groupId = 2
       val expected = null
       val result = intercept[NullPointerException] {
-        parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
+        parser.removeMatchWithGroup(text, regexList, groupId)
       }
       assert(result.getMessage === expected)
     }
   }
 
-  test("testRemoveMatchWithGroup empty page content") {
+  test("removeMatchWithGroup empty page content") {
     new TestParser {
       val text = ""
       val regexList = List("""(?s)<test(>| .*?>)(.*?)</test>""".r)
-      val regexListIndex = 0
       val groupId = 2
       val expected = ""
-      val result = parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
+      val result = parser.removeMatchWithGroup(text, regexList, groupId)
 
       assert(expected === result)
     }
   }
 
-  test("testRemoveMatchWithGroup page content=null") {
+  test("removeMatchWithGroup page content=null") {
     new TestParser {
       val text = null
       val regexList = List("""(?s)<test(>| .*?>)(.*?)</test>""".r)
-      val regexListIndex = 0
       val groupId = 2
       val expected = null
       val result = intercept[NullPointerException] {
-        parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
+        parser.removeMatchWithGroup(text, regexList, groupId)
       }
       assert(result.getMessage === expected)
     }
   }
 
-  test("testRemoveMatchWithGroup nested tag") {
+  test("removeMatchWithGroup nested tag") {
     new TestParser {
       val text = "<test>word1<test>word2</test></test>"
       val regexList = List("""(?s)<test(>| .*?>)(.*?)</test>""".r)
-      val regexListIndex = 0
       val groupId = 2
       val expected = "word1<test>word2</test>"
-      val result = parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
+      val result = parser.removeMatchWithGroup(text, regexList, groupId)
 
       assert(expected === result)
     }
   }
 
-  test("testRemoveMatchWithGroup escaped Char $") {
+  test("removeMatchWithGroup escaped Char $") {
     new TestParser {
       val text = "<test>word1$</test>"
       val regexList = List("""(?s)<test(>| .*?>)(.*?)</test>""".r)
-      val regexListIndex = 0
       val groupId = 2
       val expected = "word1$"
-      val result = parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
+      val result = parser.removeMatchWithGroup(text, regexList, groupId)
 
       assert(expected === result)
-    }
-  }
-
-  test("testRemoveMatchWithGroup regexListIndex=-1") {
-    new TestParser {
-      val text = ""
-      val regexList = List()
-      val regexListIndex = -1
-      val groupId = 0
-      val expected = "-1"
-
-      val result = intercept[IndexOutOfBoundsException] {
-        parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
-      }
-      assert(expected === result.getMessage)
-    }
-  }
-
-  test("testRemoveMatchWithGroup regexListIndex out of range") {
-    new TestParser {
-      val text = ""
-      val regexList = List()
-      val regexListIndex = 6
-      val groupId = 0
-      val expected = "6"
-
-      val result = intercept[IndexOutOfBoundsException] {
-        parser.removeMatchWithGroup(text, regexList, regexListIndex, groupId)
-      }
-      assert(expected === result.getMessage)
     }
   }
 
   /**
     *
     */
-  test("testReplaceNestedTags simple tag") {
+  test("replaceNestedTags simple tag") {
     new TestParser {
       val text = "<test>word1</test>"
       val regexAsString = "<test"
       val regex = """(?s)<test(>| .*?>)(.*?)</test>""".r
-      val beginSearchIndex = text.length
       val expected = "word1"
-      val result = parser.replaceNestedTags(text, regexAsString, regex, beginSearchIndex)
+      val result = parser.replaceNestedTags(text, regexAsString, regex)
 
       assert(expected === result)
     }
   }
 
-  test("testReplaceNestedTags nested tags") {
+  test("replaceNestedTags nested tags") {
     new TestParser {
       val text = "<test>word1 <test>word2</test></test>"
       val regexAsString = "<test"
       val regex = """(?s)<test(>| .*?>)(.*?)</test>""".r
-      val beginSearchIndex = text.length
       val expected = "word1 word2"
-      val result = parser.replaceNestedTags(text, regexAsString, regex, beginSearchIndex)
+      val result = parser.replaceNestedTags(text, regexAsString, regex)
 
       assert(expected === result)
     }
   }
 
-  test("testReplaceNestedTags nested tags new lines and carriage returns") {
+  test("replaceNestedTags nested tags new lines and carriage returns") {
     new TestParser {
       val text = "<test>word1 \r<test>word2\n\r</test>\n</test>"
       val regexAsString = "<test"
       val regex = """(?s)<test(>| .*?>)(.*?)</test>""".r
-      val beginSearchIndex = text.length
       val expected = "word1 \rword2\n\r\n"
-      val result = parser.replaceNestedTags(text, regexAsString, regex, beginSearchIndex)
+      val result = parser.replaceNestedTags(text, regexAsString, regex)
 
       assert(expected === result)
     }
   }
 
-  test("testReplaceNestedTags beginnIndex=-1") {
-    new TestParser {
-      val text = "<test>word1 <test>word2</test></test>"
-      val regexAsString = "<test"
-      val regex = """(?s)<test(>| .*?>)(.*?)</test>""".r
-      val beginSearchIndex = -1
-      val expected = "<test>word1 <test>word2</test></test>"
-      val result = parser.replaceNestedTags(text, regexAsString, regex, beginSearchIndex)
-
-      assert(expected === result)
-    }
-  }
-
-
-  test("testReplaceNestedTags ignore broken nested tags") {
+  test("replaceNestedTags ignore broken nested tags") {
     new TestParser {
       val text = "<test>word1 <test>word2</test>"
       val regexAsString = "<test"
       val regex = """(?s)<test(>| .*?>)(.*?)</test>""".r
-      val beginSearchIndex = text.length
       val expected = "<test>word1 word2"
-      val result = parser.replaceNestedTags(text, regexAsString, regex, beginSearchIndex)
+      val result = parser.replaceNestedTags(text, regexAsString, regex)
 
       assert(expected === result)
     }
   }
 
-  test("testReplaceNestedTags tagAsRegex=null") {
+  test("replaceNestedTags tagAsRegex=null") {
     new TestParser {
       val text = "<test>word1 <test>word2</test>"
       val regexAsString = "<test"
       val regex = null
-      val beginSearchIndex = text.length
       val expected = null
       val result = intercept[NullPointerException] {
-        parser.replaceNestedTags(text, regexAsString, regex, beginSearchIndex)
+        parser.replaceNestedTags(text, regexAsString, regex)
       }
 
       assert(result.getMessage === expected)
     }
   }
 
-  test("testReplaceNestedTags tag=null") {
+  test("replaceNestedTags tag=null") {
     new TestParser {
       val text = "<test>word1 <test>word2</test>"
       val regexAsString = null
       val regex = """(?s)<test(>| .*?>)(.*?)</test>""".r
-      val beginSearchIndex = text.length
       val expected = null
       val result = intercept[NullPointerException] {
-        parser.replaceNestedTags(text, regexAsString, regex, beginSearchIndex)
+        parser.replaceNestedTags(text, regexAsString, regex)
       }
 
       assert(result.getMessage === expected)
     }
   }
 
-  test("testReplaceNestedTags page content=null") {
-    new TestParser {
-      val text = null
-      val regexAsString = "<test"
-      val regex = """(?s)<test(>| .*?>)(.*?)</test>""".r
-      val beginSearchIndex = 0
-      val expected = null
-      val result = intercept[NullPointerException] {
-        parser.replaceNestedTags(text, regexAsString, regex, beginSearchIndex)
-      }
-
-      assert(result.getMessage === expected)
-    }
-  }
-
-
-  ignore("testReplaceNestedTags empty page content empty regex") {
+  ignore("replaceNestedTags empty page content empty regex") {
     new TestParser {
       // inf loop
-      //assert("" === parser.replaceNestedTags("", "", """(?s)<small(>| .*?>)(.*?)</small>""".r, 0))
-      assert(1 === 2)
+      assert("" === parser.replaceNestedTags("", "", """(?s)<small(>| .*?>)(.*?)</small>""".r))
     }
   }
 
   /**
     *
     */
-  test("testExtractPlainText") {
+  test("extractPlainText") {
     new TestParser {
       val text = "Alan Smithee steht als Pseudonym für einen fiktiven Regisseur, der Filme verantwortet, " +
         "bei denen der eigentliche Regisseur seinen Namen nicht mit dem Werk in Verbindung gebracht haben möchte. " +
@@ -303,7 +228,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("testExtractPlainText unicode") {
+  test("extractPlainText unicode") {
     new TestParser {
       val text = "Ä Ü Ö Ελλάδα Elláda, formell Ελλάς, Ellás ‚Hellas‘; amtliche Vollform Ελληνική Δημοκρατία, Ellinikí"
       val expected = List(
@@ -316,7 +241,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("testExtractPlainText page content=null") {
+  test("extractPlainText page content=null") {
     new TestParser {
       val text = null
       val expected = null
@@ -327,7 +252,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("testExtractPlainText empty page content") {
+  test("extractPlainText empty page content") {
     new TestParser {
       val text = ""
       val expected = List()
@@ -339,7 +264,7 @@ class ParserTest extends FunSuite {
   /**
     *
     */
-  test("test SMALL_TAG_PATTERN") {
+  test("SMALL_TAG_PATTERN") {
     new TestParser {
       val text = "<small>word1</small>"
       val expected = List("<small>word1</small>")
@@ -349,7 +274,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("test SMALL_TAG_PATTERN carriage returns and new lines") {
+  test("SMALL_TAG_PATTERN carriage returns and new lines") {
     new TestParser {
       val text = "<small>\rword1\r\nword2\n</small>"
       val expected = List("<small>\rword1\r\nword2\n</small>")
@@ -359,7 +284,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("test SMALL_TAG_PATTERN reluctant") {
+  test("SMALL_TAG_PATTERN reluctant") {
     new TestParser {
       val text = "<small>word1</small><small>word1</small>"
       val expected = List("<small>word1</small>", "<small>word1</small>")
@@ -369,7 +294,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("test SMALL_TAG_PATTERN with tag attribute") {
+  test("SMALL_TAG_PATTERN with tag attribute") {
     new TestParser {
       val text = "<small data=\"test\">word1</small>"
       val expected = List("<small data=\"test\">word1</small>")
@@ -379,7 +304,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("test SMALL_TAG_PATTERN with tag attributes") {
+  test("SMALL_TAG_PATTERN with tag attributes") {
     new TestParser {
       val text = "<small data=\"test\" data=\"test2\">word1</small>"
       val expected = List("<small data=\"test\" data=\"test2\">word1</small>")
@@ -399,7 +324,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("test SMALL_TAG_PATTERN tag inside tag get content") {
+  test("SMALL_TAG_PATTERN tag inside tag get content") {
     new TestParser {
       val text = "<small><tag>word1</tag></small>"
       val expected = "<tag>word1</tag>"
@@ -409,7 +334,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("test SMALL_TAG_PATTERN with tag attribute get content") {
+  test("SMALL_TAG_PATTERN with tag attribute get content") {
     new TestParser {
       val text = "<small data=\"test\">word1</small>"
       val expected = "word1"
@@ -419,7 +344,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("test SMALL_TAG_PATTERN get content") {
+  test("SMALL_TAG_PATTERN get content") {
     new TestParser {
       val text = "<small>word1</small>"
       val expected = "word1"
@@ -429,7 +354,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("test SMALL_TAG_PATTERN carriage returns and new lines get content") {
+  test("SMALL_TAG_PATTERN carriage returns and new lines get content") {
     new TestParser {
       val text = "<small>\rword1\r\nword2\n</small>"
       val expected = "\rword1\r\nword2\n"
@@ -442,30 +367,30 @@ class ParserTest extends FunSuite {
   /**
     *
     */
-  test("testRemoveWikiMarkup") {
+  test("removeWikiMarkup") {
     new TestParser {
       val text = "*\n* \n* ,.()*\n* Listelement\n*text"
       val regex = """^\*[^A-Za-z0-9]{0,}$""".r
       val expected = "\n\n\n* Listelement\n*text"
-      val result = parser.removeWikiMarkup(text, regex)
+      val result = parser.removeWikiMarkup(text, List(regex))
 
       assert(expected === result)
     }
   }
 
-  test("testRemoveWikiMarkup text=null") {
+  test("removeWikiMarkup text=null") {
     new TestParser {
       val text = null
       val regex = """^\*[^A-Za-z0-9]{0,}$""".r
       val expected = null
       val result = intercept[NullPointerException] {
-        parser.removeWikiMarkup(text, regex)
+        parser.removeWikiMarkup(text, List(regex))
       }
       assert(result.getMessage === expected)
     }
   }
 
-  test("testRemoveWikiMarkup regex=null") {
+  test("removeWikiMarkup regex=null") {
     new TestParser {
       val text = "text"
       val regex = null
@@ -481,7 +406,7 @@ class ParserTest extends FunSuite {
   /**
     *
     */
-  test("testParseXMLWikiPage") {
+  test("parseXMLWikiPage") {
     new TestParser {
       val text = "1997 kam \'\'die\'\' Parodie An [[Alan Smithee Film]]: Burn Hollywood"
       val expected = "1997 kam die Parodie An Alan Smithee Film: Burn Hollywood"
@@ -491,7 +416,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("testParseXMLWikiPage escape html") {
+  test("parseXMLWikiPage escape html") {
     new TestParser {
       val text = "&nbsp;&apos;&amp;&gt;&pound;&sect;&AElig;"
       val expected = " '&>£§Æ"
@@ -501,7 +426,7 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("testParseXMLWikiPage remove templates") {
+  test("parseXMLWikiPage remove templates") {
     new TestParser {
       val text = "1997 kam die Parodie An Alan {{Text {{Text}} }} Smithee Film: Burn Hollywood"
       val expected = "1997 kam die Parodie An Alan |TEMPLATE| Smithee Film: Burn Hollywood"
@@ -511,11 +436,23 @@ class ParserTest extends FunSuite {
     }
   }
 
-  test("testParseXMLWikiPage remove templates new lines") {
+  test("parseXMLWikiPage remove templates new lines") {
     new TestParser {
       val text = "1997 kam die Parodie An Alan {{Text {{Text\n}} \n}} Smithee Film: Burn Hollywood"
       val expected = "1997 kam die Parodie An Alan |TEMPLATE| Smithee Film: Burn Hollywood"
       val result = parser.parseXMLWikiPage(text)
+
+      assert(expected === result)
+    }
+  }
+
+  test("removeExternalLinks remove all links") {
+    new TestParser {
+      val text = "[[Helmut Willems]]&lt;ref&gt;[http://www.uni-bielefeld.de/ikg/wissensaustausch/" +
+        "wissenschaftler_willems.htm Forschungsverbund Desintegration: Projektleiter: Dr. Helmut Willems]&lt;/ref&gt;"
+      val expected = "[[Helmut Willems]]&lt;ref&gt;Forschungsverbund Desintegration: " +
+        "Projektleiter: Dr. Helmut Willems&lt;/ref&gt;"
+      val result = parser.removeExternalLinks(text)
 
       assert(expected === result)
     }

@@ -1,7 +1,8 @@
-package main.scala.de.htw.ai.wikiplag.parser
+package de.htw.ai.wikiplag.parser
 
 /**
   * Created by Max M. on 18.05.2016.
+  * Extended by Kuro
   */
 trait Parser {
 
@@ -88,7 +89,7 @@ trait Parser {
     * Beispiel:
     *
     * Input:
-    * pageContent = String("1997 kam ""die"" Parodie An [[Alan Smithee Film]]: Burn Hollywood {{Text}}")
+    * pageContent = String("1997 kam ""die"" Parodie An [\[Alan Smithee Film\]]: Burn Hollywood {{Text}}")
     *
     * Output:
     * String("1997 kam die Parodie An Alan Smithee Film: Burn Hollywood TEMPLATE")
@@ -103,5 +104,5 @@ trait Parser {
     *
     * @return Tuple of id as Int and cleaned text as String
     */
-  def generateWikiArticleList(): List[(String, BigInt)]
+  def generateWikiArticleList: List[(String, BigInt)]
 }

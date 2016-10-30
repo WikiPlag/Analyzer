@@ -1,12 +1,10 @@
-package main.scala.de.htw.ai.wikiplag.parser
+package de.htw.ai.wikiplag.parser
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 import org.unbescape.html.HtmlEscape._
 import scala.annotation.tailrec
 import scala.util.matching.Regex
-
-import scala.collection.mutable.ListBuffer
 
 import scala.xml.XML
 import java.io.InputStream
@@ -62,8 +60,7 @@ object WikiDumpParser extends Parser {
   /**
     * Tag entfernen, Inhalt behalten.
     */
-  val H1_TAG_PATTERN =
-    """(?s)<h1(>| .*?>)(.*?)</h1>""".r
+  val H1_TAG_PATTERN = """(?s)<h1(>| .*?>)(.*?)</h1>""".r
   val H2_TAG_PATTERN = """(?s)<h2(>| .*?>)(.*?)</h2>""".r
   val H3_TAG_PATTERN = """(?s)<h3(>| .*?>)(.*?)</h3>""".r
   val H4_TAG_PATTERN = """(?s)<h4(>| .*?>)(.*?)</h4>""".r
@@ -115,8 +112,7 @@ object WikiDumpParser extends Parser {
     * Listen
     * Loescht die ganze Liste (inklusive Eintraege). Koennen durch leeren String ersetzt werden.
     */
-  val DL_TAG_PATTERN =
-    """(?s)<dl(>| .*?>).*?</dl>""".r
+  val DL_TAG_PATTERN = """(?s)<dl(>| .*?>).*?</dl>""".r
   val OL_TAG_PATTERN = """(?s)<ol(>| .*?>).*?</ol>""".r
   val UL_TAG_PATTERN = """(?s)<ul(>| .*?>).*?</ul>""".r
 
@@ -124,14 +120,12 @@ object WikiDumpParser extends Parser {
     * Einzelne / selbstschliessende Tags.
     */
   // Muss durch einen leeren String ersetzt werden.
-  val WBR_TAG_PATTERN =
-    """<wbr>""".r
+  val WBR_TAG_PATTERN = """<wbr>""".r
   val NOWIKI_SINGLE_TAG_PATTERN = """<nowiki />""".r
   val B_TAG_PATTERN = """<b/>""".r
 
   // Kann durch einen leeren String ersetzt werden.
-  val HR_TAG_PATTERN =
-    """<hr>""".r
+  val HR_TAG_PATTERN = """<hr>""".r
   val LINE_BREAKS_TAG_PATTERN = """(<br(>| />|/>|.>))|(</br>)""".r
   val REF_TAG_SINGLE_PATTERN = """<ref(/>| [^<>]*?/>)""".r
   val REFERENCES_SINGLE_TAG_PATTERN = """<references(/>| [^<>]*?/>)""".r
@@ -142,15 +136,13 @@ object WikiDumpParser extends Parser {
     * Inline
     */
   // Kann durch einen leeren String ersetzt werden.
-  val BOLD_FORMATTING_PATTERN =
-    """'''""".r
+  val BOLD_FORMATTING_PATTERN = """'''""".r
   val ITALICS_FORMATTING_PATTERN = """''""".r
   val TABLE_PATTERN = """(?s)\{\|.*?\|\}""".r
   val INTERNAL_WIKI_LINK = """\[\[[^\]:]*?\|(.*?)\]\]""".r
   val INTERNAL_WIKI_LINK_WITHOUT_ALT = """\[\[(([^\]\[\|: ]*? [^\]\[\|]*?)|([^\]\[\|: ]*?))\]\]""".r
   val SPECIAL_INTERNAL_WIKI_LINK = """\[\[[^\]\[ ]*:[^\]\[]*\]\]""".r
-  val EXTERNAL_LINKS_PATTERN = """(^|[^\[])\[[^\[\]]*?\]([^\]]|$)""".r
-  val EXTERNAL_LINKS_VAR_2_PATTERN = """(^|[^\[])\[[^\[\]]*? ([^\[\]]*?)\]([^\]]|$)""".r
+  val EXTERNAL_LINK_PATTERN = """(^|[^\[])\[[^\[\]]*? ([^\[\]]*?)\]([^\]]|$)""".r
   val SECTION_PATTERN = """^\=.{0,}$""".r
   val HR_WIKI_MARKUP_PATTERN = """^----[^A-Za-z0-9]{0,}$""".r
 
@@ -159,8 +151,7 @@ object WikiDumpParser extends Parser {
   /**
     * Text bereinigen.
     */
-  val DUPLICATE_WHITESPACE_PATTERN =
-    """ {2,}""".r
+  val DUPLICATE_WHITESPACE_PATTERN = """ {2,}""".r
   val WORD_PATTERN = """(\p{L}+)""".r
   val NEW_LINE_PATTERN = """[\n]{3,}""".r
   val EMPTY_ORDERED_LIST_ELEMENT_PATTERN = """^\#[^A-Za-z0-9]{0,}$""".r
@@ -170,190 +161,108 @@ object WikiDumpParser extends Parser {
   val EMPTY_TERM_PATTERN = """^\;[^A-Za-z0-9]{0,}$""".r
 
 
-  /**
+  /** Replaces matches in page according to regex
     *
     * http://stackoverflow.com/questions/60160/how-to-escape-text-for-regular-expression-in-java
     *
-    * @param page
-    * @param regexPattern
-    * @param matchListIterator
-    * @param groupId
-    * @return
+    * @param page Page, which should be transformed
+    * @param regex Parts, which should be replaces
+    * @param matchList Matches of the page
+    * @param groupId Group, which should be insert
+    * @return Transformed page
     */
-  @tailrec def replaceMatchWithGroup(page: String,
-                                     regexPattern: Regex,
-                                     matchListIterator: Iterator[Regex.Match],
-                                     groupId: Int): String = {
-    if (matchListIterator.isEmpty)
-      page
-    else {
-      val replaceText = matchListIterator.next().group(groupId)
-      replaceMatchWithGroup(
-        regexPattern.replaceFirstIn(page, Matcher.quoteReplacement(replaceText)),
-        regexPattern,
-        matchListIterator,
-        groupId)
-    }
-  }
+  def replaceMatchWithGroup(page: String, regex: Regex, matchList: List[Regex.Match], groupId: Int): String =
+    matchList.foldLeft(page)((p, m) => regex.replaceFirstIn(p, Matcher.quoteReplacement(m.group(groupId))))
 
-  /**
+  /** Removes matches in page according to a list of regexes
     *
     *
-    * @param page
-    * @param regexList
-    * @param regexListIndex
-    * @param groupId
-    * @return
+    * @param page Page, which should be transformed
+    * @param regexes Parts, which should be removed
+    * @param groupId Group, which should be insert (trans)
+    * @return Transformed page
     */
-  @tailrec def removeMatchWithGroup(page: String, regexList: List[Regex], regexListIndex: Int, groupId: Int): String = {
-    if (regexListIndex == regexList.size)
-      page
-    else {
-      val matchListIterator = regexList(regexListIndex).findAllMatchIn(page)
-      removeMatchWithGroup(
-        replaceMatchWithGroup(page, regexList(regexListIndex), matchListIterator, groupId),
-        regexList,
-        regexListIndex + 1,
-        groupId)
-    }
-  }
+  def removeMatchWithGroup(page: String, regexes: List[Regex], groupId: Int): String =
+    regexes.foldLeft(page)((p, r) => replaceMatchWithGroup(p, r, r.findAllMatchIn(p).toList, groupId))
 
-  /**
-    * Entfernt Zeilen die mit einer Wikisyntax beginnen.
+  /** Removes rows, which starts with wikisyntax
     *
-    * Beispiel:
-    * input: page = "* Listenelement\nText und mehr", regex = "^\*.{0,}$"
+    * Example:
+    * input: page = "* Listenelement\nText und mehr"
     * output: "Text und mehr"
     *
     *
-    * @param page
-    * @param regex
-    * @return
+    * @param page Page, which should be transformed
+    * @param regexes Rules for lines, who should be removed
+    * @return Transformed page
     */
-  def removeWikiMarkup(page: String, regex: Regex): String = {
-    val lines = page.split("\n")
-    lines.map(line => if (regex.findFirstMatchIn(line).isDefined) "" else line).mkString("\n")
-  }
+  def removeWikiMarkup(page: String, regexes: List[Regex]): String =
+    page.split("\n").map(line => if (regexes.forall(_.findFirstMatchIn(line).isDefined)) "" else line).mkString("\n")
 
-  /**
+  /** Extracts all words of a page and returns it as a list
     *
-    * @param page
-    * @param wordList
-    * @param groupdId
-    * @return
+    * @param page Page, where the words are extracted from
+    * @return List of extracted words
     */
-  @tailrec def extractWords(page: String, wordList: ListBuffer[String], groupdId: Int): List[String] = {
-    val matchIterator = WORD_PATTERN.findFirstMatchIn(page)
-    if (matchIterator.isEmpty)
-      wordList.toList
-    else {
-      wordList.append(matchIterator.get.group(groupdId))
-      extractWords(WORD_PATTERN.replaceFirstIn(page, ""), wordList, groupdId)
-    }
-  }
+  def extractWords(page: String): List[String] =
+    WORD_PATTERN.findAllMatchIn(page).foldLeft(List[String]())((l, m) => m.group(0) :: l).reverse
 
-  /**
+  /** Replaces parts (regexes) of a page with sub
     *
-    * @param page
-    * @param removeChars
-    * @param regexListIndex
-    * @param replace
-    * @return
+    * @param page Page, which should be transformed
+    * @param regexes Rules, where the parts are
+    * @param sub Substitution
+    * @return Transformed page
     */
-  @tailrec def replacePattern(page: String, removeChars: List[Regex], regexListIndex: Int, replace: String): String = {
-    if (regexListIndex == removeChars.size)
-      page
-    else
-      replacePattern(
-        removeChars(regexListIndex).replaceAllIn(page, replace),
-        removeChars,
-        regexListIndex + 1,
-        replace)
-  }
+  def replacePattern(page: String, regexes: List[Regex], sub: String): String =
+    regexes.foldLeft(page)((p, r) => r.replaceAllIn(p, sub))
 
-  /**
+  /** Removes external links from the page
     *
-    * @param page
-    * @return
+    * @param page Page, which should be transformed
+    * @return Transformed page
     */
-  def removeExternalLinks(page: String): String = {
-    val matchListIterator = EXTERNAL_LINKS_VAR_2_PATTERN.findAllMatchIn(page)
+  def removeExternalLinks(page: String): String =
+    EXTERNAL_LINK_PATTERN
+      .findAllMatchIn(page)
+      .foldLeft(page)((p, m) => EXTERNAL_LINK_PATTERN.replaceFirstIn(p, Matcher.quoteReplacement(m.subgroups.mkString)))
 
-    @tailrec def replaceMatch(page: String, matchList: Iterator[Regex.Match]): String = {
-      if (matchList.isEmpty)
-        page
-      else {
-        val match_group = matchList.next()
-        val replaceText = match_group.group(1) + match_group.group(2) + match_group.group(3)
-        replaceMatch(
-          EXTERNAL_LINKS_VAR_2_PATTERN.replaceFirstIn(
-            page,
-            Matcher.quoteReplacement(replaceText)),
-          matchList)
+
+  /** Replaces nested tags from the page
+    *
+    * @param page Page, which should be transformed
+    * @param tag Tag, which should be replaced
+    * @param tagRegex Regex for the tag, which should be replaced
+    * @return Transformed page
+    */
+  def replaceNestedTags(page: String, tag: String, tagRegex: Regex): String = {
+    @tailrec
+    def replace(page: String, index: Int): String = page.lastIndexOf(tag, index) match {
+        case -1 => page
+        case i if i == index => replace(page.substring(0, i) +
+            removeMatchWithGroup(page.substring(i, page.length), List(tagRegex), 2), i - tag.length)
+        case i => replace(page.substring(0, i) +
+            removeMatchWithGroup(page.substring(i, page.length), List(tagRegex), 2), i)
       }
-    }
-    replaceMatch(page, matchListIterator)
+    replace(page, page.length)
   }
 
-  /**
+  /** Removes nested tags from the page
     *
-    * @param page
-    * @param tag
-    * @param tagAsRegex
-    * @param beginSearchIndex
-    * @return
+    * @param page Page, which should be transformed
+    * @param tag Tag, which should be removed
+    * @param tagRegex Regex for the tag, which should be removed
+    * @param sub Substitution
+    * @return Transformed page
     */
-  @tailrec def replaceNestedTags(page: String,
-                                 tag: String,
-                                 tagAsRegex: Regex,
-                                 beginSearchIndex: Int): String = {
-    val indexOfMatch = page.lastIndexOf(tag, beginSearchIndex)
-    if (indexOfMatch == -1)
-      page
-    else {
-      if (indexOfMatch == beginSearchIndex)
-        replaceNestedTags(page.substring(0, indexOfMatch) +
-          removeMatchWithGroup(page.substring(indexOfMatch, page.length), List(tagAsRegex), 0, 2),
-          tag,
-          tagAsRegex,
-          indexOfMatch - tag.length)
-      else
-        replaceNestedTags(page.substring(0, indexOfMatch) +
-          removeMatchWithGroup(page.substring(indexOfMatch, page.length), List(tagAsRegex), 0, 2),
-          tag,
-          tagAsRegex,
-          indexOfMatch)
+  def removeNestedTags(page: String, tag: String, tagRegex: Regex, sub: String): String = {
+    @tailrec
+    def remove(page: String, index: Int): String = page.lastIndexOf(tag, index) match {
+      case -1 => page
+      case i if i == index => remove(page, i - tag.length)
+      case i => remove(page.substring(0, i) + replacePattern(page.substring(i, page.length), List(tagRegex), sub), i)
     }
-  }
-
-  /**
-    *
-    * @param page
-    * @param tag
-    * @param tagAsRegex
-    * @param beginSearchIndex
-    * @param replaceWith
-    * @return
-    */
-  @tailrec def removeNestedTags(page: String,
-                                tag: String,
-                                tagAsRegex: Regex,
-                                beginSearchIndex: Int,
-                                replaceWith: String): String = {
-    val indexOfMatch = page.lastIndexOf(tag, beginSearchIndex)
-    if (indexOfMatch == -1)
-      page
-    else {
-      if (indexOfMatch == beginSearchIndex)
-        removeNestedTags(page, tag, tagAsRegex, indexOfMatch - tag.length, replaceWith)
-      else
-        removeNestedTags(page.substring(0, indexOfMatch) +
-          replacePattern(page.substring(indexOfMatch, page.length), List(tagAsRegex), 0, replaceWith),
-          tag,
-          tagAsRegex,
-          indexOfMatch,
-          replaceWith)
-    }
+    remove(page, page.length)
   }
 
   /**
@@ -394,8 +303,8 @@ object WikiDumpParser extends Parser {
     val page = pageContent :: List[String]()
     try {
       val displayPages = page
-        .map(page => removeNestedTags(page, "{{", TEMPLATE_PATTERN, page.length, TEMPLATE_MARKER))
-        .map(replacePattern(_, List(TABLE_PATTERN), 0, " "))
+        .map(page => removeNestedTags(page, "{{", TEMPLATE_PATTERN, TEMPLATE_MARKER))
+        .map(replacePattern(_, List(TABLE_PATTERN), " "))
         .map(replacePattern(
           _,
           List(COMMENT_PATTERN, TABLE_TAG_PATTERN, GALLERY_TAG_PATTERN, MATH_TAG_PATTERN, CODE_TAG_PATTERN,
@@ -405,7 +314,7 @@ object WikiDumpParser extends Parser {
             REFERENCES_TAG_PATTERN, SOURCE_TAG_PATTERN, TIME_LINE_TAG_PATTERN, TEMPLATE_DATA_TAG_PATTERN,
             TIME_TAG_PATTERN, VAR_TAG_PATTERN, RUBY_TAG_PATTERN, RB_TAG_PATTERN, DL_TAG_PATTERN, OL_TAG_PATTERN,
             UL_TAG_PATTERN, B_TAG_PATTERN, REF_TAG_SINGLE_PATTERN, REFERENCES_SINGLE_TAG_PATTERN, HR_TAG_PATTERN,
-            WBR_TAG_PATTERN, NOWIKI_SINGLE_TAG_PATTERN), 0, ""))
+            WBR_TAG_PATTERN, NOWIKI_SINGLE_TAG_PATTERN), ""))
         .map(removeMatchWithGroup(
           _,
           List(H1_TAG_PATTERN, H2_TAG_PATTERN, H3_TAG_PATTERN, H4_TAG_PATTERN, H5_TAG_PATTERN, H6_TAG_PATTERN,
@@ -414,24 +323,22 @@ object WikiDumpParser extends Parser {
             BDI_TAG_PATTERN, BDO_TAG_PATTERN, CITE_TAG_PATTERN, DATA_TAG_PATTERN, DFN_TAG_PATTERN, EM_TAG_PATTERN,
             I_TAG_PATTERN, KBD_TAG_PATTERN, MARK_TAG_PATTERN, Q_TAG_PATTERN, SAMP_TAG_PATTERN, STRONG_TAG_PATTERN,
             BIG_TAG_PATTERN, CENTER_TAG_PATTERN, FONT_TAG_PATTERN, STRIKE_OUT_TAG_PATTERN, TT_TAG_PATTERN,
-            DIV_TAG_PATTERN, POEM_TAG_PATTERN, PRE_TAG_PATTERN), 0, 2))
-        .map(page => replaceNestedTags(page, "<nowiki", NOWIKI_TAG_PATTERN, page.length))
-        .map(page => replaceNestedTags(page, "<span", SPAN_TAG_PATTERN, page.length))
-        .map(page => replaceNestedTags(page, "<div", DIV_TAG_PATTERN, page.length))
-        .map(removeMatchWithGroup(_, List(INTERNAL_WIKI_LINK, INTERNAL_WIKI_LINK_WITHOUT_ALT), 0, 1))
-        .map(replacePattern(_, List(BOLD_FORMATTING_PATTERN, ITALICS_FORMATTING_PATTERN), 0, ""))
-        .map(replacePattern(_, List(LINE_BREAKS_TAG_PATTERN), 0, " "))
-        .map(removeExternalLinks(_))
-        .map(replacePattern(_, List(SPECIAL_INTERNAL_WIKI_LINK), 0, ""))
-        .map(unescapeHtml(_))
-        .map(removeWikiMarkup(_, HR_WIKI_MARKUP_PATTERN))
-        .map(removeWikiMarkup(_, EMPTY_UNORDERED_LIST_ELEMENT_PATTERN))
-        .map(removeWikiMarkup(_, EMPTY_ORDERED_LIST_ELEMENT_PATTERN))
-        .map(removeWikiMarkup(_, REDIRECT_PATTERN))
-        .map(removeWikiMarkup(_, EMPTY_DEFINITION_PATTERN))
-        .map(removeWikiMarkup(_, EMPTY_TERM_PATTERN))
-        .map(replacePattern(_, List(DUPLICATE_WHITESPACE_PATTERN), 0, " "))
-        .map(replacePattern(_, List(NEW_LINE_PATTERN), 0, "\n\n"))
+            DIV_TAG_PATTERN, POEM_TAG_PATTERN, PRE_TAG_PATTERN), 2))
+        .map(page => replaceNestedTags(page, "<nowiki", NOWIKI_TAG_PATTERN))
+        .map(page => replaceNestedTags(page, "<span", SPAN_TAG_PATTERN))
+        .map(page => replaceNestedTags(page, "<div", DIV_TAG_PATTERN))
+        .map(removeMatchWithGroup(_, List(INTERNAL_WIKI_LINK, INTERNAL_WIKI_LINK_WITHOUT_ALT), 1))
+        .map(replacePattern(_, List(BOLD_FORMATTING_PATTERN, ITALICS_FORMATTING_PATTERN), ""))
+        .map(replacePattern(_, List(LINE_BREAKS_TAG_PATTERN), " "))
+        .map(removeExternalLinks)
+        .map(replacePattern(_, List(SPECIAL_INTERNAL_WIKI_LINK), ""))
+        .map(unescapeHtml)
+        .map(removeWikiMarkup(
+          _,
+          List(HR_WIKI_MARKUP_PATTERN, EMPTY_UNORDERED_LIST_ELEMENT_PATTERN, EMPTY_ORDERED_LIST_ELEMENT_PATTERN,
+          REDIRECT_PATTERN, EMPTY_DEFINITION_PATTERN, EMPTY_TERM_PATTERN)))
+        .map(replacePattern(_, List(DUPLICATE_WHITESPACE_PATTERN), " "))
+        .map(replacePattern(_, List(NEW_LINE_PATTERN), "\n\n"))
       displayPages.head
     }
     catch {
@@ -472,9 +379,9 @@ object WikiDumpParser extends Parser {
     */
   override def extractWikiDisplayText(pageContent: String): List[String] = {
     val page = pageContent :: List[String]()
-    page.map(removeWikiMarkup(_, SECTION_PATTERN))
-      .map(replacePattern(_, List(new Regex(Pattern.quote(TEMPLATE_MARKER))), 0, " "))
-      .map(extractWords(_, ListBuffer(), 0)).head
+    page.map(removeWikiMarkup(_, List(SECTION_PATTERN)))
+      .map(replacePattern(_, List(new Regex(Pattern.quote(TEMPLATE_MARKER))), " "))
+      .map(extractWords).head
   }
 
   /**
@@ -502,11 +409,10 @@ object WikiDumpParser extends Parser {
     * @return Alle Woerter aus dem Text als Liste.
     */
   override def extractPlainText(pageContent: String): List[String] = {
-    extractWords(pageContent, ListBuffer(), 0)
+    extractWords(pageContent)
   }
 
-  /**
-    * Loads the dump-xml-file and returns it
+  /** Loads the dump-xml-file and returns it
     *
     * @return dump-xml
     */
@@ -516,15 +422,16 @@ object WikiDumpParser extends Parser {
     toScalaXML(loadFile("mehrere_pages_klein.xml"))
   }
 
-  /**
+  /** Generates an index, which is a list of tuples (text, text-index)
+    *
+    * The text-index goes from 0 to inf and the text is cleaned.
     *
     * @return Tuple of id as Int and cleaned text as String
     */
-  def generateWikiArticleList(): List[(String, BigInt)] = {
+  def generateWikiArticleList: List[(String, BigInt)] = {
     val elem = prepare()
     // infinite id-generator as stream fo BigInts (no worries about boundaries)
-    lazy val idStream: Stream[BigInt] = BigInt(0) #:: (idStream.map(_ + 1))
-
+    lazy val idStream: Stream[BigInt] = BigInt(0) #:: idStream.map(_ + 1)
     // searches for "text"-elements
     (elem \ "page" \ "revision" \ "text" )
       // gets values of tag text
@@ -534,7 +441,7 @@ object WikiDumpParser extends Parser {
       // filters empty texts out
       .filterNot(_.isEmpty)
       // removes TEMPLATE
-      .map(replacePattern(_, List(new Regex(Pattern.quote(TEMPLATE_MARKER))), 0, " "))
+      .map(replacePattern(_, List(new Regex(Pattern.quote(TEMPLATE_MARKER))), " "))
       // generates tuple of text - generated id
       .zip(idStream)
       .toList
