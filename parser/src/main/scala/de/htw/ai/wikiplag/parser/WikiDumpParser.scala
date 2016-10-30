@@ -2,17 +2,21 @@ package de.htw.ai.wikiplag.parser
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+
 import org.unbescape.html.HtmlEscape._
+
 import scala.annotation.tailrec
 import scala.util.matching.Regex
-
+import scala.io.Source._
 import scala.xml.XML
-import java.io.InputStream
+import java.io.{InputStream, InputStreamReader}
+
+import scala.io.BufferedSource
 
 
 /**
   * Created by robertsteiner on 11.05.16.
-  * Refactored and Extended by Kuro 10/29/16.
+  * Refactored and extended by Kuro 10/29/16.
   */
 object WikiDumpParser extends Parser {
 
@@ -419,8 +423,8 @@ object WikiDumpParser extends Parser {
     * @return dump-xml
     */
   private def prepare(): scala.xml.Elem = {
-    def loadFile(path: String) = Thread.currentThread().getContextClassLoader.getResourceAsStream(path)
-    def toScalaXML(path: InputStream) = XML.load(path)
+    def loadFile(path: String) = fromFile(getClass.getClassLoader.getResource(path).getFile).reader()
+    def toScalaXML(path: InputStreamReader) = XML.load(path)
     toScalaXML(loadFile("mehrere_pages_klein.xml"))
   }
 
@@ -442,7 +446,7 @@ object WikiDumpParser extends Parser {
       .map(WikiDumpParser.parseXMLWikiPage)
       // filters empty texts out
       .filterNot(_.isEmpty)
-      // removes TEMPLATE
+      // removes TEMPLATE and REDIRECT
       .map(replacePattern(_, List(new Regex(Pattern.quote(TEMPLATE_MARKER)), new Regex(Pattern.quote(REDIRECT))), " "))
       // generates tuple of text - generated id
       .zip(idStream)

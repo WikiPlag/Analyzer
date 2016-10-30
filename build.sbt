@@ -40,5 +40,5 @@ lazy val similarity = (project in file("similarity"))
   .settings(commonSettings: _*)
   .settings(
     name := "Similarity",
-    excludeFilter in unmanagedResources := "*"
-  )
+    excludeFilter in unmanagedResources := "*")
+  .dependsOn(parser)
