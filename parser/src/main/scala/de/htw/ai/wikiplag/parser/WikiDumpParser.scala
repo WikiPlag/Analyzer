@@ -17,6 +17,7 @@ import java.io.InputStream
 object WikiDumpParser extends Parser {
 
   val TEMPLATE_MARKER = "|TEMPLATE|"
+  val REDIRECT = "REDIRECT"
   /**
     * @todo Tags die noch fehlen.
     * section Tag <section></section>
@@ -442,7 +443,7 @@ object WikiDumpParser extends Parser {
       // filters empty texts out
       .filterNot(_.isEmpty)
       // removes TEMPLATE
-      .map(replacePattern(_, List(new Regex(Pattern.quote(TEMPLATE_MARKER))), " "))
+      .map(replacePattern(_, List(new Regex(Pattern.quote(TEMPLATE_MARKER)), new Regex(Pattern.quote(REDIRECT))), " "))
       // generates tuple of text - generated id
       .zip(idStream)
       .toList
