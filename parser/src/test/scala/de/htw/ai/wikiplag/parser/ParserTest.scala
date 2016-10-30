@@ -1,6 +1,6 @@
 package test.scala.de.htw.ai.wikiplag.parser
 
-import main.scala.de.htw.ai.wikiplag.parser.WikiDumpParser
+import de.htw.ai.wikiplag.parser.WikiDumpParser
 import org.scalatest.FunSuite
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner

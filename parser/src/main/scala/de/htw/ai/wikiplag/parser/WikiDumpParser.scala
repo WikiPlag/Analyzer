@@ -12,6 +12,7 @@ import java.io.InputStream
 
 /**
   * Created by robertsteiner on 11.05.16.
+  * Refactored and Extended by Kuro 10/29/16.
   */
 object WikiDumpParser extends Parser {
 
