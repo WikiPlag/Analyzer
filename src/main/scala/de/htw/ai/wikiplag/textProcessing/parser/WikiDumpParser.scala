@@ -418,22 +418,24 @@ object WikiDumpParser extends Parser {
 
   /** Loads the dump-xml-file and returns it
     *
+    * @param path Path to WikiPages
     * @return dump-xml
     */
-  private def prepare(): scala.xml.Elem = {
-    def loadFile(path: String) = fromFile(getClass.getClassLoader.getResource(path).getFile).reader()
-    def toScalaXML(path: InputStreamReader) = XML.load(path)
-    toScalaXML(loadFile("example_for_nina.xml"))
+  private def prepare(path: String): scala.xml.Elem = {
+    def loadFile() = fromFile(getClass.getClassLoader.getResource(path).getFile).reader()
+    def toScalaXML(isr: InputStreamReader) = XML.load(isr)
+    toScalaXML(loadFile())
   }
 
   /** Generates an index, which is a list of tuples (text, text-index)
     *
     * The text-index goes from 0 to inf and the text is cleaned.
     *
+    * @param path Path to WikiPages
     * @return Tuple of id as Int and cleaned text as String
     */
-  def generateWikiArticleList(): Stream[(String, BigInt)] = {
-    val elem = prepare()
+  override def generateWikiArticleList(path: String): Stream[(String, BigInt)] = {
+    val elem = prepare(path)
     // infinite id-generator as stream fo BigInts (no worries about boundaries)
     lazy val idStream: Stream[BigInt] = BigInt(0) #:: idStream.map(_ + 1)
     // searches for "text"-elements
@@ -452,13 +454,13 @@ object WikiDumpParser extends Parser {
   }
 
   def main(args: Array[String]) {
-    val elem = prepare()
+    val elem = prepare("mehrere_pages_klein.xml")
     val txtPath = elem \ "page" \ "revision" \ "text"
     val pages = txtPath.map(_.text)
     /**
       * Parsen der Wiki-Pages fuer das Frontend
       */
     val frontendParsedPages = pages.map(WikiDumpParser.parseXMLWikiPage)
-    //frontendParsedPages.map(extractWikiDisplayText).foreach(println(_))
+    frontendParsedPages.map(extractWikiDisplayText).foreach(println(_))
   }
 }

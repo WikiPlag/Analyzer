@@ -4,9 +4,9 @@ import de.htw.ai.wikiplag.textProcessing.parser.WikiDumpParser
 
 import scala.collection.immutable.TreeMap
 
-/** Generates the Index for the Wikiplag-algorithm
+/** Generates the index for the Wikiplag-algorithm
   *
-  * Use WikiplagIndex() to generate the Index
+  * Use WikiplagIndex(Path) to generate the index for pages from "Path"
   *
   * Created by kuro on 10/30/16.
   */
@@ -19,12 +19,13 @@ object WikiplagIndex {
 
   /** Generates the WikiplagIndex
     *
+    * @param path Path to WikiPages
     * @return WikiplagIndex
     */
-  def apply(): TokenMap = {
+  def apply(path: String): TokenMap = {
     (for {
       // Groups the incoming stream into chunks for processing
-      articles <- WikiDumpParser.generateWikiArticleList().grouped(50)
+      articles <- WikiDumpParser.generateWikiArticleList(path).grouped(50)
       // Processes each element of the group
       (text, id) <- articles
       // Generates the tokens and the position of that token

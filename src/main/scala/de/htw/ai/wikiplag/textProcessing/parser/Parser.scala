@@ -102,7 +102,8 @@ trait Parser {
   /**
     * Generates a list of tuples (first element -> id of the text; second element -> text)
     *
+    * @param path Path to WikiPages
     * @return Tuple of id as Int and cleaned text as String
     */
-  def generateWikiArticleList(): Stream[(String, BigInt)]
+  def generateWikiArticleList(path: String): Stream[(String, BigInt)]
 }
