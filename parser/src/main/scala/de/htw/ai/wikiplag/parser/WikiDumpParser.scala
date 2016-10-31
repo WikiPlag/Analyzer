@@ -9,9 +9,7 @@ import scala.annotation.tailrec
 import scala.util.matching.Regex
 import scala.io.Source._
 import scala.xml.XML
-import java.io.{InputStream, InputStreamReader}
-
-import scala.io.BufferedSource
+import java.io.InputStreamReader
 
 
 /**
@@ -425,7 +423,7 @@ object WikiDumpParser extends Parser {
   private def prepare(): scala.xml.Elem = {
     def loadFile(path: String) = fromFile(getClass.getClassLoader.getResource(path).getFile).reader()
     def toScalaXML(path: InputStreamReader) = XML.load(path)
-    toScalaXML(loadFile("mehrere_pages_klein.xml"))
+    toScalaXML(loadFile("example_for_nina.xml"))
   }
 
   /** Generates an index, which is a list of tuples (text, text-index)
@@ -434,7 +432,7 @@ object WikiDumpParser extends Parser {
     *
     * @return Tuple of id as Int and cleaned text as String
     */
-  def generateWikiArticleList: List[(String, BigInt)] = {
+  def generateWikiArticleList(): Stream[(String, BigInt)] = {
     val elem = prepare()
     // infinite id-generator as stream fo BigInts (no worries about boundaries)
     lazy val idStream: Stream[BigInt] = BigInt(0) #:: idStream.map(_ + 1)
@@ -450,7 +448,7 @@ object WikiDumpParser extends Parser {
       .map(replacePattern(_, List(new Regex(Pattern.quote(TEMPLATE_MARKER)), new Regex(Pattern.quote(REDIRECT))), " "))
       // generates tuple of text - generated id
       .zip(idStream)
-      .toList
+      .toStream
   }
 
   def main(args: Array[String]) {
@@ -461,6 +459,6 @@ object WikiDumpParser extends Parser {
       * Parsen der Wiki-Pages fuer das Frontend
       */
     val frontendParsedPages = pages.map(WikiDumpParser.parseXMLWikiPage)
-    frontendParsedPages.map(extractWikiDisplayText).foreach(println(_))
+    //frontendParsedPages.map(extractWikiDisplayText).foreach(println(_))
   }
 }

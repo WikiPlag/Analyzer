@@ -104,5 +104,5 @@ trait Parser {
     *
     * @return Tuple of id as Int and cleaned text as String
     */
-  def generateWikiArticleList: List[(String, BigInt)]
+  def generateWikiArticleList(): Stream[(String, BigInt)]
 }
