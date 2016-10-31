@@ -18,27 +18,10 @@ val testDependencies = Seq(
 /*
  * Settings
  */
-lazy val commonSettings = Seq(
-  organization := "HTW Berlin",
-  name := "WikiPlagAnalyzer",
-  version := "0.0.1",
-  scalaVersion := "2.11.8",
-  libraryDependencies ++= testDependencies
-)
-
-lazy val parser = (project in file("parser"))
-  .settings(commonSettings: _*)
-  .settings(
-    name := "Parser",
-    excludeFilter in unmanagedResources := "*",
-    libraryDependencies ++= Seq(
-      unbescaped, xml
-    )
-  )
-
-lazy val similarity = (project in file("similarity"))
-  .settings(commonSettings: _*)
-  .settings(
-    name := "Similarity",
-    excludeFilter in unmanagedResources := "*")
-  .dependsOn(parser)
+organization := "HTW Berlin"
+name := "WikiPlagAnalyzer"
+version := "0.0.1"
+scalaVersion := "2.11.8"
+libraryDependencies ++= testDependencies
+libraryDependencies += unbescaped
+libraryDependencies += xml

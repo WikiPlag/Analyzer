@@ -1,6 +1,7 @@
-package de.htw.ai.wikiplag.indexer
+package de.htw.ai.wikiplag.textProcessing.indexer
 
-import de.htw.ai.wikiplag.parser._
+import de.htw.ai.wikiplag.textProcessing.parser.WikiDumpParser
+
 import scala.collection.immutable.TreeMap
 
 /** Generates the Index for the Wikiplag-algorithm

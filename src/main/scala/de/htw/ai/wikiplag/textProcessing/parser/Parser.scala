@@ -1,4 +1,4 @@
-package de.htw.ai.wikiplag.parser
+package de.htw.ai.wikiplag.textProcessing.parser
 
 /**
   * Created by Max M. on 18.05.2016.

@@ -1,4 +1,4 @@
-package de.htw.ai.wikiplag.parser
+package de.htw.ai.wikiplag.textProcessing.parser
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern
