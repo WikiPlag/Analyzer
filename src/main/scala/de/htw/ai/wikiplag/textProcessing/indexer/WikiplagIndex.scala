@@ -1,6 +1,7 @@
 package de.htw.ai.wikiplag.textProcessing.indexer
 
 import de.htw.ai.wikiplag.textProcessing.parser.WikiDumpParser
+import de.htw.ai.wikiplag.textProcessing.Tokenizer
 
 import scala.collection.immutable.TreeMap
 
@@ -11,9 +12,6 @@ import scala.collection.immutable.TreeMap
   * Created by kuro on 10/30/16.
   */
 object WikiplagIndex {
-  /** Dump for building */
-  private def dumpTokenizer(text: String, id: BigInt): (BigInt, List[String]) = (id, text.split(" ").toList)
-
   type TokenMap = TreeMap[String, List[(BigInt, Int)]]
   type Text = (String, BigInt)
 
@@ -29,7 +27,7 @@ object WikiplagIndex {
       // Processes each element of the group
       (text, id) <- articles
       // Generates the tokens and the position of that token
-      (token, pos) <- WikiplagIndex.dumpTokenizer(text, id)._2.zipWithIndex
+      (token, pos) <- Tokenizer.tokenize(text).zipWithIndex
       // Builds one element (Token, (Text-ID, Position in Text))
     } yield (token,(id, pos)))
       // Builds Dictionary (TreeMap - Key: Token, Value: List of tuples (Text-ID, Position in Text)

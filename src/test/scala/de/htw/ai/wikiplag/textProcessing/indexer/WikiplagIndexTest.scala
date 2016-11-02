@@ -34,7 +34,4 @@ class WikiplagIndexTest extends FunSuite {
     )
   }
 
-  test("index contains right number of keys") {
-    val actual =
-  }
 }
