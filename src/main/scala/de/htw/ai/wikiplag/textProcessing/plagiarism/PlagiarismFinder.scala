@@ -6,6 +6,23 @@ import de.htw.ai.wikiplag.textProcessing.Tokenizer
   * Created by _ on 11/2/16.
   */
 object PlagiarismFinder {
+  /**
+    * @param inputText text to be checked for plagiarism
+    * @param h_textSplitLength number of tokens per slice
+    * @param h_textSplitStep stepsize for slicing process (overlap)
+    * @param h_matchingWordsPercentage the minimum percentage of matching words to fulfill
+    * @param h_maximalDistance the maximal distance between words to be considered in further processing
+    * @param h_maxNewDistance maximal distance between regions
+    * @param h_minGroupSize minimum size of a relevant group
+    */
+  def findPlagiarismWithParams(inputText: String, h_textSplitLength: Int = 50, h_textSplitStep: Int = 30,
+                               h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 7, h_maxNewDistance: Int = 28,
+                               h_minGroupSize: Int = 9): Unit = {
+    val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
+    for (part <- textParts) println(part)
+    println()
+    for (part <- textParts) PlagiarismFinder.checkForPlagiarism(part, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)
+  }
 
   //Beispiel Wiki Texte (beispiel aus semanticapproach powerpoint präsentation)
   val d1 = "wort wort wort wort wort wort wort wort wort das ist ein plagiat"
@@ -197,7 +214,8 @@ object PlagiarismFinder {
   //val splittedRegions = splitIntoRegions(newDistances,h_maxNewDistance int)
   //val result = cutOnMinimumWordsPerRegion(splittedRegions,h_minimumWordsForPlagiat Int)
 
-  def checkForPlagiarism(tokens: List[String]): List[(String,Int)] =
+  def checkForPlagiarism(tokens: List[String], h_matchingWordsPercentage: Double,
+                         h_maximalDistance: Int, h_maxNewDistance: Int, h_minGroupSize: Int): List[(String,Int)] =
   {
     println("groupTokens(tokens)")
     val tokensMap = groupTokens(tokens)
@@ -212,11 +230,11 @@ object PlagiarismFinder {
     for (v <- groupedDocumentIds) println(v)
     println()
     println("filterRelevantDocuments(groupedDocumentIds,indexValues,h_matchingWordsPercentage)")
-    val relevantDocuments = filterRelevantDocuments(groupedDocumentIds,indexValues,0.75)
+    val relevantDocuments = filterRelevantDocuments(groupedDocumentIds,indexValues, h_matchingWordsPercentage)
     for (v <- relevantDocuments) println(v)
     println()
     println("filterMaximalDistance(relevantDocuments,h_maximalDistance)")
-    val relevantDocumentsWithSignificance= filterMaximalDistance(relevantDocuments, 4)
+    val relevantDocumentsWithSignificance= filterMaximalDistance(relevantDocuments, h_maximalDistance)
     for (v <- relevantDocumentsWithSignificance) println(v)
     println()
     println("computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)")
@@ -228,7 +246,7 @@ object PlagiarismFinder {
     //for (v <- test) println(v)
     println()
     println("splitIntoRegions(newDistances,10,1)")
-    val splittedRegions = splitIntoRegions(newDistances, 10, 1)
+    val splittedRegions = splitIntoRegions(newDistances, h_maxNewDistance, h_minGroupSize)
     println(splittedRegions)
 
     List(("-1",-1))
@@ -242,6 +260,11 @@ object PlagiarismFinder {
   //                                                                  [D1,(50,37),(52,2),(53,1)]]
   //return: List[String(Position,AbstandVorgänger)] als List[String,(Int,Int)]
 
+  /**
+    * @param newDistances
+    * @param h_maxNewDistance maximal distance between regions
+    * @param h_minGroupSize minimum size of a relevant group
+    */
   def splitIntoRegions(newDistances: List[(BigInt,List[(Int, Int)])],
                        h_maxNewDistance: Int, h_minGroupSize: Int): List[(BigInt,List[(Int,Int)])] = {
     var key = 0
