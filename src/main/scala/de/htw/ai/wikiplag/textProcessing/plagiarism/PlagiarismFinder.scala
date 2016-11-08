@@ -17,10 +17,10 @@ object PlagiarismFinder {
     * @param h_minGroupSize minimum size of a relevant group
     */
   def apply(inputText: String, h_textSplitLength: Int = 50, h_textSplitStep: Int = 30,
-                               h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 7, h_maxNewDistance: Int = 28,
+                               h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 28,
                                h_minGroupSize: Int = 9): Unit = {
     val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
-    for (part <- textParts) println(part)
+    //for (part <- textParts) println(part)
     println()
     for (part <- textParts) PlagiarismFinder.checkForPlagiarism(part, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)
   }
@@ -225,42 +225,43 @@ object PlagiarismFinder {
   def checkForPlagiarism(tokens: List[String], h_matchingWordsPercentage: Double,
                          h_maximalDistance: Int, h_maxNewDistance: Int, h_minGroupSize: Int): List [(BigInt, Int)] =
   {
-    println("groupTokens(tokens)")
+    //println("groupTokens(tokens)")
     val tokensMap = groupTokens(tokens)
-    for (v <- tokensMap) println(v)
-    println
-    println("getIndexValues(tokensMap)")
+    //for (v <- tokensMap) println(v)
+    //println
+    //println("getIndexValues(tokensMap)")
     val indexValues = getIndexValues(tokensMap)
-    for (v <- indexValues) println(v)
-    println()
-    println("groupByDocumentId(indexValues)")
+    //for (v <- indexValues) println(v)
+    //println()
+    //println("groupByDocumentId(indexValues)")
     val groupedDocumentIds = groupByDocumentId(indexValues)
-    for (v <- groupedDocumentIds) println(v)
-    println()
-    println("filterRelevantDocuments(groupedDocumentIds,indexValues,h_matchingWordsPercentage)")
+    //for (v <- groupedDocumentIds) println(v)
+    //println()
+    //println("filterRelevantDocuments(groupedDocumentIds,indexValues,h_matchingWordsPercentage)")
     val relevantDocuments = filterRelevantDocuments(groupedDocumentIds,indexValues, h_matchingWordsPercentage)
-    for (v <- relevantDocuments) println(v)
-    println()
-    println("filterMaximalDistance(relevantDocuments,h_maximalDistance)")
+    //for (v <- relevantDocuments) println(v)
+    //println()
+    //println("filterMaximalDistance(relevantDocuments,h_maximalDistance)")
     val relevantDocumentsWithSignificance= filterMaximalDistance(relevantDocuments, h_maximalDistance)
-    for (v <- relevantDocumentsWithSignificance) println(v)
-    println()
-    println("computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)")
+    //for (v <- relevantDocumentsWithSignificance) println(v)
+    //println()
+    //println("computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)")
     val newDistances = computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)
-    for (v <- newDistances) println(v)
-    println()
+    //for (v <- newDistances) println(v)
+    //println()
 
     //val test = newDistances.map(x => (x._1,x._2.span(p => p._2 > 10)))
     //for (v <- test) println(v)
-    println()
-    println("splitIntoRegions(newDistances,10,1)")
+    //println()
+    //println("splitIntoRegions(newDistances,10,1)")
     val splittedRegions = splitIntoRegions(newDistances, h_maxNewDistance, h_minGroupSize)
-    for (v <- splittedRegions) println(v)
+    //for (v <- splittedRegions) println(v)
     val result = getPointerToRegions(splittedRegions)
-    for (v <- result) println(v)
-    result
-    //println(splittedRegions)
+    //println()
+    //for (v <- result) println(v)
 
+    splittedRegions.foreach(println)
+    result
     //List(("-1",-1))
   }
 
