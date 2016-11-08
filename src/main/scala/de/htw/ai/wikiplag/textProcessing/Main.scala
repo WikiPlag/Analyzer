@@ -4,6 +4,6 @@ import de.htw.ai.wikiplag.textProcessing.plagiarism.PlagiarismFinder
 
 object Main {
   def main(args: Array[String]): Unit = {
-    PlagiarismFinder("das ist ein plagiat")
+    PlagiarismFinder("lebte, Spiegel, Online, einestages, Alan, Smithee, lebt, DRadio, Wissen")
   }
 }

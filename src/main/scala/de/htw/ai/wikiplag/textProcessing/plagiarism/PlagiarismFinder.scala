@@ -1,6 +1,7 @@
 package de.htw.ai.wikiplag.textProcessing.plagiarism
 
 import de.htw.ai.wikiplag.textProcessing.Tokenizer
+import de.htw.ai.wikiplag.textProcessing.indexer.WikiplagIndex
 
 /**
   * Created by _ on 11/2/16.
@@ -17,7 +18,7 @@ object PlagiarismFinder {
     */
   def apply(inputText: String, h_textSplitLength: Int = 50, h_textSplitStep: Int = 30,
                                h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 7, h_maxNewDistance: Int = 28,
-                               h_minGroupSize: Int = 2): Unit = {
+                               h_minGroupSize: Int = 9): Unit = {
     val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
     for (part <- textParts) println(part)
     println()
@@ -30,12 +31,14 @@ object PlagiarismFinder {
   val d3 = "wort wort plagiat wort wort wort wort wort wort wort wort wort wort wort das wort wort wort wort ist"
   val d4 = "wort das"
   //(50,1),(52,2),(53,1)
-  val index = Map(
+  /*val index = Map(
     ("das",List((BigInt(1),10),(BigInt(2),4),(BigInt(3),15),(BigInt(4),2),(BigInt(1),50),(BigInt(1),52),(BigInt(1),53), (BigInt(1),100),(BigInt(1),101),(BigInt(1),102))),
     ("ist", List((BigInt(1),11),(BigInt(2),6),(BigInt(3),20))),
     ("ein",List((BigInt(1),12),(BigInt(2),5))),
     ("plagiat",List((BigInt(1),13),(BigInt(3),3))))
+*/
 
+  var index = WikiplagIndex("mehrere_pages_klein.xml")
   /**
     * Returns the tokens for a text.
     * The text gets tokenized.
