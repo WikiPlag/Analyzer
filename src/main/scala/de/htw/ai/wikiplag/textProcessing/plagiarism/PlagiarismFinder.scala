@@ -16,9 +16,9 @@ object PlagiarismFinder {
     * @param h_maxNewDistance maximal distance between regions
     * @param h_minGroupSize minimum size of a relevant group
     */
-  def apply(inputText: String, h_textSplitLength: Int = 50, h_textSplitStep: Int = 30,
-                               h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 28,
-                               h_minGroupSize: Int = 9): Unit = {
+  def apply(inputText: String, h_textSplitLength: Int = 20, h_textSplitStep: Int = 15,
+                               h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 7,
+                               h_minGroupSize: Int = 10): Unit = {
     val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
     //for (part <- textParts) println(part)
     println()
@@ -85,6 +85,9 @@ object PlagiarismFinder {
     val tokensList = matchingTokens.keys.toList
     //get all values for these tokens
     val documentIdsPositions = tokensList.collect(index)
+    print("getIndexValues() IndexValues Listlength:")
+    print(documentIdsPositions.flatten.length)
+    print("\n")
     documentIdsPositions
   }
 
@@ -136,7 +139,15 @@ object PlagiarismFinder {
     //count the number of matching tokens by each documentId
     val numberMatchingTokensByDocumentId = valuesToSet.groupBy(documentId => documentId).mapValues(_.size)
     //return documentIds which fulfill the minimumnumberMatchingWords
-    numberMatchingTokensByDocumentId.filter(_._2 >= minimumNumberMatchingWords ).toList.map(x => x._1)
+    println("getRelevantDocuments() anzahl dokumente davor")
+    println(numberMatchingTokensByDocumentId.size)
+    val result = numberMatchingTokensByDocumentId.filter(_._2 >= minimumNumberMatchingWords ).toList.map(x => x._1)
+    println("getRelevantDocuments() anzahl relevanter dokumente danach")
+    //test if anzahl releanter dokumente > 5 breche diesen textpart ab
+
+    println(result.length)
+    result
+
   }
 
   /**
@@ -258,9 +269,9 @@ object PlagiarismFinder {
     //for (v <- splittedRegions) println(v)
     val result = getPointerToRegions(splittedRegions)
     //println()
-    //for (v <- result) println(v)
+    for (v <- result) println(v)
 
-    splittedRegions.foreach(println)
+    //splittedRegions.foreach(println)
     result
     //List(("-1",-1))
   }
