@@ -3,7 +3,7 @@ package de.htw.ai.wikiplag.textProcessing.indexer
 import de.htw.ai.wikiplag.textProcessing.parser.WikiDumpParser
 import de.htw.ai.wikiplag.textProcessing.Tokenizer
 
-import scala.collection.immutable.TreeMap
+import scala.collection.immutable.HashMap
 
 /** Generates the index for the Wikiplag-algorithm
   *
@@ -12,8 +12,7 @@ import scala.collection.immutable.TreeMap
   * Created by kuro on 10/30/16.
   */
 object WikiplagIndex {
-  type TokenMap = TreeMap[String, List[(BigInt, Int)]]
-  type Text = (String, BigInt)
+  type TokenMap = Map[String, List[(BigInt, List[Int])]]
 
   /** Generates the WikiplagIndex
     *
@@ -29,8 +28,12 @@ object WikiplagIndex {
       // Generates the tokens and the position of that token
       (token, pos) <- Tokenizer.tokenize(text).zipWithIndex
       // Builds one element (Token, (Text-ID, Position in Text))
-    } yield (token,(id, pos)))
+    } yield (token, id, pos))
       // Builds Dictionary (TreeMap - Key: Token, Value: List of tuples (Text-ID, Position in Text)
-      .foldLeft(new TokenMap())((tmap, elem) => tmap.updated(elem._1, tmap.getOrElse(elem._1, List()) :+ elem._2))
+      .foldLeft(new HashMap[String, HashMap[BigInt, List[Int]]]())((map, elem) =>
+        map.updated(elem._1, map.get(elem._1) match {
+          case Some(x) => x.updated(elem._2, elem._3 :: x.getOrElse(elem._2, List()))
+          case _ => HashMap().updated(elem._2, List(elem._3))
+        })).mapValues(_.toList)
   }
 }

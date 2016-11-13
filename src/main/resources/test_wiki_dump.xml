@@ -1,0 +1,148 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd"
+           version="0.10" xml:lang="de">
+    <siteinfo>
+        <sitename>Wikipedia</sitename>
+        <dbname>dewiki</dbname>
+        <base>https://de.wikipedia.org/wiki/Wikipedia:Hauptseite</base>
+        <generator>MediaWiki 1.27.0-wmf.15</generator>
+        <case>first-letter</case>
+        <namespaces>
+            <namespace key="-2" case="first-letter">Medium</namespace>
+            <namespace key="-1" case="first-letter">Spezial</namespace>
+            <namespace key="0" case="first-letter"/>
+            <namespace key="1" case="first-letter">Diskussion</namespace>
+            <namespace key="2" case="first-letter">Benutzer</namespace>
+            <namespace key="3" case="first-letter">Benutzer Diskussion</namespace>
+            <namespace key="4" case="first-letter">Wikipedia</namespace>
+            <namespace key="5" case="first-letter">Wikipedia Diskussion</namespace>
+            <namespace key="6" case="first-letter">Datei</namespace>
+            <namespace key="7" case="first-letter">Datei Diskussion</namespace>
+            <namespace key="8" case="first-letter">MediaWiki</namespace>
+            <namespace key="9" case="first-letter">MediaWiki Diskussion</namespace>
+            <namespace key="10" case="first-letter">Vorlage</namespace>
+            <namespace key="11" case="first-letter">Vorlage Diskussion</namespace>
+            <namespace key="12" case="first-letter">Hilfe</namespace>
+            <namespace key="13" case="first-letter">Hilfe Diskussion</namespace>
+            <namespace key="14" case="first-letter">Kategorie</namespace>
+            <namespace key="15" case="first-letter">Kategorie Diskussion</namespace>
+            <namespace key="100" case="first-letter">Portal</namespace>
+            <namespace key="101" case="first-letter">Portal Diskussion</namespace>
+            <namespace key="828" case="first-letter">Modul</namespace>
+            <namespace key="829" case="first-letter">Modul Diskussion</namespace>
+            <namespace key="2300" case="first-letter">Gadget</namespace>
+            <namespace key="2301" case="first-letter">Gadget Diskussion</namespace>
+            <namespace key="2302" case="case-sensitive">Gadget-Definition</namespace>
+            <namespace key="2303" case="case-sensitive">Gadget-Definition Diskussion</namespace>
+            <namespace key="2600" case="first-letter">Thema</namespace>
+        </namespaces>
+    </siteinfo>
+    <page>
+        <title>Alan Smithee</title>
+        <ns>0</ns>
+        <id>1</id>
+        <revision>
+            <id>142319451</id>
+            <parentid>139794915</parentid>
+            <timestamp>2015-05-21T09:11:04Z</timestamp>
+            <contributor>
+                <username>JobuBot</username>
+                <id>2158397</id>
+            </contributor>
+            <minor/>
+            <comment>Bot: [[Vorlage:IMDb Name]] durch [[Vorlage:IMDb]] ersetzt</comment>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text xml:space="preserve">
+	   Duo il publicate extrahite, toto movimento denomination que de. O del integre movimento. 
+       Web lo nomina active vocabulario, su sed scientia involvite summarios. Unic peano sia tu, 
+       que tres ultra avantiate ma. Campo giuseppe web de. Qui da prime spatios. Philologos 
+       anglo-romanic sia se, post medio questiones le uno, clave parolas ha per. Inviar africa parola qui da.
+       Pan scriber integre denominator al. Philologos independente qui se, vices publicava utilitate pro da. 
+       Lo via russo abstracte traduction, pan ma campo latino. Debe concretisation in pan.
+       De active national effortio del, cadeva instruite de qui.	
+			</text>
+            <sha1>11r6q3qtt9dogsxqw009ugdsgg6e27r</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>Actinium</title>
+        <ns>0</ns>
+        <id>3</id>
+        <revision>
+            <id>149974302</id>
+            <parentid>149971190</parentid>
+            <timestamp>2016-01-09T07:27:40Z</timestamp>
+            <contributor>
+                <username>Solid State</username>
+                <id>22254</id>
+            </contributor>
+            <minor/>
+            <comment>Änderungen von [[Special:Contributions/84.119.29.217|84.119.29.217]] ([[User
+                talk:84.119.29.217|Diskussion]]) auf die letzte Version von [[User:Mika2001|Mika2001]] zurückgesetzt
+            </comment>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text xml:space="preserve">
+		Sed spatios questiones ha, basate publicate utilitate lo que. Tu del original quotidian, 
+        sed duce latino immediatemente o. Al sed anque europa. Historia articulo traduction il que, 
+        medio ascoltar anglo-romanic per de, al malo promotores connectiones nos. Lo sia americas international. 
+        Flexione professional uso ma, un pan duce disuso europee. Resultato auxiliary association su uno. 
+        Existe voluntate que ha, ha uso veni texto intermediari, sine spatios abstracte tu non. Del al multo scriber. 
+        Pan su ample message introductori.
+			</text>
+            <sha1>dnnn5bt2e5nba4gn6fzhsb2g7d92xhz</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>Ang Lee</title>
+        <ns>0</ns>
+        <id>5</id>
+        <revision>
+            <id>152114366</id>
+            <parentid>149171765</parentid>
+            <timestamp>2016-03-02T18:55:15Z</timestamp>
+            <contributor>
+                <username>Göte</username>
+                <id>1510159</id>
+            </contributor>
+            <minor/>
+            <comment>Verlinkung</comment>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text xml:space="preserve">
+		Se iala prime representantes duo. In clave publicate publicationes nos, su major preparation con.
+        Duce human per de. Al membros integre duo, via al veni presenta concretisation.
+        Qui human hodie interlingua es, se pan asia post populos.
+			</text>
+            <sha1>88g7ggja3yx146pjvuu46mpw89wncax</sha1>
+        </revision>
+    </page>
+    <page>
+        <title>Anschluss (Soziologie)</title>
+        <ns>0</ns>
+        <id>7</id>
+        <revision>
+            <id>100140917</id>
+            <parentid>99645270</parentid>
+            <timestamp>2012-02-25T23:15:13Z</timestamp>
+            <contributor>
+                <username>RonMeier</username>
+                <id>1000822</id>
+            </contributor>
+            <minor/>
+            <comment>Kleinkram</comment>
+            <model>wikitext</model>
+            <format>text/x-wiki</format>
+            <text xml:space="preserve">
+		Pan post lateres interlingua ma. Per hodie auxiliar initialmente se, le complete traducite que. 
+        Ille original pan un, non tempore primarimente in. Americano instruite duo o, il lista human debitores nos. 
+        Uno texto existe romanic ha, con clave studio avantiate lo, su nos post apprende representantes.
+			</text>
+            <sha1>q296yds9wmua817c0tih81rar3txky0</sha1>
+        </revision>
+    </page>
+</mediawiki>
+  
+  
+  
