@@ -213,13 +213,14 @@ object PlagiarismFinder {
     */
   def processing(h_textSplitLength: Int = 20,
                  h_textSplitStep: Int = 15,
-                 h_matchingWordsPercentage: Double = 0.7,
+                 h_matchingWordsPercentage: Double = 0.8,
                  h_maxDistance: Int = 5,
                  h_minGroupSize: Int = 13): Flow[Plagiary, PagesDist, NotUsed] = {
     Flow[Plagiary].via(new Chunker(h_textSplitLength, h_textSplitStep))
       .via(balanceProcessing(fetchFromIndex(h_matchingWordsPercentage).via(sort()).via(computeDistPre())
                                .via(filterPre(h_maxDistance, h_minGroupSize)).via(computeDistPost()), 100))
-      .via(splitIntoRegions(h_maxDistance, h_minGroupSize)).via(cleanRegions()).via(filterPost(1.2, h_minGroupSize))
+      .via(splitIntoRegions(h_maxDistance, h_minGroupSize))
+      .via(balanceProcessing(cleanRegions().via(filterPost(1.2, h_minGroupSize)), 100))
   }
 
   /**
