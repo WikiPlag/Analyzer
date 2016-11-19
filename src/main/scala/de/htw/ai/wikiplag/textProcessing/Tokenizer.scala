@@ -7,7 +7,6 @@ package de.htw.ai.wikiplag.textProcessing
 object Tokenizer {
 
   val stopwords=Set("") //muss noch ergänzt werden
-  //val split_regex="\\W+" //zahlen werden halt noch nicht rausgeschmissen, sollte man vielleicht
   val split_regex="[^\\p{L}]" //zahlen werden halt noch nicht rausgeschmissen, sollte man vielleicht
 
   def tokenizeString(s:String):List[String]={
@@ -23,6 +22,6 @@ object Tokenizer {
    	* Use Utils.tokenizeString to split the string
    	*/
 
-    tokenizeString(s).filter(!stopwords.contains(_))
+    tokenizeString(s).filter(!stopwords.contains(_)).sliding(2).flatMap(_.permutations).map(_.foldLeft("")(_+ " " +_)).toList
   }
 }

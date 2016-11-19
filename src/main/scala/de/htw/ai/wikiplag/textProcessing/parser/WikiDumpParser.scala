@@ -9,7 +9,12 @@ import scala.annotation.tailrec
 import scala.util.matching.Regex
 import scala.io.Source._
 import scala.xml.XML
+import scala.xml.pull._
 import java.io.InputStreamReader
+
+import akka.stream.scaladsl.Source
+
+import scala.collection.immutable.Range
 
 
 /**
@@ -434,6 +439,38 @@ object WikiDumpParser extends Parser {
     * @param path Path to WikiPages
     * @return Tuple of id as Int and cleaned text as String
     */
+
+  override def generateWikiArticleList(path: String): Stream[(String, BigInt)] = {
+    // infinite id-generator as stream fo BigInts (no worries about boundaries)
+    var idStream = BigInt(0)
+    // searches for "text"-elements
+    val reader = new XMLEventReader(fromFile(getClass.getClassLoader.getResource(path).getFile))
+    var in = false
+
+    reader.foldLeft(Stream[(String, BigInt)]())((a, xml) => {xml match {
+      case EvElemStart(_, "text", _, _) =>
+        in = true
+        a
+      case x: XMLEvent =>
+        if (in) {
+          x match {
+            case EvText(text) =>
+              val id = idStream
+              idStream += 1
+              in = false
+              val t = (replacePattern(WikiDumpParser.parseXMLWikiPage(text), List(new Regex(Pattern.quote(TEMPLATE_MARKER)),
+                new Regex(Pattern.quote(REDIRECT))), " "), id)
+              println("Parsing ... " + t._2)
+              t #:: a
+            case _ => a
+          }
+        } else {
+          a
+        }
+    }})
+  }
+  /*
+
   override def generateWikiArticleList(path: String): Stream[(String, BigInt)] = {
     val elem = prepare(path)
     // infinite id-generator as stream fo BigInts (no worries about boundaries)
@@ -452,8 +489,31 @@ object WikiDumpParser extends Parser {
       .zip(idStream)
       .toStream
   }
+*/
+  def clean(): Unit = {
+    import java.io._
+
+    val writer = new PrintWriter(new File("clean_dump.xml"))
+
+    val elem = prepare("Wikipedia-20161114173445.xml")
+    val txtPath = elem \ "page" \ "revision" \ "text"
+    val titel = elem \ "page" \ "title"
+    val pages = txtPath.zip(titel)
+      .foreach(x => writer.printf(
+        "\n-------------------------------------------------\n" +
+        "\t%s \n" +
+        "-------------------------------------------------\n" +
+        "%s\n\n\n\n ",
+        x._2.text,
+        replacePattern(WikiDumpParser.parseXMLWikiPage(x._1.text),
+          List(new Regex(Pattern.quote(TEMPLATE_MARKER)), new Regex(Pattern.quote(REDIRECT))), " ")))
+
+    writer.close()
+  }
 
   def main(args: Array[String]) {
+    clean()
+    /*
     val elem = prepare("mehrere_pages_klein.xml")
     val txtPath = elem \ "page" \ "revision" \ "text"
     val pages = txtPath.map(_.text)
@@ -462,5 +522,6 @@ object WikiDumpParser extends Parser {
       */
     val frontendParsedPages = pages.map(WikiDumpParser.parseXMLWikiPage)
     frontendParsedPages.map(extractWikiDisplayText).foreach(println(_))
+    */
   }
 }

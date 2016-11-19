@@ -32,7 +32,9 @@ object PlagiarismFinder {
 
   implicit val system = ActorSystem("QuickStart")
   implicit val materializer = ActorMaterializer()
-  val index = WikiplagIndex("mehrere_pages_klein.xml")
+  // val index = WikiplagIndex("dewiki-latest-pages-articles4.xml-p004964505p009642338")
+  //val index = WikiplagIndex("Wikipedia-20161114173445.xml")
+  val index = WikiplagIndex("dewiki-latest-pages-articles4.xml-p004964505p009642338")
 
   /**
     * Input-Text -> Chunks for processing
@@ -115,6 +117,26 @@ object PlagiarismFinder {
     })
   }
 
+  def merge(as: Stream[(BigInt, Stream[Int])], bs: Stream[(BigInt, Stream[Int])]): Stream[(BigInt, Stream[Int])] = {
+    (as, bs) match {
+      case (Stream.Empty, bss) => bss
+      case (ass, Stream.Empty) => ass
+      case (a #:: ass, b #:: bss) =>
+        if (a._1 < b._1) a #:: merge(ass, bs)
+        else b #:: merge(as, bss)
+    }
+  }
+
+  def mergeP(as: Stream[Position], bs: Stream[Position]): Stream[Position] = {
+    (as, bs) match {
+      case (Stream.Empty, bss) => bss
+      case (ass, Stream.Empty) => ass
+      case (a #:: ass, b #:: bss) =>
+        if (a < b) a #:: mergeP(ass, bs)
+        else b #:: mergeP(as, bss)
+    }
+  }
+
   /**
     * Takes chunks of InputText and get for each Word the PageIDs and the Positions, where they are located from
     * the Index. At the same time it filters the Pages with a minimum of occurrences of words.
@@ -123,10 +145,15 @@ object PlagiarismFinder {
     * @return Flow, which processes chunks to a list of PageIDs and positions
     */
   def fetchFromIndex(h_matchingWordsRatio: Double): Flow[Parts, PagesRaw, NotUsed] =
-    Flow[Parts].map(r => r.foldLeft(List[PageRaw]())((a, x) => a ::: index.getOrElse(x, List()))
-      .groupBy(_._1).toList.map(p => (p._1, p._2.foldLeft(List[Position]())((l, r) => l ::: r._2)))
+    Flow[Parts].map(r => r.foldLeft(Stream[(BigInt, Stream[Int])]())((a, x) => {
+        println("fetch ...")
+        val idx = index.getOrElse(x, Stream())
+        //println(x + ": " + idx.flatMap(_._2).size)
+        merge(a, idx)
+      })
+      .groupBy(_._1).toList.map(p => (p._1, p._2.foldLeft(Stream[Position]())((l, r) => mergeP(l, r._2))))
       .map(p => (p._1, p._2.distinct))
-      .filter(v => r.size * h_matchingWordsRatio < v._2.size)).filter(_.nonEmpty)
+      .filter(v => r.size * h_matchingWordsRatio < v._2.size)).filter(_.nonEmpty).map(m => m.map(n => (n._1, n._2.toList)))
 
   /**
     * Sort the input
@@ -213,14 +240,14 @@ object PlagiarismFinder {
     */
   def processing(h_textSplitLength: Int = 20,
                  h_textSplitStep: Int = 15,
-                 h_matchingWordsPercentage: Double = 0.8,
-                 h_maxDistance: Int = 5,
-                 h_minGroupSize: Int = 13): Flow[Plagiary, PagesDist, NotUsed] = {
+                 h_matchingWordsPercentage: Double = 0.6,
+                 h_maxDistance: Int = 8,
+                 h_minGroupSize: Int = 10): Flow[Plagiary, PagesDist, NotUsed] = {
     Flow[Plagiary].via(new Chunker(h_textSplitLength, h_textSplitStep))
       .via(balanceProcessing(fetchFromIndex(h_matchingWordsPercentage).via(sort()).via(computeDistPre())
                                .via(filterPre(h_maxDistance, h_minGroupSize)).via(computeDistPost()), 100))
       .via(splitIntoRegions(h_maxDistance, h_minGroupSize))
-      .via(balanceProcessing(cleanRegions().via(filterPost(1.2, h_minGroupSize)), 100))
+      .via(balanceProcessing(cleanRegions().via(filterPost(5, h_minGroupSize)), 100))
   }
 
   /**
@@ -230,8 +257,7 @@ object PlagiarismFinder {
     * @param plagiat Text, which should be analyzed
     * @return Future, which should hold possible origins of plagiarisms
     */
-  def start(id: Int, plagiat: Plagiary): Future[Seq[(Int, PagesDist)]] = {
-    println(id + ": " + plagiat.take(10) + "...")
+  def start(id: String, plagiat: Plagiary): Future[Seq[(String, PagesDist)]] = {
     Source(Tokenizer.tokenize(plagiat))
       .via(processing()).collect { case x if x.nonEmpty => x }
         .limit(1000).map((id, _)).runWith(Sink.seq)
