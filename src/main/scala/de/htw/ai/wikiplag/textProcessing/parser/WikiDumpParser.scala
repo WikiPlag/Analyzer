@@ -434,10 +434,10 @@ object WikiDumpParser extends Parser {
     * @param path Path to WikiPages
     * @return Tuple of id as Int and cleaned text as String
     */
-  override def generateWikiArticleList(path: String): Stream[(String, BigInt)] = {
+  override def generateWikiArticleList(path: String): Stream[(String, Long)] = {
     val elem = prepare(path)
     // infinite id-generator as stream fo BigInts (no worries about boundaries)
-    lazy val idStream: Stream[BigInt] = BigInt(0) #:: idStream.map(_ + 1)
+    lazy val idStream: Stream[Long] = 0 #:: idStream.map(_ + 1)
     // searches for "text"-elements
     (elem \ "page" \ "revision" \ "text" )
       // gets values of tag text

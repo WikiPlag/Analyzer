@@ -1,9 +1,13 @@
 package de.htw.ai.wikiplag.textProcessing
 
 import de.htw.ai.wikiplag.textProcessing.plagiarism.PlagiarismFinder
+import org.apache.spark.{SparkConf, SparkContext}
 
 object Main {
   def main(args: Array[String]): Unit = {
+
+    val conf = new SparkConf().setMaster("local[8]").setAppName("WikiPlagApp")
+    val sc = new SparkContext(conf)
 
     println("PLAGIAT 1 (1zu1_themenfremd)")
     PlagiarismFinder("Als im Sommer 1990 die deutsche Einheit bevorstand und Bundeskanzler Helmut Kohl nach dem Mantel der Geschichte griff, brach es aus seinem Vorgänger Helmut Schmidt heraus. \"Mein Gott, was gäbe ich darum, daran noch mitwirken zu dürfen\", schrieb er in einem Manuskript. Und strich die Passage vor der Veröffentlichung. Keiner sollte mitbekommen, dass auch der große Helmut Schmidt unter einem Problem litt, das viele Pensionäre kennen: nicht loslassen zu können. Schmidt hatte von 1953 an im Bundestag gesessen, später diverse Ministerposten innegehabt, 1974 war er für acht Jahre ins Kanzleramt eingezogen. Seine Karriere dauerte also rund ein Dritteljahrhundert - und begann doch danach erst richtig. Er wurde Elder Statesman, Orakel, Alleswisser, die Verehrung hätte größer nicht sein können. Über diese späten Jahre, in denen Schmidt ohne Amt und Würden auskommen musste, hat Thomas Karlauf eine Biografie geschrieben, die Schmidt-Fans ernüchtern könnte*. Entgegen der verbreiteten Annahme, der Altkanzler sei auch nach dem Sturz ein mächtiger Player geblieben, präsentiert Karlauf einen frustrierten Expolitiker, dessen Bücher zwar Millionen Käufer fanden, dessen Meinung aber ohne Resonanz blieb. \"Von den Leuten in Berlin will kaum einer meine Ratschläge annehmen\", klagte Schmidt 2003 in einem Brief. Der Film gilt als einer der schlechtesten Filme der 1990er Jahre und gewann fünf Goldene Himbeeren. Karlauf, 61, schildert manches aus eigener Anschauung. Seit 1987 ging der Lektor dem Altkanzler bei Memoiren und Politikbüchern zur Hand. Anderes kennt er aus Schmidts Archiv. Er habe, schreibt Karlauf, \"schamlos alle Papiere herausgezogen, die sich später möglicherweise in irgendeinem Zusammenhang als nützlich erweisen\" könnten. Zudem hat er Interviews geführt, unter anderen mit Altkanzler Gerhard Schröder. Der Biograf rechnet der Einflussnahme Schmidts ganze zwei Entscheidungen während Schröders sieben Jahre dauernder rot-grüner Koalition zu. Schmidt half dabei, einen deutschen Kandidaten für den Direktorenposten des Internationalen Währungsfonds zu finden und die Kunstsammlung des Sammlers Heinz Berggruen")

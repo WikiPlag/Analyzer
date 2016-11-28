@@ -4,7 +4,8 @@ import sbt._
  * Dependencies
  */
 val unbescaped = "org.unbescape" % "unbescape" % "1.1.3.RELEASE"
-val xml = "org.scala-lang.modules" %% "scala-xml" % "1.0.6"
+//val xml = "org.scala-lang.modules" %% "scala-xml" % "1.0.6"
+val spark = "org.apache.spark" %% "spark-core" % "1.5.1"
 
 /*
  * Test-Dependencies
@@ -21,7 +22,8 @@ val testDependencies = Seq(
 organization := "HTW Berlin"
 name := "WikiPlagAnalyzer"
 version := "0.0.1"
-scalaVersion := "2.11.8"
-libraryDependencies ++= testDependencies
+scalaVersion := "2.10.4"
+//libraryDependencies ++= testDependencies
 libraryDependencies += unbescaped
-libraryDependencies += xml
+//libraryDependencies += xml
+libraryDependencies += spark

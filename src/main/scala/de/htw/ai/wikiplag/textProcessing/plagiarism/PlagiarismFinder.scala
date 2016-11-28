@@ -2,43 +2,33 @@ package de.htw.ai.wikiplag.textProcessing.plagiarism
 
 import de.htw.ai.wikiplag.textProcessing.Tokenizer
 import de.htw.ai.wikiplag.textProcessing.indexer.WikiplagIndex
+import org.apache.spark.SparkContext
+import org.apache.spark.rdd.RDD
 
 /**
   * Created by _ on 11/2/16.
   */
-object PlagiarismFinder {
-  /**
-    * @param inputText text to be checked for plagiarism
-    * @param h_textSplitLength number of tokens per slice
-    * @param h_textSplitStep stepsize for slicing process (overlap)
-    * @param h_matchingWordsPercentage the minimum percentage of matching words to fulfill
-    * @param h_maximalDistance the maximal distance between words to be considered in further processing
-    * @param h_maxNewDistance maximal distance between regions
-    * @param h_minGroupSize minimum size of a relevant group
-    */
-  def apply(inputText: String, h_textSplitLength: Int = 20, h_textSplitStep: Int = 15,
-                               h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 7,
-                               h_minGroupSize: Int = 10): Unit = {
-    val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
-    //for (part <- textParts) println(part)
-    println()
-    for (part <- textParts) PlagiarismFinder.checkForPlagiarism(part, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)
-  }
+/**
+  * @param inputText text to be checked for plagiarism
+  * @param h_textSplitLength number of tokens per slice
+  * @param h_textSplitStep stepsize for slicing process (overlap)
+  * @param h_matchingWordsPercentage the minimum percentage of matching words to fulfill
+  * @param h_maximalDistance the maximal distance between words to be considered in further processing
+  * @param h_maxNewDistance maximal distance between regions
+  * @param h_minGroupSize minimum size of a relevant group
+  */
 
-  //Beispiel Wiki Texte (beispiel aus semanticapproach powerpoint präsentation)
-  val d1 = "wort wort wort wort wort wort wort wort wort das ist ein plagiat"
-  val d2 = "wort wort wort das ein ist"
-  val d3 = "wort wort plagiat wort wort wort wort wort wort wort wort wort wort wort das wort wort wort wort ist"
-  val d4 = "wort das"
-  //(50,1),(52,2),(53,1)
-  /*val index = Map(
-    ("das",List((BigInt(1),10),(BigInt(2),4),(BigInt(3),15),(BigInt(4),2),(BigInt(1),50),(BigInt(1),52),(BigInt(1),53), (BigInt(1),100),(BigInt(1),101),(BigInt(1),102))),
-    ("ist", List((BigInt(1),11),(BigInt(2),6),(BigInt(3),20))),
-    ("ein",List((BigInt(1),12),(BigInt(2),5))),
-    ("plagiat",List((BigInt(1),13),(BigInt(3),3))))
-*/
+class PlagiarismFinder(sc: SparkContext, inputText: String, h_textSplitLength: Int = 20, h_textSplitStep: Int = 15,
+                       h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 7,
+                       h_minGroupSize: Int = 10) {
+  val textParts = splitText(inputText, h_textSplitLength, h_textSplitStep)
+  //for (part <- textParts) println(part)
+  println()
+  for (part <- textParts) checkForPlagiarism(part, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)
 
-  var index = WikiplagIndex("mehrere_pages_klein.xml")
+  var index: RDD[(String, Stream[(Long, Stream[Int])])] =
+    sc.parallelize(WikiplagIndex("mehrere_pages_klein.xml").toSeq)
+
   /**
     * Returns the tokens for a text.
     * The text gets tokenized.
@@ -49,9 +39,8 @@ object PlagiarismFinder {
     * @param h_textSplitStep stepsize for slicing process (overlap)
     * @return List of Lists with equal number of tokens per slice
     */
-  def splitText(text: String, h_textSplitLength: Int, h_textSplitStep: Int): List[List[String]] =
-  {
-    Tokenizer.tokenize(text).sliding(h_textSplitLength, h_textSplitStep).toList
+  def splitText(text: String, h_textSplitLength: Int, h_textSplitStep: Int): RDD[List[String]] = {
+    sc.parallelize(Tokenizer.tokenize(text).sliding(h_textSplitLength, h_textSplitStep).toList)
   }
 
   /**
@@ -62,8 +51,7 @@ object PlagiarismFinder {
     * @param tokens the list of tokens
     * @return a map with (token, occurrence) entries
     */
-  def groupTokens(tokens: List[String]): Map[String,Int] =
-  {
+  def groupTokens(tokens: List[String]): Map[String,Int] = {
     tokens.groupBy(token => token).mapValues(_.size)
   }
 
@@ -77,10 +65,10 @@ object PlagiarismFinder {
     * @param tokensMap the relevant tokens
     * @return List of (documentId,Position) Tupels for each token
     */
-  def getIndexValues(tokensMap: Map[String,Int]): List[List[(BigInt,Int)]] =
-  {
+  def getIndexValues(tokensMap: Map[String,Int]): List[List[(BigInt,Int)]] = {
     //filter all tokens which exist in index
-    val matchingTokens = tokensMap.filter(token => index.exists(_._1 == token._1))
+    val matchingTokens = index.
+    val matchingTokens = tokensMap.filter(token => index.exists(_. == token._1))
     //create a list of these tokens
     val tokensList = matchingTokens.keys.toList
     //get all values for these tokens
