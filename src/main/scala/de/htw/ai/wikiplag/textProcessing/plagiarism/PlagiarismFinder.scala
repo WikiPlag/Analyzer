@@ -103,13 +103,8 @@ object PlagiarismFinder {
       //count the number of matching tokens by each documentId
       val numberMatchingTokensByDocumentId = valuesToSet.groupBy(documentId => documentId).mapValues(_.size)
       //return documentIds which fulfill the minimumnumberMatchingWords
-      println("getRelevantDocuments() anzahl dokumente davor")
-      println(numberMatchingTokensByDocumentId.size)
       val result = numberMatchingTokensByDocumentId.filter(_._2 >= minimumNumberMatchingWords).toList.map(x => x._1)
-      println("getRelevantDocuments() anzahl relevanter dokumente danach")
-      //test if anzahl releanter dokumente > 5 breche diesen textpart ab
 
-      println(result.length)
       result
 
     }
@@ -169,80 +164,26 @@ object PlagiarismFinder {
       */
 
     def computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance: List[(Long, List[(Int, Int)])]): List[(Long, List[(Int, Int)])] = {
-      //for (v <- relevantDocumentsWithSignificance) println(v)
       val filteredSingleTupels = relevantDocumentsWithSignificance.filterNot(_._2.length < 2)
-      //for (v <- test)  println(v)
-      //get documentId and only positions (not distances to predecessor)
-      //val positions = relevantDocumentsWithSignificance.map(x => (x._1, x._2.map(y => y._1)))
       val positions = filteredSingleTupels.map(x => (x._1, x._2.map(y => y._1)))
-      //create tupels of (predecessor position, position)
       val positionAndPredecessorPosition = positions.map(x => (x._1, x._2.sorted.sliding(2).toList))
-      //documentId with tupels of (position, distance to predecessor)
 
       positionAndPredecessorPosition.map(x => (x._1, x._2.map(y => (y(1), y(1) - y(0)))))
     }
 
-    //funktionsname: processText
-    //parameter: String textteil
-    //
-    //val tokens = tokenizePlagiattext(textteil)
-    //val indexValues = getIndexValues(tokens)
-    //val groupedDocumentIds = groupByDocumentId(indexValues)
-    //val filteredDocumentCollection = filterRelevantDocumentsOnMinimumMatchingWords(groupedDocumentIds,h_matching_words_percentage double, indexValues)
-    //val documentCollectionFilteredOnMaxDistance= filterPositionsOnMaximalDistanceToPredecessor(filteredDocumentCollection, h_maximalerAbsoluterAbstand Int)
-    //val newDistances = computeNewDistancesToPredecessor(documentCollectionFilteredOnMaxDistance)
-    //val splittedRegions = splitIntoRegions(newDistances,h_maxNewDistance int)
-    //val result = cutOnMinimumWordsPerRegion(splittedRegions,h_minimumWordsForPlagiat Int)
-
     def checkForPlagiarism(tokens: List[String], h_matchingWordsPercentage: Double,
                            h_maximalDistance: Int, h_maxNewDistance: Int, h_minGroupSize: Int): List[(Long, Int)] = {
-      //println("groupTokens(tokens)")
       val tokensMap = groupTokens(tokens)
-      //for (v <- tokensMap) println(v)
-      //println
-      //println("getIndexValues(tokensMap)")
       val indexValues = getIndexValues(tokensMap)
-      //for (v <- indexValues) println(v)
-      //println()
-      //println("groupByDocumentId(indexValues)")
       val groupedDocumentIds = groupByDocumentId(indexValues)
-      //for (v <- groupedDocumentIds) println(v)
-      //println()
-      //println("filterRelevantDocuments(groupedDocumentIds,indexValues,h_matchingWordsPercentage)")
       val relevantDocuments = filterRelevantDocuments(groupedDocumentIds, indexValues, h_matchingWordsPercentage)
-      //for (v <- relevantDocuments) println(v)
-      //println()
-      //println("filterMaximalDistance(relevantDocuments,h_maximalDistance)")
       val relevantDocumentsWithSignificance = filterMaximalDistance(relevantDocuments, h_maximalDistance)
-      //for (v <- relevantDocumentsWithSignificance) println(v)
-      //println()
-      //println("computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)")
       val newDistances = computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)
-      //for (v <- newDistances) println(v)
-      //println()
-
-      //val test = newDistances.map(x => (x._1,x._2.span(p => p._2 > 10)))
-      //for (v <- test) println(v)
-      //println()
-      //println("splitIntoRegions(newDistances,10,1)")
       val splittedRegions = splitIntoRegions(newDistances, h_maxNewDistance, h_minGroupSize)
-      //for (v <- splittedRegions) println(v)
       val result = getPointerToRegions(splittedRegions)
-      //println()
-      for (v <- result) println(v)
 
-      //splittedRegions.foreach(println)
       result
-      //List(("-1",-1))
     }
-
-    //funktionsname: splitIntoRegions
-    //parameter: List[String,(Int,Int)], h_maxNewDistance bsp. >=7
-    //to-do: wir gruppieren unsere Positionen anhand von einem maximal Abstand der Überschritten wird um unterschiedliche Regionen im Text zu splitten
-    //Beispiel:
-    //       ziel: [D1,((11,0),(12,1),(13,1),(50,37),(52,2),(53,1)) => [[D1,(11,0),(12,1),(13,1)],
-    //                                                                  [D1,(50,37),(52,2),(53,1)]]
-    //return: List[String(Position,AbstandVorgänger)] als List[String,(Int,Int)]
 
     /**
       * @param newDistances
@@ -265,9 +206,8 @@ object PlagiarismFinder {
       regions.map(r => (r._1, r._2.head._1))
 
     val textParts = splitText(inputText, h_textSplitLength, h_textSplitStep)
-    //for (part <- textParts) println(part)
     println()
-    textParts.collect().foreach(x => println(checkForPlagiarism(x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)))
+    textParts.collect().map(checkForPlagiarism(_, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)).filter(_.nonEmpty).foreach(println)
 
   }
 
