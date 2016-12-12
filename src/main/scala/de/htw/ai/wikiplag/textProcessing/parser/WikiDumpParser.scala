@@ -453,6 +453,28 @@ object WikiDumpParser extends Parser {
       .toStream
   }
 
+  def clean(): Unit = {
+    import java.io._
+    var id = 0
+    val writer = new PrintWriter(new File("clean_dump.txt"))
+
+    val elem = prepare("Wikipedia-20161114173445.xml")
+    val txtPath = elem \ "page" \ "revision" \ "text"
+    val titel = elem \ "page" \ "title"
+    val pages = txtPath.zip(titel)
+      .foreach(x =>{ writer.printf(
+        "\n-------------------------------------------------\n" +
+          "\t[%s] %s \n" +
+          "-------------------------------------------------\n" +
+          "%s\n\n\n\n ",
+        id.toString,
+        x._2.text,
+        replacePattern(WikiDumpParser.parseXMLWikiPage(x._1.text),
+          List(new Regex(Pattern.quote(TEMPLATE_MARKER)), new Regex(Pattern.quote(REDIRECT))), " ")); id += 1})
+
+    writer.close()
+  }
+
   def main(args: Array[String]) {
     val elem = prepare("mehrere_pages_klein.xml")
     val txtPath = elem \ "page" \ "revision" \ "text"
@@ -460,6 +482,7 @@ object WikiDumpParser extends Parser {
     /**
       * Parsen der Wiki-Pages fuer das Frontend
       */
+      clean()
     val frontendParsedPages = pages.map(WikiDumpParser.parseXMLWikiPage)
     frontendParsedPages.map(extractWikiDisplayText).foreach(println(_))
   }

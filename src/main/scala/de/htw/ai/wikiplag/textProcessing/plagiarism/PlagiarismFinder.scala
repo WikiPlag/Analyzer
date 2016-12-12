@@ -270,9 +270,11 @@ object PlagiarismFinder {
     val textParts = splitText(inputText, h_textSplitLength, h_textSplitStep)
     //for (part <- textParts) println(part)
     println()
-    textParts.collect().map(checkForPlagiarism(_, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)).filter(_.nonEmpty).foreach(println)
+    val tmp = textParts.collect().map(checkForPlagiarism(_, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize))
+      .filter(_.nonEmpty).flatten.toList
 
+    val tmp2 = tmp.groupBy(_._1).mapValues(x => { val y = x.sortBy(_._2); (y.head._1, (y.head._2, 0)) :: y.zip(y.tail).map(z => (z._2._1, (z._2._2, z._2._2 - z._1._2))) }).toList.map(x => (x._1, x._2.map(_._2)))
+
+    getPointerToRegions(splitIntoRegions(tmp2, 50, 0)).foreach(println)
   }
-
-
 }
