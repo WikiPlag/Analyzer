@@ -10,30 +10,48 @@ import org.apache.spark.rdd.RDD
   */
 object PlagiarismFinder {
 
+  /**
+    * Starts the PlagiarismFinder Object
+    * Wraps the functions of the Object.
+    *
+    * @param sc spark context
+    * @param inputText text to process
+    * @param h_textSplitLength number of tokens per slice
+    * @param h_textSplitStep  stepsize for slicing process (overlap)
+    * @param h_matchingWordsPercentage the minimum percentage of matching words to fulfill
+    * @param h_maximalDistance the maximal distance between words to be considered in further processing
+    * @param h_maxNewDistance maximal distance between regions
+    * @param h_minGroupSize minimum size of a relevant group
+    */
   def apply(sc: SparkContext, inputText: String, h_textSplitLength: Int = 20, h_textSplitStep: Int = 15,
             h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 7,
             h_minGroupSize: Int = 10) {
+
+    /*
+    Here we create the test index
+     */
+    val index: RDD[(String, List[(Long, List[Int])])] =
+      sc.parallelize(WikiplagIndex("mehrere_pages_klein.xml").mapValues(_.toList.map(y => (y._1, y._2.toList))).toSeq)
 
     /**
       * Returns the tokens for a text.
       * The text gets tokenized.
       * Then its sliced into equal parts which are overlapping.
+      * The task is parallelized by spark.
       *
       * @param text              text to process
       * @param h_textSplitLength number of tokens per slice
       * @param h_textSplitStep   stepsize for slicing process (overlap)
-      * @return List of Lists with equal number of tokens per slice
+      * @return Lists with equal number of tokens per slice wrapped inside a RDD
       */
     def splitText(text: String, h_textSplitLength: Int, h_textSplitStep: Int): RDD[List[String]] = {
       sc.parallelize(Tokenizer.tokenize(text).sliding(h_textSplitLength, h_textSplitStep).toList)
     }
 
-
-    val index: RDD[(String, List[(Long, List[Int])])] =
-      sc.parallelize(WikiplagIndex("mehrere_pages_klein.xml").mapValues(_.toList.map(y => (y._1, y._2.toList))).toSeq)
     /**
       * Returns each unique token and its number of occurrences
       *
+      * Example:
       * ("das","ist","ein","plagiat") => ((das,1),(ist,1),(ein,1),(plagiat,1))
       *
       * @param tokens the list of tokens
@@ -44,26 +62,30 @@ object PlagiarismFinder {
     }
 
     /**
-      * Returns the (documentId,Position) Tupels from the index for each token
+      * Returns the (documentId,List[Positions]) Tupels from the index for each token
+      * In fact it returns for each token the documentIDs and positions where the token occurs
       *
-      * ((das,1),(ist,1),(ein,1),(plagiat,1)) => List((1,10), (2,4), (3,15), (4,2))
-      * List((1,11), (2,6), (3,20))
-      * List((1,12), (2,5))
-      * List((1,13), (3,3))
+      * Example:
+      * ((das,1), =>    List[ List[(1,List[10,18,35]),(2,List[4,17])...],
+      * (ist,1),              List[(2,List[18], ...
+      * (ein,1),              ...
+      * (plagiat,1))          ...]
       *
       * @param tokensMap the relevant tokens
-      * @return List of (documentId,Position) Tupels for each token
+      * @return A List of Lists for each Token with its DocumentIds and Positions where it occurs
       */
     def getIndexValues(tokensMap: Map[String, Int]): List[List[(Long, List[Int])]] = {
       val br = sc.broadcast(tokensMap.map(identity))
       //filter all tokens which exist in index
       val x = index.filter(x => br.value.contains(x._1))
-        x.map(_._2).collect().toList
+      x.map(_._2).collect().toList
     }
 
     /**
+      * Groups the Tokens Positions by DocumentId.
       * Returns the documentId with a list of its words positions
       *
+      * Example:
       * List((1,10), (2,4), (3,15), (4,2))
       * List((1,11), (2,6), (3,20))
       * List((1,12), (2,5))
@@ -81,6 +103,9 @@ object PlagiarismFinder {
 
     /**
       * Returns the Number of Matching Tokens (Tokens which were extracted from the Index)
+      *
+      * @param indexValues the values for each token in the index
+      * @return the number of tokens
       */
     def countMatchingTokens(indexValues: List[List[(Long, List[Int])]]): Int = {
       indexValues.length
@@ -103,8 +128,13 @@ object PlagiarismFinder {
       //count the number of matching tokens by each documentId
       val numberMatchingTokensByDocumentId = valuesToSet.groupBy(documentId => documentId).mapValues(_.size)
       //return documentIds which fulfill the minimumnumberMatchingWords
+      //println("getRelevantDocuments() anzahl dokumente davor")
+      //println(numberMatchingTokensByDocumentId.size)
       val result = numberMatchingTokensByDocumentId.filter(_._2 >= minimumNumberMatchingWords).toList.map(x => x._1)
+      //println("getRelevantDocuments() anzahl relevanter dokumente danach")
+      //test if anzahl releanter dokumente > 5 breche diesen textpart ab
 
+      //println(result.length)
       result
 
     }
@@ -164,13 +194,31 @@ object PlagiarismFinder {
       */
 
     def computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance: List[(Long, List[(Int, Int)])]): List[(Long, List[(Int, Int)])] = {
+      //for (v <- relevantDocumentsWithSignificance) println(v)
       val filteredSingleTupels = relevantDocumentsWithSignificance.filterNot(_._2.length < 2)
+      //for (v <- test)  println(v)
+      //get documentId and only positions (not distances to predecessor)
+      //val positions = relevantDocumentsWithSignificance.map(x => (x._1, x._2.map(y => y._1)))
       val positions = filteredSingleTupels.map(x => (x._1, x._2.map(y => y._1)))
+      //create tupels of (predecessor position, position)
       val positionAndPredecessorPosition = positions.map(x => (x._1, x._2.sorted.sliding(2).toList))
+      //documentId with tupels of (position, distance to predecessor)
 
       positionAndPredecessorPosition.map(x => (x._1, x._2.map(y => (y(1), y(1) - y(0)))))
     }
 
+
+    /**
+      * Initiates the Check for Plagiarism Algorithm
+      * Calls several functions and returns a list of DocumentIDs and Positions where a Plagiarism is detected
+      *
+      * @param tokens  list of Tokens to check
+      * @param h_matchingWordsPercentage the minimum percentage of matching words to fulfill
+      * @param h_maximalDistance the maximal distance between words to be considered in further processing
+      * @param h_maxNewDistance maximal distance between regions
+      * @param h_minGroupSize
+      * @return minimum size of a relevant group
+      */
     def checkForPlagiarism(tokens: List[String], h_matchingWordsPercentage: Double,
                            h_maximalDistance: Int, h_maxNewDistance: Int, h_minGroupSize: Int): List[(Long, Int)] = {
       val tokensMap = groupTokens(tokens)
@@ -181,14 +229,18 @@ object PlagiarismFinder {
       val newDistances = computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)
       val splittedRegions = splitIntoRegions(newDistances, h_maxNewDistance, h_minGroupSize)
       val result = getPointerToRegions(splittedRegions)
-
       result
     }
 
+
     /**
-      * @param newDistances
+      * Groupes suspicious Positions into Regions with high density.
+      * These regions indicate a plagiarism
+      *
+      * @param newDistances tupels of (documentId, List(Position,Distance to Predecessor))
       * @param h_maxNewDistance maximal distance between regions
       * @param h_minGroupSize   minimum size of a relevant group
+      * @return List of DocumentID and Positions
       */
     def splitIntoRegions(newDistances: List[(Long, List[(Int, Int)])],
                          h_maxNewDistance: Int, h_minGroupSize: Int): List[(Long, List[(Int, Int)])] = {
@@ -202,10 +254,21 @@ object PlagiarismFinder {
       } yield (text_id, chunk._2)
     }
 
+    /**
+      * Returns a single position from a region which we interpret as a naive pointer to the region
+      *
+      * @param regions documentID with List of Positions and Distances
+      * @return List of Regions defined by DocumentID and a single Position
+      */
     def getPointerToRegions(regions: List[(Long, List[(Int, Int)])]): List[(Long, Int)] =
       regions.map(r => (r._1, r._2.head._1))
 
+
+    /*
+    Here we call our functions
+     */
     val textParts = splitText(inputText, h_textSplitLength, h_textSplitStep)
+    //for (part <- textParts) println(part)
     println()
     textParts.collect().map(checkForPlagiarism(_, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)).filter(_.nonEmpty).foreach(println)
 
