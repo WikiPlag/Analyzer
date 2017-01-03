@@ -33,7 +33,7 @@ class PlagiarismFinder extends Serializable {
 
     // todo: Password auslagern
     val client = MongoDbClient(sc, new ServerAddress("hadoop03.f4.htw-berlin.de", 27020),
-      List(MongoCredential.createCredential("wikiplag", "wikiplag", "Ku7WhY34".toCharArray)))
+      List(MongoCredential.createCredential("REPLACE", "REPLACE", "REPLACE".toCharArray)))
     MongoDbClient.open()
     val index = client.getInvIndexRDD(InverseIndexBuilderImpl.buildIndexKeySet(inputText))
 
