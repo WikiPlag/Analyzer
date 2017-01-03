@@ -29,27 +29,35 @@ class PlagiarismFinder extends Serializable {
             h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 7,
             h_minGroupSize: Int = 10) {
 
+    println("start")
+
     // todo: Password auslagern
     val client = MongoDbClient(sc, new ServerAddress("hadoop03.f4.htw-berlin.de", 27020),
-      List(MongoCredential.createCredential("REPLACEME", "REPLACEME", "REPLACEME".toCharArray)))
+      List(MongoCredential.createCredential("wikiplag", "wikiplag", "Ku7WhY34".toCharArray)))
     MongoDbClient.open()
     val index = client.getInvIndexRDD(InverseIndexBuilderImpl.buildIndexKeySet(inputText))
-    println("--------------------------------------")
-    println(client.getInvIndex(InverseIndexBuilderImpl.buildIndexKeySet(inputText)))
-    println("......................................")
-    println(client.getInvIndexRDD(InverseIndexBuilderImpl.buildIndexKeySet(inputText)))
 
+    println("got index")
 
     /*
     Here we call our function
      */
     val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
+
+    println("got parts")
+
     val tmp = textParts.map(x => PlagiarismFinder.checkForPlagiarism(index, sc, x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize))
       .filter(_.nonEmpty).flatten
 
+    println("after tmp1")
+
     val tmp2 = tmp.groupBy(_._1).mapValues(x => { val y = x.sortBy(_._2); (y.head._1, (y.head._2, 0)) :: y.zip(y.tail).map(z => (z._2._1, (z._2._2, z._2._2 - z._1._2))) }).toList.map(x => (x._1, x._2.map(_._2)))
 
+    println("after tmp2")
+
     PlagiarismFinder.getPointerToRegions(PlagiarismFinder.splitIntoRegions(tmp2, 50, 0)).foreach(println)
+
+    println("end")
   }
 }
 
@@ -91,13 +99,12 @@ object PlagiarismFinder extends Serializable {
     * (ist,1),              List[(2,List[18], ...
     * (ein,1),              ...
     * (plagiat,1))          ...]
-    *
     * @param tokensMap the relevant tokens
     * @return A List of Lists for each Token with its DocumentIds and Positions where it occurs
     */
   def getIndexValues(index: RDD[(String, List[(Long, List[Int])])], sc: SparkContext, tokensMap: Map[String, Int]): List[List[(Long, List[Int])]] = {
-    val br = sc.broadcast(tokensMap.map(identity))
-    index.filter(x => br.value.contains(x._1)).map(_._2).collect().toList
+    val _tm = tokensMap.map(identity)
+    index.filter(x => _tm.contains(x._1)).map(_._2.take(20)).take(3).toList
   }
 
   /**
@@ -117,7 +124,7 @@ object PlagiarismFinder extends Serializable {
     * @return the index Values grouped by the documentIds
     */
   def groupByDocumentId(indexValues: List[List[(Long, List[Int])]]): List[(Long, List[Int])] =
-    indexValues.flatten.groupBy(_._1).mapValues(_.flatMap(_._2)).toList
+    indexValues.toList.flatten.groupBy(_._1).mapValues(_.flatMap(_._2)).toList
 
   /**
     * Returns the Number of Matching Tokens (Tokens which were extracted from the Index)
@@ -229,13 +236,21 @@ object PlagiarismFinder extends Serializable {
   def checkForPlagiarism(index: RDD[(String, List[(Long, List[Int])])], sc: SparkContext, tokens: List[String], h_matchingWordsPercentage: Double,
                          h_maximalDistance: Int, h_maxNewDistance: Int, h_minGroupSize: Int): List[(Long, Int)] = {
     val tokensMap = groupTokens(tokens)
+    println("after TM")
     val indexValues = getIndexValues(index, sc, tokensMap)
+    println("after IV")
     val groupedDocumentIds = groupByDocumentId(indexValues)
+    println("after grDIDs")
     val relevantDocuments = filterRelevantDocuments(groupedDocumentIds, indexValues, h_matchingWordsPercentage)
+    println("after rD")
     val relevantDocumentsWithSignificance = filterMaximalDistance(relevantDocuments, h_maximalDistance)
+    println("after rDWS")
     val newDistances = computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)
+    println("after nD")
     val splittedRegions = splitIntoRegions(newDistances, h_maxNewDistance, h_minGroupSize)
+    println("after sR")
     val result = getPointerToRegions(splittedRegions)
+    println("after R")
     result
   }
 

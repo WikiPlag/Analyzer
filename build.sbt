@@ -1,7 +1,6 @@
 import sbt._
 
 
-resolvers += "hadoop" at "https://repository.cloudera.com/artifactory/public/"
 resolvers += "jitpack" at "https://jitpack.io"
 
 /*
@@ -36,7 +35,7 @@ assemblyMergeStrategy in assembly := {
 organization := "HTW Berlin"
 name := "WikiPlagAnalyzer"
 version := "0.0.1"
-scalaVersion := "2.10.6"
+scalaVersion := "2.10.4"
 libraryDependencies ++= testDependencies
 libraryDependencies += spark
 libraryDependencies += hdfs

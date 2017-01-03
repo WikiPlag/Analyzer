@@ -6,7 +6,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object Main {
   def main(args: Array[String]): Unit = {
 
-    val conf = new SparkConf().setMaster("spark://hadoop03.f4.htw-berlin.de:7077").setAppName("WikiPlagApp")
+    val conf = new SparkConf().setAppName("WikiPlagApp")
     val sc = new SparkContext(conf)
     sc.setLogLevel("WARN")
 
