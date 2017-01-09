@@ -7,7 +7,6 @@ resolvers += "jitpack" at "https://jitpack.io"
  * Dependencies
  */
 val spark = "org.apache.spark" %% "spark-core" % "1.5.1" % "compile"
-val hdfs = "org.apache.hadoop" % "hadoop-client" % "2.6.0-cdh5.6.1"
 val utils = "com.github.WikiPlag" % "wikiplag_utils" % "-SNAPSHOT"
 
 /*
@@ -38,5 +37,4 @@ version := "0.0.1"
 scalaVersion := "2.10.4"
 libraryDependencies ++= testDependencies
 libraryDependencies += spark
-libraryDependencies += hdfs
 libraryDependencies += utils

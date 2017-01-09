@@ -1,8 +1,7 @@
 package de.htw.ai.wikiplag.textProcessing.plagiarism
 
 
-import de.htw.ai.wikiplag.data.InverseIndexBuilderImpl
-import de.htw.ai.wikiplag.data.MongoDbClient
+import de.htw.ai.wikiplag.data.{InverseIndexBuilderImpl, MongoDbClient}
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 
@@ -37,14 +36,22 @@ class PlagiarismFinder extends Serializable {
 
     println("got index")
 
+    /*
     val _input = sc.broadcast(inputText)
     val _h_splitLength = sc.broadcast(h_textSplitLength)
     val _h_splitStep = sc.broadcast(h_textSplitStep)
+    val _h_matchingWordsPercentage = sc.broadcast(h_matchingWordsPercentage)
+    val _h_maximalDistance = sc.broadcast(h_maximalDistance)
+    val _h_maxNewDistance = sc.broadcast(h_maxNewDistance)
+    val _h_minGroupSize = sc.broadcast(h_minGroupSize)
+    */
+
     /*
     Here we call our function
      */
-    val textParts = sc.parallelize(PlagiarismFinder.splitText(_input, _h_splitLength, _h_splitStep))
-    val tmp = textParts.flatMap(x => PlagiarismFinder.checkForPlagiarism(index, sc, x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)).collect().toList
+    //val textParts = sc.parallelize(PlagiarismFinder.splitText(_input, _h_splitLength, _h_splitStep))
+    val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
+    val tmp = textParts.flatMap(x => PlagiarismFinder.checkForPlagiarism(index, sc, x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize))
       //.filter(_.nonEmpty)..flatten
     val tmp2 = tmp.groupBy(_._1).mapValues(x => { val y = x.sortBy(_._2); (y.head._1, (y.head._2, 0)) :: y.zip(y.tail).map(z => (z._2._1, (z._2._2, z._2._2 - z._1._2))) }).toList.map(x => (x._1, x._2.map(_._2)))
     PlagiarismFinder.getPointerToRegions(PlagiarismFinder.splitIntoRegions(tmp2, 50, 0)).foreach(println)
@@ -65,8 +72,8 @@ object PlagiarismFinder extends Serializable {
     * @param h_textSplitStep   stepsize for slicing process (overlap)
     * @return Lists with equal number of tokens per slice wrapped inside a RDD
     */
-  def splitText(text: org.apache.spark.broadcast.Broadcast[String], h_textSplitLength: org.apache.spark.broadcast.Broadcast[Int], h_textSplitStep: org.apache.spark.broadcast.Broadcast[Int]): List[List[String]] = {
-    InverseIndexBuilderImpl.buildIndexKeys(text.value).map(_.toLowerCase).sliding(h_textSplitLength.value, h_textSplitStep.value).toList
+  def splitText(text: String, h_textSplitLength: Int, h_textSplitStep: Int): List[List[String]] = {
+    InverseIndexBuilderImpl.buildIndexKeys(text).map(_.toLowerCase).sliding(h_textSplitLength, h_textSplitStep).toList
   }
 
   /**
