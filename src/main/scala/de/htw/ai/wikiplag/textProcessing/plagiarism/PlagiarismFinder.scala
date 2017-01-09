@@ -1,7 +1,6 @@
 package de.htw.ai.wikiplag.textProcessing.plagiarism
 
-import com.mongodb.ServerAddress
-import com.mongodb.casbah.MongoCredential
+
 import de.htw.ai.wikiplag.data.InverseIndexBuilderImpl
 import de.htw.ai.wikiplag.data.MongoDbClient
 import org.apache.spark.SparkContext
@@ -32,29 +31,22 @@ class PlagiarismFinder extends Serializable {
     println("start")
 
     // todo: Password auslagern
-    val client = MongoDbClient(sc, new ServerAddress("hadoop03.f4.htw-berlin.de", 27020),
-      List(MongoCredential.createCredential("REPLACE", "REPLACE", "REPLACE".toCharArray)))
+    val client = MongoDbClient(sc, "hadoop03.f4.htw-berlin.de", 27020, "wikiplag", "wikiplag", "Ku7WhY34")
     MongoDbClient.open()
     val index = client.getInvIndexRDD(InverseIndexBuilderImpl.buildIndexKeySet(inputText))
 
     println("got index")
 
+    val _input = sc.broadcast(inputText)
+    val _h_splitLength = sc.broadcast(h_textSplitLength)
+    val _h_splitStep = sc.broadcast(h_textSplitStep)
     /*
     Here we call our function
      */
-    val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
-
-    println("got parts")
-
-    val tmp = textParts.map(x => PlagiarismFinder.checkForPlagiarism(index, sc, x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize))
-      .filter(_.nonEmpty).flatten
-
-    println("after tmp1")
-
+    val textParts = sc.parallelize(PlagiarismFinder.splitText(_input, _h_splitLength, _h_splitStep))
+    val tmp = textParts.flatMap(x => PlagiarismFinder.checkForPlagiarism(index, sc, x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize)).collect().toList
+      //.filter(_.nonEmpty)..flatten
     val tmp2 = tmp.groupBy(_._1).mapValues(x => { val y = x.sortBy(_._2); (y.head._1, (y.head._2, 0)) :: y.zip(y.tail).map(z => (z._2._1, (z._2._2, z._2._2 - z._1._2))) }).toList.map(x => (x._1, x._2.map(_._2)))
-
-    println("after tmp2")
-
     PlagiarismFinder.getPointerToRegions(PlagiarismFinder.splitIntoRegions(tmp2, 50, 0)).foreach(println)
 
     println("end")
@@ -73,8 +65,8 @@ object PlagiarismFinder extends Serializable {
     * @param h_textSplitStep   stepsize for slicing process (overlap)
     * @return Lists with equal number of tokens per slice wrapped inside a RDD
     */
-  def splitText(text: String, h_textSplitLength: Int, h_textSplitStep: Int): List[List[String]] = {
-    InverseIndexBuilderImpl.buildIndexKeys(text).map(_.toLowerCase).sliding(h_textSplitLength, h_textSplitStep).toList
+  def splitText(text: org.apache.spark.broadcast.Broadcast[String], h_textSplitLength: org.apache.spark.broadcast.Broadcast[Int], h_textSplitStep: org.apache.spark.broadcast.Broadcast[Int]): List[List[String]] = {
+    InverseIndexBuilderImpl.buildIndexKeys(text.value).map(_.toLowerCase).sliding(h_textSplitLength.value, h_textSplitStep.value).toList
   }
 
   /**
@@ -104,7 +96,7 @@ object PlagiarismFinder extends Serializable {
     */
   def getIndexValues(index: RDD[(String, List[(Long, List[Int])])], sc: SparkContext, tokensMap: Map[String, Int]): List[List[(Long, List[Int])]] = {
     val _tm = tokensMap.map(identity)
-    index.filter(x => _tm.contains(x._1)).map(_._2.take(20)).take(3).toList
+    index.filter(x => _tm.contains(x._1)).map(_._2).collect().toList
   }
 
   /**
@@ -193,9 +185,12 @@ object PlagiarismFinder extends Serializable {
     //slices the sorted list of positions into (predecessorposition, postion) slices
     val positionAndPredecessorPosition = relevantDocuments.map(x => (x._1, x._2.sorted.sliding(2).toList))
     //maps the tupels on (position, distance to predecessor) tupels
-    val positionDistance = positionAndPredecessorPosition.map(x => (x._1, x._2.map(y => (y(1), y(1) - y.head))))
+    try {
+      positionAndPredecessorPosition.map(x => (x._1, x._2.filter(_.size > 1).map(y => (y(1), y(1) - y.head)))).map(x => (x._1, x._2.filter(y => y._2 <= h_maximalDistance))).filter(x => x._2.nonEmpty)
+    } catch {
+      case _:Exception => println(positionAndPredecessorPosition); List()
+    }
     //filters on the h_maximalDistance and documentIds with no single fulfilling word are filtered out afterwards
-    positionDistance.map(x => (x._1, x._2.filter(y => y._2 <= h_maximalDistance))).filter(x => x._2.nonEmpty)
   }
 
   /**
@@ -218,7 +213,7 @@ object PlagiarismFinder extends Serializable {
     val positionAndPredecessorPosition = positions.map(x => (x._1, x._2.sorted.sliding(2).toList))
     //documentId with tupels of (position, distance to predecessor)
 
-    positionAndPredecessorPosition.map(x => (x._1, x._2.map(y => (y(1), y(1) - y(0)))))
+    positionAndPredecessorPosition.map(x => (x._1, x._2.filter(_.size > 1).map(y => (y(1), y(1) - y(0)))))
   }
 
 
@@ -235,22 +230,16 @@ object PlagiarismFinder extends Serializable {
     */
   def checkForPlagiarism(index: RDD[(String, List[(Long, List[Int])])], sc: SparkContext, tokens: List[String], h_matchingWordsPercentage: Double,
                          h_maximalDistance: Int, h_maxNewDistance: Int, h_minGroupSize: Int): List[(Long, Int)] = {
+    println("start finding")
     val tokensMap = groupTokens(tokens)
-    println("after TM")
     val indexValues = getIndexValues(index, sc, tokensMap)
-    println("after IV")
     val groupedDocumentIds = groupByDocumentId(indexValues)
-    println("after grDIDs")
     val relevantDocuments = filterRelevantDocuments(groupedDocumentIds, indexValues, h_matchingWordsPercentage)
-    println("after rD")
     val relevantDocumentsWithSignificance = filterMaximalDistance(relevantDocuments, h_maximalDistance)
-    println("after rDWS")
     val newDistances = computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)
-    println("after nD")
     val splittedRegions = splitIntoRegions(newDistances, h_maxNewDistance, h_minGroupSize)
-    println("after sR")
     val result = getPointerToRegions(splittedRegions)
-    println("after R")
+    println("end finding")
     result
   }
 

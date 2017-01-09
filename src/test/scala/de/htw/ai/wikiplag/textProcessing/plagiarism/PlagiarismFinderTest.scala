@@ -22,7 +22,7 @@ class PlagiarismFinderTest extends FunSuite {
     val actual = PlagiarismFinder.splitText(text, splitLength, stepSize)
     assert(expected === actual)
   }
-
+/*
   test("splitText (5, 2)") {
     val text = "Ich bin ein ganz gewöhnlicher Text! Nicht mehr und nicht weniger"
     val splitLength = 5
@@ -34,7 +34,7 @@ class PlagiarismFinderTest extends FunSuite {
       List("nicht", "mehr", "und", "nicht", "weniger"))
     val actual = PlagiarismFinder.splitText(text, splitLength, stepSize)
     assert(expected === actual)
-  }
+  }*/
 
   test("groupTokens empty") {
     val text = ""
