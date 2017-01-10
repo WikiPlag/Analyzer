@@ -13,7 +13,7 @@ import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class PlagiarismFinderTest extends FunSuite {
-
+/*
   test("splitText empty") {
     val text = ""
     val splitLength = 5
@@ -21,7 +21,7 @@ class PlagiarismFinderTest extends FunSuite {
     val expected = List()
     val actual = PlagiarismFinder.splitText(text, splitLength, stepSize)
     assert(expected === actual)
-  }
+  }*/
 /*
   test("splitText (5, 2)") {
     val text = "Ich bin ein ganz gewöhnlicher Text! Nicht mehr und nicht weniger"
@@ -35,7 +35,7 @@ class PlagiarismFinderTest extends FunSuite {
     val actual = PlagiarismFinder.splitText(text, splitLength, stepSize)
     assert(expected === actual)
   }*/
-
+/*
   test("groupTokens empty") {
     val text = ""
     val expected = Map()
@@ -62,5 +62,5 @@ class PlagiarismFinderTest extends FunSuite {
     )
     assert(expected === actual)
   }
-
+*/
 }
