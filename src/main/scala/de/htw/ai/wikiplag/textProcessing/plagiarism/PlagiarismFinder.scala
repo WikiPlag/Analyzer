@@ -24,7 +24,7 @@ class PlagiarismFinder extends Serializable {
     */
   def apply(sc: SparkContext, inputText: String, h_textSplitLength: Int = 20, h_textSplitStep: Int = 15,
             h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 7,
-            h_minGroupSize: Int = 10): List[((Int, Long, Int), (Int, Long, Int))] = {
+            h_minGroupSize: Int = 10): List[((Int, Long, Int), (Int, Long, Int), Double)] = {
 
     // todo: Password auslagern
     val client = MongoDbClient(sc, "hadoop03.f4.htw-berlin.de", 27020, "wikiplag", "wikiplag", "Ku7WhY34")
@@ -42,7 +42,8 @@ class PlagiarismFinder extends Serializable {
       (y.head._2, (y.head._1, y.head._3, 0)) :: y.zip(y.tail).map(z => (z._2._2, (z._2._1, z._2._3, z._2._3 - z._1._3)))
     }).toList.map(x => (x._1, x._2.map(y => (y._2._1, y._2._2, y._2._3))))
 
-    PlagiarismFinder.getPointerToRegions(PlagiarismFinder.splitIntoRegions(tmp2, 50, 0), h_textSplitStep)
+    val t3 = PlagiarismFinder.getPointerToRegions(PlagiarismFinder.splitIntoRegions(tmp2, 50, 0), h_textSplitStep)
+    t3.map(x => (x._1, x._2, 0.0))
   }
 }
 
