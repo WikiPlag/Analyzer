@@ -1,0 +1,3752 @@
+Ernst-Moritz-Arndt-Universität Greifswald
+Mathematisch-Naturwissenschaftliche Fakultät
+Zoologisches Institut und Museum
+Lehrstuhl für Physiologie und Biochemie der Tiere
+Die Ubiquitinligase KPC in exokrinen Drüsenzellen
+der Ente, Anas platyrhynchos
+Masterarbeit
+vorgelegt von
+Martin Kraft, B.Sc. (128030)
+geboren am 17.11.1988 in Berlin
+Studiengang: Molekularbiologie und Physiologie
+unter der wissenschaftlichen Leitung von
+Dr. Christian Müller
+und
+Prof. Dr. Jan-Peter Hildebrandt
+- November 2014 -
+1
+Ich will Ihnen das Geheimnis verraten, das mich zum Ziel geführt hat:
+Meine Stärke liegt einzig und allein in meiner Hartnäckigkeit.
+Louis Pasteur
+Abstract
+2
+The cell cycle is of crucial significance for processes like growth and adaption.
+Therefore precise control mechanisms are required. Cyclin-dependent kinases
+(CDKs), responsible for initiation and progression of different cell cycle stages, are
+regulated by both cyclins and CDK-inhibitors (CKIs). One of these inhibitors, p27 KIP1,
+is known to negatively control G1/S transition. Consequently its stringent regulation
+is important to prevent abnormal cell division, potentially resulting in
+carcinogenesis. Previous studies identified two ubiquitin ligase complexes, SCFSkp2
+and KPC, either capable of attaching ubiquitin units to p27KIP1, leading to its
+proteasomal degradation. Interestingly, they operate in both - different periods and
+subcellular locations - indicating further mechanisms of p27KIP1 regulation. In order
+to reveal these processes, this study investigated the expression of KPC1- and Skp2-
+mRNA under hyperosmotic conditions, triggering adaptive proliferation events in
+nasal gland cells of Anas platyrhynchos. Furthermore it was intended to provide
+preliminary work for recombinant KPC1 expression. According to that, ducklings
+were split in groups and treated with 1 % sodium chloride for different periods.
+Afterwards the animals were sacrificed to isolate nasal gland tissues for mRNA
+preparations. With the use of semi-quantative PCRs we were able to demonstrate
+the absence of any Skp2 or KPC1 mRNA kinetics, suggesting other regulatory
+processes than an enhanced gene expression. We were also able to construct four
+KPC1 fragments, which were successfully inserted into cloning vectors to assist
+further studies.
+Zusammenfassung
+3
+Für Wachstum und Adaptation ist ein funktionierender Zellzyklus unabdingbar.
+Reguliert wird dieser durch das Zusammenspiel von Cyclinen und Cyclin-abhängigen
+Kinasen (CDKs). Allerdings gibt es noch weitere Kontrollmöglichkeiten, wie z.B. die
+KIP1CDK-Inhibitoren (CKIs). Der Inhibitor p27 ist dabei von entscheidender
+Bedeutung, denn dieser kontrolliert den (Wieder-)Eintritt der Zelle in den Zellzyklus.
+Dazu muss er sich vom CDK-Protein lösen und die Bindestelle für Cycline freigeben.
+Dieser Prozess erfordert wiederum eine ebenso strikte Regulation. Vergangene
+Studien konnten zeigen, dass dies hauptsächlich durch Ubiquitin-abhängige
+Degradation erfolgt. Die beiden Ubiquitinligase-Komplexe SCFSkp2 und KPC wurden
+als die dafür zuständigen E3-Ligasen identifiziert. Sie wirken beide zu
+unterschiedlichen Zeitpunkten und an anderen Orten, was auf weitere, noch
+unklare Regulationsprozesse hinweist.
+Um langfristig die p27KIP1-Regulation und damit einen wichtigen Teil des Zellzyklus
+zu verstehen, hatte diese Arbeit das Ziel das Expressionsniveau der beiden
+Ubiquitinligasen KPC1 und Skp2 während adaptiver Proliferationsprozesse im
+Nasendrüsengewebe der Ente Anas platyrhynchos zu untersuchen. Desweiteren
+wurden Vorbereitungen getroffen, KPC1 rekombinant zu exprimieren.
+Dazu wurden Entenküken in Gruppen eingeteilt und unterschiedlich lange
+osmotischem Stress ausgesetzt. Anschließend wurden ihre Nasendrüsen extrahiert
+und die mRNA isoliert. Durch reverse Transkription wurde diese in cDNA
+umgeschrieben, um eine Amplifikation zu ermöglichen.
+Es konnte mittels semi-quantitativer PCRs gezeigt werden, dass es sowohl bei KPC1
+als auch bei Skp2 keine Änderungen im mRNA-Level aufgrund hyperosmotischer
+Belastung gegeben hat. Dies führt zu der Annahme, dass diese Proteine entweder
+auf anderem Wege reguliert werden oder ihr Substrat erst durch posttranslationale
+Modifikationen so verändert wird, dass es durch die E3-Ligasen erkannt werden
+kann. Zudem wurde das KPC1-Transkript in Form von vier Teilsequenzen in
+Klonierungsvektoren inseriert und steht somit für weiterführende Arbeiten zur
+Verfügung.
+Inhaltsverzeichnis
+ 4
+Inhaltsverzeichnis
+Abbildungsverzeichnis ................................................................................................. 7
+Tabellenverzeichnis ..................................................................................................... 8
+1.
+ Einleitung ............................................................................................................. 9
+1.1 Die Regulation des eukaryotischen Zellzyklus ................................................... 9
+1.1.1
+ Cycline und Cyclin-abhängige Kinasen................................................. 10
+1.1.2
+ Zellzyklusinhibitoren ............................................................................ 12
+1.1.3
+ Der Inhibitor p27KIP1 ............................................................................. 13
+1.2
+ Proteasomale Degradation durch Polyubiquitinylierung ........................... 15
+1.2.1
+ Der SCFSkp2-Komplex ............................................................................ 17
+1.2.2
+ Der Kip1 ubiquitinylation-promoting complex (KPC) ........................... 18
+1.2.3
+ Die Degradation von p27KIP1 ................................................................ 20
+1.3
+ Die Nasendrüse der Vögel ........................................................................... 22
+1.3.1
+ Lage, Aufbau, Funktion und Regulation............................................... 23
+1.3.2
+ Adaptive Proliferation .......................................................................... 25
+1.3.3
+ Der Einfluss von p27KIP1........................................................................ 26
+1.3.4
+ Der Einfluss des pH-Werts ................................................................... 26
+1.4
+ Zielsetzung der Arbeit ................................................................................. 27
+2.
+ Material und Methoden .................................................................................... 28
+2.1
+ Material ....................................................................................................... 28
+2.1.1
+ Chemikalien und Reagenzien ............................................................... 28
+2.1.2
+ Enzyme und Enzym-Puffer ................................................................... 29
+2.1.3
+ Weitere Reagenzien ............................................................................. 31
+2.1.4
+ Kit-Systeme .......................................................................................... 31
+2.1.5
+ Plasmide ............................................................................................... 31
+2.1.6
+ Primer .................................................................................................. 32
+Inhaltsverzeichnis
+ 5
+2.1.7
+ Lösungen und Puffer ............................................................................ 33
+2.1.7.1
+ Lösungen zur Präparation der Entennasendrüsen ....................... 33
+2.1.7.2
+ Lösungen für die Agarose-Gelelektrophorese ............................. 34
+2.1.7.3
+ Lösungen für die Generierung chemisch kompetenter Bakterien 35
+2.1.7.4
+ Lösungen für die klassische Miniprep .......................................... 35
+2.1.7.5
+ Lösungen für diverse Anwendungen ............................................ 36
+2.1.8
+ Nährmedien ......................................................................................... 36
+2.1.9
+ Verbrauchsmittel ................................................................................. 37
+2.1.10 Apparaturen und Hilfsmittel ................................................................ 38
+2.1.11 Lebewesen ........................................................................................... 39
+2.1.11.1
+ Mikroorganismen ......................................................................... 39
+2.1.11.2
+ Tiere .............................................................................................. 39
+2.2
+ Methoden.................................................................................................... 40
+2.2.1
+ Behandlung der Enten und Präparation der Nasendrüsen ................. 40
+2.2.2
+ RNA-Extraktion mittels TRIzol-Reagenz ............................................... 40
+2.2.3
+ Synthese von cDNA und Amplifikation ausgewählter Fragmente ...... 41
+2.2.3.1
+ Reverse Transkription ................................................................... 41
+2.2.3.2
+ Polymerase-Kettenreaktion (PCR) ................................................ 42
+2.2.4
+ Agarose-Gelelektrophorese ................................................................. 45
+2.2.5
+ DNA-Fragment Extraktion und Elution aus dem Gel ........................... 46
+2.2.6
+ Generierung eines Vektors (pKS) mit dT-Überhang ............................ 47
+2.2.7
+ Ligation................................................................................................. 48
+2.2.8
+ Chemische Transformation kompetenter Bakterienstämme.............. 48
+2.2.9
+ Blau-Weiß-Screening ........................................................................... 49
+2.2.10 Präparation von Plasmid-DNA ............................................................. 50
+2.2.10.1
+ Klassische Miniprep und anschließender RNA-Verdau ................ 50
+Inhaltsverzeichnis
+ 6
+2.2.10.2
+ Miniprep mittels Kit via Säulen-Elution (SpinPrepTM) ................... 51
+2.2.11 Kontrollspaltung................................................................................... 52
+2.2.12 Sequenzierung ..................................................................................... 53
+3.
+ Ergebnisse .......................................................................................................... 54
+3.1
+ Semiquantitative mRNA-Abundanz Untersuchungen ................................ 54
+3.1.1
+ p27KIP1-mRNA Abundanz ...................................................................... 55
+3.1.2
+ Skp2-mRNA Abundanz ......................................................................... 56
+3.1.3
+ KPC1-mRNA Abundanz ........................................................................ 58
+3.2
+ Konstruktion und Klonierung von KPC1-Fragmenten ................................. 60
+3.3
+ Sequenzierung der konstruierten Fragmente ............................................. 64
+4.
+ Diskussion .......................................................................................................... 67
+4.1
+ Expressionsniveaus ..................................................................................... 67
+4.2
+ KPC1-Fragmentkonstruktion ....................................................................... 71
+4.3
+ Ausblick auf KPC1-Endkonstruktion ............................................................ 73
+Abkürzungsverzeichnis .............................................................................................. 75
+Literaturverzeichnis ................................................................................................... 79
+Danksagung................................................................................................................ 86
+Anhang ....................................................................................................................... 87
+I.
+ Theoretische KPC1-Fragmente ...................................................................... 87
+II.
+ Ergebnisse der Sequenzierung....................................................................... 91
+III. Endkonstruktion von KPC1 in pQE-30-lacI ..................................................... 94
+IV. DNA-Marker ................................................................................................... 95
+Abbildungsverzeichnis
+Abbildungsverzeichnis
+ 7
+Abbildung 1: Schematische Darstellung des Zellzyklus ............................................. 10
+Abbildung 2: Cycline und ihre CDKs ........................................................................... 11
+Abbildung 3: Schematische Darstellung der p27KIP1-Struktur ................................... 13
+Abbildung 4: Schematische Darstellung einer Ubiquitinylierung .............................. 15
+Abbildung 5: Schematische Darstellung der Struktur von KPC1 und KPC2 ............... 18
+Abbildung 6: Schematische Darstellung der KPC-vermittelten p27KIP1-Degradation 19
+Abbildung 7: Abbau von p27KIP1 zu unterschiedlichen Zellzyklusphasen .................. 21
+Abbildung 8: Lokalisation, Morphologie und Cytologie der Nasendrüse der Ente ... 23
+Abbildung 9: Adaptive Proliferation und Differenzierung des Nasendrüsenepithels 25
+Abbildung 10: β-Aktin Kontrolle ................................................................................ 54
+Abbildung 11: p27KIP1-mRNA-Kinetik ......................................................................... 55
+Abbildung 12: Skp2-mRNA-Kinetik ............................................................................ 56
+Abbildung 13: Sättigungsüberprüfung Skp2-PCR ...................................................... 57
+Abbildung 14: KPC1-mRNA-Kinetik ............................................................................ 58
+Abbildung 15: Produktive Fragmentsynthese ........................................................... 60
+Abbildung 16: Mini-Prep #26 KPC1 [4*/4] Klone 1-7 der α-Platte ............................ 62
+Abbildung 17: Kontrollspaltung von KPC1 [4*/4] Klon #1 ......................................... 63
+Abbildung 18: Ausschnitt Sequenzrohdaten 319 ...................................................... 66
+Abbildung 19: Primerhybridisierung am 3'-Bereich von Periplakin (PPL) ................. 72
+Abbildung 20: Produktive Synthese des 4. KPC1-Fragments..................................... 72
+Tabellenverzeichnis
+ 8
+Tabellenverzeichnis
+Tabelle 1: β-Aktin-Amplifikation für semiquantitativen Vergleich (als Standard) .... 43
+Tabelle 2: Kip1-Amplifikation für Validierung der Ergebnisse von Rohlfing, 2007 .... 43
+Tabelle 3: Skp2-Amplifikation für semiquantitativen Vergleich ................................ 43
+Tabelle 4: KPC1-Amplifikation für semiquantitativen Vergleich ............................... 44
+Tabelle 5: PCR zur Amplifikation des ersten Viertels der KPC1-Sequenz .................. 44
+Tabelle 6: PCR zur Amplifikation des zweiten Viertels der KPC1-Sequenz ................ 44
+Tabelle 7: PCR zur Amplifikation des dritten Viertels der KPC1-Sequenz ................. 45
+Tabelle 8: PCR zur Amplifikation des vierten Viertels der KPC1-Sequenz ................. 45
+Tabelle 9: Überblick der angewandten Ligationsmethoden und deren Ergebnisse . 61
+Tabelle 10: Überblick über alle sequenzierten Proben ............................................. 64
+Tabelle 11: Vergleich des KPC1-Konstrukts mit der NCBI-Datenbank ....................... 65
+Einleitung
+ 9
+1. Einleitung
+1.1 Die Regulation des eukaryotischen Zellzyklus
+Der Zellzyklus ist die Grundlage der Proliferation, welche mehrzelliges Wachstum,
+und damit verbunden Regeneration sowie Adaptation, ermöglicht. Er besteht im
+Wesentlichen aus einer relativ langen Interphase und einer vergleichsweise kurzen
+Mitose-Phase (M-Phase), in der die Segregation der Schwesterchromatiden und die
+eigentliche, physische Zellteilung (Cytokinese) erfolgen (Abbildung 1).
+Die Interphase lässt sich in Wachstums- und Kontrollphasen (gap phases) sowie
+einer von hoher Stoffwechselaktivität geprägten Synthese-Phase (S-Phase), in
+welcher der Chromosomensatz verdoppelt wird, unterteilen (Murray & Hunt, 1993).
+Teilungsinaktive Zellen verharren in der G1-Phase, welche dann auch als G0-Phase
+bezeichnet wird.1 Terminal differenzierte Zellen, beispielsweise Neurone, befinden
+sich in diesem Stadium. Andere Zellen, wie z.B. Hepatocyten, sind in der Lage durch
+externe Stimuli in die G1-Phase zurückzukehren (Prescott, 1976). Am Ende der
+G1-Phase befindet sich ein Kontrollpunkt, den man auch als Restriktionspunkt
+bezeichnet. Dieser kontrolliert, ob Zellgröße und zur Verfügung stehende
+Ressourcen ausreichend sind, um eine korrekte Zellteilung zu gewährleisten. Ferner
+stellt der Restriktionspunkt einen point of no return dar, der bei Überschreitung die
+Zelle zum vollständigen Durchlauf des Zyklus veranlasst, unabhängig von weiteren
+externen Stimuli (Pardee, 1974). Ein zweiter Kontrollpunkt befindet sich zwischen
+der G2- und M-Phase. Dieser überprüft, in einem noch kaum verstandenen Prozess,
+ob die DNA vollständig und intakt verdoppelt wurde und leitet anschließend die
+Mitose ein. Andernfalls besteht hier die Möglichkeit eines kurzzeitigen Arrests, um
+Schäden zu beheben. Sollte dies nicht mehr möglich sein, kann an dieser Stelle mit
+Hilfe von p53 die Apoptose eingeleitet werden (Vermeulen et al., 2003). Ein dritter
+Kontrollpunkt - spindle assembly checkpoint (SAC) - befindet sich in der Anaphase,
+um die korrekte Verteilung der Chromatiden während der Mitose sicherzustellen
+(Burke & Stukenberg, 2008).
+1
+Diese Unterscheidung hat allerdings eher modellhaften Charakter. Die Verwendung der Begriffe in
+der Literatur ist weder eindeutig, noch konsistent (vgl. Schäfer, 1998; Cheung & Rando, 2013).
+K2
+Einleitung
+ 10
+K1
+2
+Abbildung 1: Schematische Darstellung des Zellzyklus
+I: Interphase, M: Mitose-Phase, G0,1,2: Gap-Phasen, S; Synthese-Phase, K1,2: Kontrollpunkte
+1.1.1 Cycline und Cyclin-abhängige Kinasen
+Eine präzise Kontrolle des Zellzyklus durch positiv und negativ wirkende
+Regulatorproteine ist für den normalen Ablauf essentiell und wird als wesentlicher
+Bestandteil zur Vermeidung onkogener Prozesse angesehen (Nakayama &
+Nakayama, 1998). Hauptsächlich Cycline und Cyclin-abhängige Kinasen (cyclin
+dependent kinases, CDKs) stellen solche Regulatoren dar.
+Die CDKs bilden eine Familie aus Serin-/Threonin-Kinasen, mit einer relativen
+Molekularmasse von 30-36 kDa. Sie phosphorylieren weitere Regulatorproteine,
+z.B. das Retinoblastom-Protein (pRb), welches dann von E2F dissoziiert, und wirken
+so auf die Genexpression (Morgan, 1997). CDK1, 2, 3, 4 und 6 sind direkt in den
+Zellzyklus involviert, CDK7 (CAK, siehe nächste Seite) wird für die Phosphorylierung
+der CDKs genutzt (Morgan, 2006). Während die Konzentration von CDKs im
+gesamten Zyklus konstant bleibt, ist die Cyclin-Expression an unterschiedliche
+Phasen gekoppelt (Abbildung 2).
+2
+Grafik von R. Wheeler, modifiziert übernommen aus:
+http://commons.wikimedia.org/wiki/File:Cell_Cycle_2-2.svg [15.10.2014]
+Einleitung
+ 11
+Dementsprechend ist es nötig, dass die Cycline auch schnell wieder aus dem System
+entfernt werden. Dazu besitzen sie eine destruction box (Degradationssequenz mit
+PEST-Motiv), die einen Ubiquitin-vermittelten Abbau im Proteasom ermöglicht. Die
+Cycline aus der A-, B-, D- und E-Familie sind gut erforscht und für den Zellzyklus am
+relevantesten (Harper & Adams, 2001).
+3
+Abbildung 2: Cycline und ihre CDKs
+Dargestellt sind die aktiven CDKs mit ihren jeweiligen Cyclinen, die zu verschiedenen Phasen des
+menschlichen Zellzyklus präsent sind.
+Cycline und CDKs interagieren miteinander und bilden hetero-dimere Komplexe, in
+denen die Cycline als regulatorische Untereinheit dienen und die Kinasen durch
+diese Komplexbildung aktiviert werden. Dazu bindet das Cyclin mit einer rund 100
+Aminosäuren (amino acid, aa) großen Region (cyclin box), welche für die neue
+Definition4 von Cyclinen ganz wesentlich ist, an das PSTAIRE-Motiv einer CDK. Diese
+Bindung führt zu einer Konformationsänderung des Komplexes, bei der inhibierende
+Strukturen - wie der T-Loop - aus dem katalytischen Zentrum entfernt und
+regulatorische Bereiche zugänglich gemacht werden (Morgan, 2006). Ebenfalls wird
+die zuvor blockierte Substratbindestelle der CDK erweitert und durch die PSTAIRE-
+Helix ergänzt, was die Phosphatübertragung ermöglicht (Jeffrey et al., 1995).
+3
+Grafik modifiziert übernommen aus:
+http://studentreader.com/mitosis-factors-cyclin-cdks/ [16.10.2014]
+4
+Ursprünglich Namensgebend war das periodische Auftauchen der Cycline in den Zellzyklusphasen.
+Einleitung
+ 12
+Obwohl die Kinaseaktivität nun prinzipiell möglich ist, reicht diese in der Praxis nicht
+aus. Erst die Phosphorylierung eines Threonins (T160 in CDK2, T161 in CDK1 bzw.
+T172 in CDK4) im T-Loop durch die CDK-activating kinase (CAK/CDK7) und die
+Dephosphorylierung von T14 (CDK4) bzw. Y15 (CDK2) durch die cell division cycle 25
+phosphatase (CDC25) erhöht die Aktivität um einen physiologisch relevanten Faktor
+von 80-300 (Russell & Nurse, 1987; Harper & Adams, 2001; Coqueret, 2002;
+Vermeulen et al., 2003).
+Bisher wurden über 20 verschiedene CDKs und noch mehr Cycline in Säugetieren
+entdeckt. Es konnte gezeigt werden, dass sowohl ein CDK mehrere Cycline und ein
+Cyclin mehrere CDKs binden kann. Generell ist das System sehr redundant und
+kompensatorisch aufgebaut. Man geht davon aus, dass CDK1 alleine den
+kompletten Zellzyklus kontrollieren kann (Satyanarayana & Kaldis, 2009). Ebenfalls
+wurde beobachtet, dass CDKs und Cycline auch andere Aufgaben, jenseits des
+Zellzyklus, wie beispielsweise in der neuronalen Entwicklung, wahrnehmen können
+(Lim & Kaldis, 2013).
+1.1.2 Zellzyklusinhibitoren
+Jenseits der negativen Kontrolle durch Phosphorylierung mittels Threonin-/Tyrosin-
+Kinasen (Wee1, Myt1), unterstehen die CDKs einem weiteren, negativen
+Regulationsmechanismus. CDK Inhibitoren (CKI) blockieren physisch CDKs, Cycline
+und CDK-Cyclin-Komplexe (Sheer & Roberts, 1999). Bisher sind sieben verschiedene
+CKIs in Säugern bekannt. Je nach Struktur und Substratbindung unterteilt man diese
+in zwei Familien.
+Proteine der inhibitor of CDK4 (INK4) Familie, dazu gehören p16INK4A, p15INK4B,
+p18INK4C und p19INK4D, besitzen vier Ankyrin-Repetitionen und binden hochspezifisch
+die katalytischen Untereinheiten von CDK4 und CDK6, was eine Dissoziation des
+CDK4/6-Cyclin D Komplexes bewirkt (Nakayama & Nakayama, 1998; Sheer &
+Roberts, 1999).
+Die CIP/KIP-Familie besteht aus p21CIP1, p27KIP1 sowie p57 KIP2 und ist durch eine
+konservierte CDK binding/inhibitory domain am N-Terminus und ein RXL-Motiv
+Einleitung
+ 13
+charakterisiert. Sie können sowohl Cyclin-, als auch CDK-Untereinheiten binden, was
+ihnen ein breiteres Spektrum ermöglicht. Interaktionen mit Cyclin A-, E- und D-
+abhängigen Kinasen sind bekannt. Interessanterweise besitzen diese Inhibitoren
+einen ambivalenten Charakter und können durch ihre Bindung die Formation des
+CDK4/6-Cyclin D Komplexes sogar beschleunigen und für dessen Translokation in
+den Nukleus sorgen (Harper & Adams, 2001; Nakayama & Nakayama, 1998; Sheer &
+Roberts, 1999; Morgan, 2006).
+1.1.3 Der Inhibitor p27KIP1
+Der CKI p27KIP1 (Abbildung 3) ist, wie der Name vermuten lässt, ein Protein von
+27 kDa mit einer Länge von 197 aa (Rattus norwegicus, Mus musculus) oder 198 aa
+(Homo sapiens, Sus scrofa, Felis catus, Gallus gallus, Anas platyrhynchos).
+KIP1
+ 5
+Abbildung 3: Schematische Darstellung der p27 -Struktur
+Rot markiert sind die CDK/Cyclin-Interaktionsstellen, blau markiert sind die Kernexport (NES) und
+Kernimport (NLS) Sequenzen. Zudem sind einzelne Aminosäuren hervorgehoben, die phosphoryliert
+(gelb) und ubiquitinyliert (blau) werden können.
+Der Inhibitor p27KIP1 ist in Vertebraten konserviert und auch in der Hefe,
+Saccharomyces cerevisiae, ist ein funktionelles Homolog (Sic1) beschrieben (Polyak
+et al.,1994; Barberis et al., 2005; Rohlfing, 2007). Er hat sowohl positive als auch
+negative Regulationsfähigkeiten. Er kann die Bildung von CDK4-Cyclin D Komplexen,
+welche den Übergang von der G 0- in die G1-Phase kontrollieren, erleichtern und
+diese in den Nukleus transportieren (LaBaer et al., 1997), auch wenn diese Hilfe
+nicht zwangsweise erforderlich ist (Bagui et al., 2003). Seine Hauptfunktion ist
+5
+Grafik von Rohlfing (2007), nach Nakayama & Nakayama (1998) sowie Connor et al. (2003).
+Einleitung
+ 14
+jedoch die Inhibierung des CDK2-Cyclin E Komplexes und der damit verbundenen
+Blockade des Zelleintritts in die S-Phase. Dementsprechend lassen sich hohe
+Konzentrationen
+ an
+ p27 KIP1
+ in
+ ruhenden
+ Zellen,
+ wie
+ beispielsweise
+ in
+ausdifferenzierten Neuronen, finden (Lee et al., 1996; Sheer & Roberts, 1999). Eine
+Senkung der p27KIP1-Konzentration ist somit Voraussetzung für den Wiedereintritt in
+den Zellzyklus, welche für diverse Epithelzelltypen6, aber auch T-Zellen (Mohapatra
+et al., 2001) beschrieben wurde.
+Die Regulation der p27KIP1-Konzentration kann dabei sowohl auf transkriptioneller,
+translationaler und posttranslationaler Ebene erfolgen. Ersteres scheint keine große
+Rolle zu spielen, da die mRNA-Konzentration sowohl in proliferierenden als auch
+ruhenden Zellen, ähnlich sind (Polyak et al., 1994; Rohlfing et al., 2005). Eine
+translationale Kontrolle findet statt (Hengst & Reed, 1996), beispielsweise über eine
+verbesserte Assoziation der mRNA an Ribosomen (Millard et al., 1997) oder durch
+Interaktion mit miRNAs (Le Sage et al., 2007). Den größten Einfluss hat jedoch die
+posttranslationale Regulation, zum einen durch vorübergehenden Export aus dem
+Kern (Rodier et al., 2001; Ishida et al., 2002), vor allem aber durch Degradation mit
+Hilfe des Ubiquitin-Proteasom-Systems (Pagano et al. 1995).
+6
+Humane Milchdrüsenepithelzellen (De Paola et al., 2002), Leberzellen (Hayashi et al., 2003),
+Nasendrüsenepithelzellen von Hausenten (Rohlfing et al., 2005), sowie Sertolizellen (Holsberger
+et al., 2003).
+Einleitung
+ 15
+1.2 Proteasomale Degradation durch Polyubiquitinylierung
+Ubiquitin ist ein kleines, globuläres Signalpeptid von 8,5 Da (76 aa), welches in allen
+Eukaryoten hoch konserviert ist. Es kann eine ganze Reihe unterschiedlicher
+Aufgaben wahrnehmen, wie die transkriptionelle Regulation durch Histon-
+Ubiquitinylierung, die Aufnahme von Membranproteinen in Vesikeln, oder die
+Aktivierung von Signalkaskaden im NF-κB-Signalweg (Hershko & Ciechanover, 1998).
+Am bekanntesten ist Ubiquitin jedoch für seine Markierung von Proteinen zur
+proteasomalen Degradation (Abbildung 4).
+7
+Abbildung 4: Schematische Darstellung einer Ubiquitinylierung
+Die Ubiquitinylierungen sind reversibel, sofern keine Polyubiquitinylierung vorliegt. Diese endet stets
+mit der Degradation des Zielproteins im Proteasom.
+Die Ubiquitinylierung erfolgt in drei Schritten. Dazu wird unter ATP-Verbrauch ein
+Ubiquitinmolekül von einem ubiquitin-activating enzyme (E1) durch Herausbildung
+einer Thioesterbindung "aktiviert" bzw. gebunden und anschließend auf ein
+ubiquitin-conjugating enzyme (E2) per Trans(thio)esterifizierung übertragen. Der
+letzte Schritt wird durch eine ubiquitin ligase (E3-Ligase) katalysiert, die spezifisch
+für das zu ubiquitinylierende Zielprotein ist. Dies interagiert mit dem E2-Ubiquitin
+Komplex und überträgt das Ubiquitinmolekül durch Herausbildung einer
+7
+Grafik modifiziert übernommen aus Nakayama & Nakayama (2006).
+Einleitung
+ 16
+Isopeptidbindung zwischen dem C-terminalen Glycin des Ubiquitins mit einem
+Lysin-Rests des Zielmoleküls (Bonifacino & Weissman, 1998; Pickard, 2001;
+Welchman et al., 2005; Mukhopadhyay & Riezman, 2007).
+Je nachdem wie das Zielmolekül ubiquitinyliert wurde, kann zwischen Mono-,
+Multi-, Oligo- und Polyubiquitinylierung unterschieden werden. Bei der Monoubi-
+quitinylierung wird lediglich ein Ubiquitinmolekül an das Zielprotein gebunden, bei
+der
+ Multiubiquitinylierung
+ werden
+ mehrere
+ Lysine
+ desselben
+ Proteins
+ubiquitinyliert und bei der Oligoubiquitinylierung sind es Ubiquitin-Oligomere (aus
+2-4
+ Ubiquitinmolekülen)
+ an
+ einem
+ Lysin.
+ Solche
+ Markierungen
+ haben
+Signalcharakter. Eine Polyubiquitinylierung, die Anheftung langer Ubiquitinketten
+(>5 Einheiten) an einen Lysin-Rest eines Zielmoleküls, wird durch die Kappe des 26S
+Proteasoms erkannt. Es trennt daraufhin die Ubiquitinkette ab, entfaltet das
+Zielprotein unter ATP-Hydrolyse und zieht es anschließend in seinen Hohlraum, in
+welchem das Protein in einzelne Aminosäuren zerlegt wird (Hochstrasser, 1996;
+Mukhopadhyay & Riezman, 2007).
+Da die Spezifität des Ubiquitinylierungsprozesses von den E3-Ligasen bedingt wird,
+ist eine große Vielfalt von diesen notwendig. Man schätzt die Zahl dieser Enzyme im
+Menschen auf 500-1000 (Nakayama & Nakayama, 2006). Je nach ihrem
+gemeinsamen Strukturmotiv lassen sie sich in die vier Familien, homologues to the
+E6-AP carboxy-terminus (HECT; Huang et al., 1999), U-Box (Hatakeyama et al.,
+2001), plant homeo domain (PHD)-Finger (Coscoy & Ganem, 2003) und really
+interesting new gene (RING)-Finger (Lorik et al., 1999), unterteilen. Letztere ist die
+größte Gruppe und lässt sich abermals in mehrere Unterfamilien aufteilen
+(Nakayama & Nakayama, 2006).
+Als p27KIP1-spezifische E3-Ligasen konnten die beiden single subunit RING-Finger
+Komplexe, SCFSkp2 (Carrano et al., 1999; Tsvetkov et al., 1999) und KPC (Kamura
+et al., 2004; Hara et al., 2005) identifiziert werden.
+Einleitung
+ 17
+1.2.1 Der SCFSkp2-Komplex
+Skp1/Cul1/F-Box containing complexes (SCF) sind Multienzym-E3-Komplexe, die
+insbesondere für den Zellzyklus von herausragender Bedeutung sind. Abgesehen
+von CDK Inhibitoren, wie p27KIP1, ubiquitinylieren sie ebenfalls Cycline und
+Transkriptionsfaktoren (Willems et al., 2004). Sie bestehen aus vier Untereinheiten,
+von denen Cullin 1 (Cul1) als Gerüstprotein für das RING-box protein 1 (Rbx1),
+verantwortlich für die Bindung des E2-Enzyms, und das S-phase kinase associated
+protein 1 (Skp1), welches das F-Box Protein bindet, dient. Das F-Box Protein ist
+dabei die substratspezifische, variable Komponente, die das Zielprotein rekrutiert
+(Willems et al., 2004; Nakayama & Nakayama, 2005; Morgan, 2006).
+Die F-Box Proteine werden nach ihren Strukturmotiven in die Gruppen FBW (WD-40
+Domäne), FBL (leucine-rich repeat, LLR-Domäne) und FBX (diverse Motive) eingeteilt
+(Cardozo & Pagano, 2004).
+Skp2 ist ein Protein aus der FBL-Gruppe und besitzt seine aus zehn LRRs bestehende
+Substratbindedomäne am C-Terminus (Zheng et al., 2002). Es wird am Ende der G1-
+Phase exprimiert und ist im Zellkern aktiv. Dort bindet es neben p27 KIP1 auch die
+anderen CKIs der CIP/KIP-Familie sowie Transkriptionsfaktoren (E2F-1, Myc) und
+Initiationsfaktoren (Cdt1), wie auch den Tumorsuppressor p130 (Willems et al.,
+2004). Für die Erkennung von p27KIP1 ist es allerdings nötig, dass dieses am
+C-terminalen Threonin 187 phosphoryliert vorliegt (Tsvetkov et al., 1999). Auch bei
+den anderen
+ Bindungspartnern von Skp2 geht
+ man davon aus, dass
+Phosphorylierungen für die Erkennung notwendig sind (Willems et al., 2004).
+Abgesehen von der T187-Phosphorylierung (pT187) wird allerdings noch ein
+weiteres Protein, CDK subunit 1 (Cks1), benötigt (Ganoth et al., 2001). Dieses
+fungiert als Adapterprotein für die Bildung eines trinären Komplexes und bewirkt,
+dass durch anionische Wechselwirkungen allosterische Effekte induziert werden,
+die eine Erkennung des pT187 durch Skp2 erleichtern (Sitry et al., 2002; Xu et al.,
+2003; Wang et al., 2003).
+Sowohl die Skp2-, als auch die Cks1-Konzentrationen werden ab der späten
+M-Phase erheblich herunter- und am Übergang in die S-Phase wieder hochreguliert.
+Einleitung
+ 18
+Die Instabilität der Proteine in der G0/1-Phase wird dabei durch den anaphase-
+promoting complex/cyclosome (APC/C) und seinem Aktivator Cdh1 bedingt, dem
+zweiten wichtigen E3-Komplex im Zellzyklus (Bashir et al., 2004). Um diese
+Degradation zu gewährleisten, besitzt Skp2 sowohl eine destruction box, als auch
+eine Sequenz (aa 46-94, humane Variante), die eine Bindung mit Cdh1 stabilisiert
+(Bashir et al., 2010).
+Hara et al. (2001) stießen auf die Entdeckung, dass eine p27KIP1-Degradation auch in
+Skp2-/-
+ Zellen durch den Ubiquitin-Weg
+ stattfindet. Zudem spielte der
+Phosphorylierungsstatus des T187 keine Rolle. Sie kamen zu dem Schluss, dass es
+noch eine weitere E3-Ligase geben müsse und fanden 2004 den Kip1
+ubiquitinylation complex.
+1.2.2 Der Kip1 ubiquitinylation-promoting complex (KPC)
+Der im Cytoplasma vorkommende E3-Komplex KPC ist aus den Proteinen KPC1
+(140 kDa) und KPC2 (50 kDa) zusammengesetzt (Abbildung 5).
+8
+Abbildung 5: Schematische Darstellung der Struktur von KPC1 und KPC2
+Gezeigt sind die humanen Varianten. KPC1 wird aufgrund seiner Größe unterbrochen dargestellt.
+KPC1 stellt in diesem Komplex mit seiner C-terminalen RING-Finger Domäne die
+eigentliche E3-Ligase dar. Der N-Terminus besitzt eine SPRY-Domäne, mutmaßlich
+für Protein-Interaktionen, und ist sowohl für die Bindung von KPC2 als auch für die
+Erkennung von p27KIP1 zuständig (Kamura et al., 2004; Kotoshiba et al., 2005).
+Das kleinere KPC2, zuvor als glioblastoma cell differentiation related gene 1 (GBDR1)
+bezeichnet, besitzt N-terminal eine ubiquitin-like domain (UBL) und in der C-
+terminalen Hälfte zwei ubiquitin-associated domains (UBA). Es ähnelt somit Rad23,
+welches in der Hefe polyubiquitinyliertes Sic1 (p27 KIP1-Homolog, siehe 1.1.3) an das
+8
+Grafik übernommen aus Hara et al. (2005).
+Einleitung
+ 19
+26S Proteasom weiterleitet (Kamura et al., 2004; Kotoshiba et al., 2005; Verma
+et al., 2004). Hara et al. (2005) konnten am C-Terminus noch eine weiteres
+Strukturmotiv, heat shock chaperonin-binding domain (STI1), identifizieren. Dieses
+scheint KPC1 zu stabilisieren. Zudem beschrieben sie die Interaktion von KPC2 mit
+KPC1 durch dessen UBL-Domäne, die Interaktion mit dem 26S Proteasom durch
+UBL- und UBA-Domänen und die Interaktion mit polyubiquitinylierten Proteinen
+durch die UBA-Domänen (Abbildung 6). Eine Erhöhung der KPC2-Menge geht mit
+einer Verringerung der E3-Ligaseaktivität von KPC1 einher. Ein Effekt, der ebenfalls
+bei Rad23 bekannt ist (Chen et al., 2001). Allerdings ist ein gewisses Maß an KPC2
+nötig. KPC1 alleine scheint für die Ubiquitinylierung nicht stabil genug zu sein
+(Kotoshiba et al., 2005). Auch die Präsenz von CDK2-Cyclin E Komplexen scheint die
+p27KIP1 -Degradation durch KPC kompetitiv zu inhibieren (ebenda). Im Gegensatz zur
+Degradation
+ über
+ SCFSkp2,
+ welches
+ durch
+ die
+ CDK2-Cyclin E
+ bedingte
+T187-Phosphorylierung p27 KIP1 erst erkennt (Montagnoli et al., 1999). Ferner
+KIP1scheint KPC sehr spezifisch für p27 zu sein, während Skp2 alle CIP/KIP CKIs
+erkennen kann, sofern diese phosphoryliert sind (Kamura et al., 2004).
+KIP1
+ 9
+Abbildung 6: Schematische Darstellung der KPC-vermittelten p27 -Degradation
+KIP1
+KPC1 und 2 sind am N-Terminus assoziiert und binden freies p27 . Durch die RING-Domäne von
+KIP1
+KPC1 wird p27 polyubiquitinyliert, was durch die UBA-Domänen von KPC2 erkannt wird.
+Anschließend wird es von KPC2 in das 26S Proteasom geführt.
+9
+Grafik übernommen aus Kotoshiba et al. (2005).
+Einleitung
+ 20
+Für eine Regulation der KPC-Aktivität gibt es bisher keine Hinweise. Es scheint im
+gesamten Zellzyklus, G0 inbegriffen, gleichermaßen aktiv zu sein (Kamura et al.,
+2004). So erweckt es den Anschein, dass die p27KIP1-Degradation durch KPC
+hauptsächlich durch den CRM1-abhängigen Export von p27KIP1 aus dem Kern in das
+Cytoplasma verantwortlich ist. Dieser wird wiederum selbst u.a. durch
+Phosphorylierung (S10) an p27KIP1 eingeleitet (Rodier et al., 2001; Besson et al.,
+2006) 10 . Allerdings verfügt p27KIP1 mit defekter Kernimportsequenz über eine
+erhöhte Stabilität im Cytoplasma und wird durch KPC nicht abgebaut (Kamura et al.,
+2004). Somit gibt es möglicherweise weitere Regulationsmechanismen, die p27KIP1
+in seiner Stabilität beeinflussen.
+1.2.3 Die Degradation von p27KIP1
+Obwohl im Detail noch nicht verstanden und kontrovers diskutiert, lässt sich
+KIP1prinzipiell ein grobes Modell für die Degradation von p27 im Zellzyklus ableiten.
+KIP1In der G0-, sowie dem größten Teil der G1-Phase, liegt p27 im Zellkern vor und
+blockiert CDK2-Cyclin E Komplexe, was den Eintritt in die S-Phase verhindert (Sheer
+& Roberts, 1999). Gegen Ende der G1-Phase, durch mitogene Stimulation von
+Ser/Thr-Kinasen (Böhm et al., 2002), wird durch diese entweder p27KIP1 am S10
+phosphoryliert (Rodier et al., 2001; Ishida et al., 2002; Besson et al., 2006) und/oder
+(das mit CDK4/6 und p27 KIP1 komplexierte) Cyclin D2 am T280 phosphoryliert
+(Kotake et al., 2005; Susaki et al., 2007), was von CRM1 erkannt und durch dieses
+aus dem Kern exportiert wird (Ishida et al., 2002; Connor et al., 2003; Kamura et al.,
+2004).
+Im Cytoplasma erkennt KPC das p27KIP1 und leitet dessen Polyubiquitinylierung mit
+anschließender Degradation im 26S Proteasom ein (Kamura et al., 2004; Kotoshiba
+et al., 2005). Möglicherweise müssen für die Erkennung noch weitere
+Modifikationen am p27KIP1-Protein erfolgen (Hengst, 2004). Auch ist es möglich,
+dass p27KIP1 in den Kern zurückwandert (Zeng et al., 2000; Müller et al., 2000).
+10
+Kotake et al. (2005) kommt jedoch zu gegenteiligen Schlüssen und Susaki et al. (2007) zeigte, dass
+zumindest in bestimmten Zelltypen Cyclin D2 für den Export einen größeren Einfluss als pS10 besitzt.
+Einleitung
+ 21
+Allerdings kann dies durch eine PKB/Akt-vermittelte Phosphorylierung11 innerhalb
+der NLS am T157 (Shin et al., 2002; Viglietto et al., 2002), oder am T198 (Fujita
+et al., 2002, 2003) verhindert werden.
+Das im Kern nun vermehrt freiliegende CDK2-Cyclin E phosphoryliert restliches
+p27KIP1 am T187, was dessen Degradation durch SCFSkp2 nun auch im Kern
+ermöglicht und somit durch eine positive Rückkopplung noch mehr CDK2-Cyclin E
+aktiviert (Montagnoli et al., 1999; Tsvetkov et al., 1999; Xu et al., 2003). Die Zelle
+geht in die S-Phase über und das p27KIP1-freie Milieu wird durch SCFSkp2
+sichergestellt, p27KIP1-Kernexport und KPC spielen ab diesen Zeitpunkt keine Rolle
+mehr (Sheer & Roberts, 1999; Hengst, 2004; Morgan, 2006).
+KIP1
+ 12
+Abbildung 7: Abbau von p27 zu unterschiedlichen Zellzyklusphasen
+KIP1
+In der späten G1-Phase wird p27 aus dem Kern exportiert und durch KPC abgebaut. Die dadurch
+geringere Konzentration dieses Inhibitors im Kern sorgt für dessen T187-Phosphorylierung, was die
+Skp2
+Voraussetzung für die SCF -vermittelte Degradation in der S-Phase ist. Die hier dargestellten
+Proteine, Ubc4/H5A und Ubc3 (nicht zuvor im Text erwähnt), sind E2-Enzyme.
+11
+PKB/Akt phosphoryliert übrigens auch Skp2 (Lin et al., 2009).
+12
+Grafik übernommen aus Hengst (2004).
+Einleitung
+ 22
+Mutationen in p27KIP1 oder den genannten Proteinen, die zu dessen Destabilisierung
+führen, gehen mit schlechten Krankheitsverläufen bei Krebserkrankungen einher
+oder sind möglicherweise in der Lage solche sogar auszulösen (Carrano et al., 1999;
+De Paola et al., 2002; Viglietto et al., 2002; Kamura et al., 2004; Willems et al., 2004;
+Nakayama & Nakayama, 2006).
+Um den Zellzyklus bzw. die p27KIP1-Degradation besser zu verstehen, wurde für
+diese Arbeit das Nasendrüsengewebe der Hausente, Anas platyrhynchos, als Modell
+genutzt.
+1.3 Die Nasendrüse der Vögel
+Im Gegensatz zur hocheffizienten Säuger-Niere, ist die Niere der Vögel (und auch
+der Reptilien) nur in der Lage einen isoosmotischen bis maximal zweifach
+konzentrierten Harn zu produzieren. 13 Bedingt wird dies durch eine kürzere sowie
+weniger regelmäßig angeordnete Henle-Schleife (Schmidt-Nielsen, 1960). Um
+dennoch die Homöostase, insbesondere in ariden oder maritimen Lebensräumen,
+aufrecht zu erhalten, verfügen Vögel über spezielle Nasendrüsen14 bzw. Salzdrüsen
+(Technau, 1936). Mit solchen Drüsen sind die Tiere in der Lage, Flüssigkeiten zu
+sekretieren, die teilweise doppelt so hohe osmotische Konzentrationen besitzen als
+Meerwasser. Sie kommen damit annähernd an das Konzentrationsvermögen
+hochentwickelter Nieren von Wüsten-Nagetieren heran, und das bei relativ geringer
+Größe (Schmidt-Nielsen, 1960; Müller & Hildebrandt, 2003).
+Abgesehen von Passeriformes (Sperlingsvögel) scheinen alle anderen Vögel über
+mehr oder weniger ausgeprägte Nasendrüsen zu verfügen. Besonders bei
+maritimen oder vorübergehend maritim-lebenden Spezies, wie Laridae (Möwen),
+Anatidae
+ (Enten),
+ Pelecanidae
+ (Pelikane),
+ Diomedeidae
+ (Albatrosse)
+ und
+Spheniscidae (Pinguine), sind die Nasendrüsen besonders stark entwickelt
+(Technau, 1936; Müller & Hildebrandt, 2003).
+13
+Bezogen auf das Blut.
+14
+Diese Bezeichnung ist anatomisch betrachtet allerdings inkorrekt. Sie entspringt der Beobachtung,
+dass die sekretierte Flüssigkeit aus den Nasenlöchern geleitet wird.
+Einleitung
+ 23
+1.3.1 Lage, Aufbau, Funktion und Regulation
+Die Nasendrüsen befinden sich in den Einbuchtungen der Supraorbitalbögen über
+den Augen (Fänge et al., 1958). Sie bestehen aus zwei Teilen, den lateralen und den
+medianen Lobus. Diese wiederum sind durchsetzt von bäumchenartig-verzweigten
+Strukturen, den Tubuli, welche aus einem einschichtigen Epithel bestehen und über
+ein Sammelrohr in die Nasenhöhle münden (Butler, 2002; Müller & Hildebrandt,
+2003).
+15
+Abbildung 8: Lokalisation, Morphologie und Cytologie der Nasendrüse der Ente
+(A) Die Drüsen (rot) befinden sich direkt unter der Haut. (B) Extrahierte Drüse und deren Querschnitt
+(C). (D) Zeigt den Querschnitt durch einen Tubuli, (E) den Längsschnitt.
+Der Differenzierungsgrad der Epithelzellen nimmt von der Peripherie in Richtung
+der Zentralkanäle zu. Ausdifferenzierte Zellen weisen einen polarisierten Charakter
+auf und besitzen starke basolaterale Membraneinfaltungen zur Oberflächen-
+vergrößerung sowie eine hohe Anzahl an Mitochondrien in unmittelbarer Nähe.
+Dies lässt auf eine hohe Stoffwechselaktivität über die basolaterale Seite schließen.
+Die, dem Tubulus-Lumen zugewandte, apikale Seite ist dagegen mit wenigen
+15
+Grafik übernommen aus Müller und Hildebrandt (2003).
+Einleitung
+ 24
+kleinen Mikrovilli besetzt (Butler, 2002; Müller & Hildebrandt, 2003).
+Die aktiven Tubulibereiche werden in der Regel von fünf bis acht Epithelzellen radial
+begrenzt. Sie werden eng an der apikalen Seite über tight junctions verknüpft
+(Gerstberger & Gray, 1993). Über ein Kapillarnetz werden die Tubuli mit Blut
+versorgt. Der Ionenaustausch wird dabei durch das Gegenstromprinzip erleichtert.
+Eine Ultrafiltration findet in den Nasendrüsen allerdings nicht statt, daher können
+diese auch keine Nieren ersetzen (Schmidt-Nielsen, 1960).
+Die Ionenpassage ist ein energieaufwändiger Prozess, bei dem Chloridionen durch
+die Epithelzellen geschleust werden und Natriumionen (mittels elektrochemischen
+Gradienten) zusammen mit Wasser (durch osmotische Kräfte) parazellulär in das
+Tubuluslumen einströmen. Kaliumionen (die in diesem Prozess als elektro-
+chemisches "Gegengewicht" dienen), sowie Magnesium- und Bicarbonationen sind
+im Sekret nur in Spuren enthalten (Lowy et al., 1989; Hildebrandt, 2001). Zudem
+findet die Sekretion nicht kontinuierlich (wie in der Niere) statt, sondern nach
+osmotischer Stimulation, wahrgenommen durch zentrale hypothalamische und
+periphere Osmorezeptoren (Hanwell et al., 1972; Gerstberger et al., 1984). Dies ist
+dabei unabhängig von der Auslösesubstanz des osmotischen Reizes. Beispielsweise
+führt eine Stimulation durch hypertonische Zuckerlösung ebenfalls zur Sekretion
+von NaCl (Schmidt-Nielsen, 1960).
+Die Regulation der Drüsen erfolgt über parasympathische, cholinerge Nervenfasern,
+deren Neurotransmitter wie Acetylcholin (ACh) und das vasoactive intestinal
+peptide (VIP) von Rezeptoren an der basolateralen Epithelseite erkannt werden. Die
+Bindung
+ von
+ ACh
+ an
+ muskarinische
+ ACh-Rezeptoren
+ (mAChR)
+ aktiviert
+heterotrimere G-Proteinkomplexe (Gq-Typ), die mittels Phospholipase C (PLC) über
+den IP3/DAG-Weg eine Signalkaskade induzieren, an deren Ende die Freisetzung von
+Calciumionen aus den intrazellulären Speichern steht. Die freien Calciumionen
+wiederum öffnen u.a. Ca+-abhängige Cl --Kanäle am apikalen Zellpol, durch die
+Chloridionen in das Tubuluslumen strömen. Die Bindung von VIP an seine
+Rezeptoren aktiviert ebenfalls G-Proteine (Gs-Typ), die durch Aktivierung von
+Adenylatcyclasen (AC) ATP in cAMP umwandeln, welches als Signalmolekül die
+Proteinkinase A (PKA) aktiviert und weitere Cl--Kanäle durch Phosphorylierung
+öffnet (Ernst et al., 1994; Hildebrandt, 2001).
+Einleitung
+ 25
+1.3.2 Adaptive Proliferation
+Bei naiven Entenküken, die nie zuvor osmotisch stimuliert wurden, liegen die
+Nasendrüsenzellen noch undifferenziert vor. Sie betreiben lediglich Erhaltungs-
+stoffwechsel und sekretieren geringe Mengen Flüssigkeit, um ein Austrocknen des
+Epithels
+ zu
+ verhindern.
+ Nach
+ erstmaliger
+ Salzexposition
+ kommt
+ es
+ im
+Drüsengewebe innerhalb von zwei Tagen zu massiven morphologischen und
+cytologischen Veränderungen, die sowohl als Kurzzeitanpassung reversiblen als
+auch als einmalige Langzeitanpassung irreversiblen Charakter haben. Zu diesen
+Veränderungen zählen eine Vergrößerung der Zellen (Hypertrophie), eine Erhöhung
+der Zellanzahl um das Zwei- bis Dreifache (Hyperplasie) sowie eine stärkere
+Zelldifferenzierung
+ auswirkt.
+ Letzteres
+ äußert
+ sich
+ als
+ Zunahme
+ der
+Mitochondrienanzahl um das Fünffache, einer Vergrößerung der basolateralen
+Membranoberfläche durch Einfaltung und Veränderungen in der Dichte von
+Rezeptoren, Ionenkanälen und metabolischen Enzymen (Ernst & Ellis, 1969;
+Barrnett et al., 1983; Merchant et al., 1985; Müller & Hildebrandt, 2003). Dabei
+Wachsen die sekretorischen Tubuli in die Länge und erhöhen ebenfalls den Grad
+ihrer Verzweigung (Abbildung 9).
+16
+Abbildung 9: Adaptive Proliferation und Differenzierung des Nasendrüsenepithels
+Die linke Hälfte zeigt die Entwicklung unter Kontrollbedingungen (Frischwasser), rechts ist die
+Entwicklung unter 1%iger Salzbelastung dargestellt.
+16
+Grafik übernommen aus Müller und Hildebrandt (2003), modifiziert nach Ernst und Ellis (1969).
+Einleitung
+ 26
+1.3.3 Der Einfluss von p27KIP1
+Rohlfing et al. (2005) zeigten, dass auch in der Entennasendrüse p27 KIP1, nach
+osmotischer Stimulation, aus dem Kern in das Cytoplasma transloziert. Ebenfalls
+konnte mittels Western-Blots und in vitro Ubiquitinylierungsassays gezeigt werden,
+dass sich die p27KIP1-Konzentration mit der Zeit verringert und dies über das
+Ubiquitin-Proteasom-System erfolgt, wohingegen semi-quantitative PCRs darauf
+hindeuten, dass eine Regulation der mRNA kaum bzw. keine Rolle spielt. Insofern
+wurde das gängige Modell (siehe 1.2.3) nicht widerlegt.
+Da die Regulation der Proliferation naiver Nasendrüsen über die mAChR erfolgt (den
+selben Rezeptoren, die in ausdifferenzierten Drüsen deren Salzsekretion
+regulieren), lässt die Frage aufkommen, warum spätere Signale über mAChR nicht
+zu weiteren Proliferationsereignissen führen. Möglicherweise spielt dabei der
+intrazelluläre pH-Wert (pHi) eine Rolle (Shuttleworth & Hildebrandt, 1999).
+1.3.4 Der Einfluss des pH-Werts
+Bentz & Hildebrandt (1995) konnten feststellen, dass eine Stimulation der mAChR in
+naiven Nasendrüsenzellen zu einer leichten Alkalisierung des Cytosols um
+0,1 pH-Einheiten erfolgt. Eine Stimulation ausdifferenzierter Nasendrüsenzellen
+führt hingegen zu einer leichten Azidifizierung, ebenfalls um 0,1 pH-Einheiten.
+Daraufhin untersuchten Bentz et al. (1999), ob der pH-Shift Auswirkungen auf die
+DNA-Syntheserate besitzt und somit Annahmen über den Zellzykluseintritt gemacht
+werden können. Sie kamen zu dem Ergebnis, dass eine Alkalisierung des Cytosols
+die Synthese von DNA erhöht und der basolaterale Na+/H+-Austauscher (NHE) dafür
+verantwortlich ist. Ferner erhöhte eine künstliche Alkalisierung um 0,1 pH-Einheiten
+die DNA-Synthese um 20 %. Durch Blockade des NHE mit Amilorid und dem damit
+verbundenen Ausbleiben einer Alkalisierung oder gar einer einsetzenden
+Azidifizierung, senkte die DNA-Synthese hingegen um 40 %.
+Rohlfing (2007) versuchte daraufhin zu ermitteln, ob die gesteigerte Syntheserate
+durch eine pH-Abhängigkeit der p27KIP1-degradierenden Enzyme bedingt wird. Sie
+konnten in naiven Drüsenzellen eine klare positive Korrelation der p27KIP1-
+Einleitung
+ 27
+Degradation vom pHi zeigen (pHi 7,0 bis 7,8; jenseits davon physiologisch bedingte
+Abnahme), allerdings nicht in osmotisch vorstimulierten Drüsen. Interessanterweise
+läuft dort die Degradation, unabhängig vom pHi , auf dem gleichen (maximalen)
+Level, wie bei naiven Drüsen bei einem pHi von 7,8.
+Diese Erkenntnisse sprechen dafür, dass der pHi einen Teil der mitogenen Signal-
+kaskade für die adaptive Proliferation darstellt, allerdings in ausdifferenziertem
+Drüsengewebe vermutlich keine Relevanz (als mitogenes Signal) mehr besitzt.
+1.4 Zielsetzung der Arbeit
+Um die Prozesse der p27KIP1-Degradation im Detail zu erklären und somit mehr über
+die Zellzyklusregulation zu erfahren, war es Ziel dieser Arbeit cDNA-Abschnitte von
+KPC1 in Plasmidvektoren zu klonieren und ggf. diese zusammengesetzt in einen
+Expressionsvektor zu übertragen, um das vollständige KPC1-Protein rekombinant
+herzustellen - ähnlich wie bereits mit Skp2 durch Egner (2009) und Opitz (2010)
+geschehen. Sowohl das vollständige KPC1, als auch seine Fragmente, können
+dadurch für diverse in vitro Untersuchungen (z.B. Ubiquitinylierungs- oder
+Pulldown-Assays) verwendet werden.
+Ebenfalls sollten Aussagen über die mRNA-Kinetik von KPC1 und Skp2 getroffen
+sowie vorangegangene Ergebnisse von Rohlfing (2007), die mRNA von p27KIP1
+betreffend, validiert werden.
+Material und Methoden
+ 28
+2. Material und Methoden
+2.1 Material
+2.1.1 Chemikalien und Reagenzien
+Handelsname
+ Bezugsquelle
+ Bestellnummer
+2-Propanol
+ Roth
+ 6752.2
+A. dest.
+ Universität Greifswald
+A. bidest.
+ Universität Greifswald
+A. bidest. (DEPC-behandelt)
+ Roth
+ 143.4
+Adenosin 5`-Triphosphat
+ Sigma
+ A-5394
+Agarose NEEO Ultra-Qualität
+ Roth
+ 2267.4
+Ampicillin (Natriumsalz)
+ Roth
+ K029.1
+Calciumchlorid Dihydrat
+ Merck
+ 2382
+D(+)-Glucose
+ Merck
+ 8337
+Diethylpyrocarbonat
+ Roth
+ K028.3
+Dimethylforamid
+ Roth
+ 6251.1
+Dimethylsulfoxid (DMSO)
+ Roth
+ A994.2
+Dinatriumhydrogenphosphat
+ Roth
+ 4984.1
+Essigsäure 100 %
+ Roth
+ 3838.2
+EGTA
+ Sigma
+ E-4378
+Ethanol 97 % (vergällt)
+ Universität Greifswald
+Ethanol 99,8 % (unvergällt)
+ Roth
+ 9065.1
+Ethidiumbromid
+ Roth
+ 7870.1
+Ethylendiamintetraessigsäure (Na4EDTA)
+ Roth
+ 3619.1
+Glycerin 99,5 %
+ Roth
+ 3783.1
+HEPES (freie Säure)
+ Roth
+ 9105.4
+Hefeextrakt
+ Gibco BRL
+ 30393029
+Kaliumacetat
+ Roth
+ 4986.1
+Kaliumchlorid
+ Roth
+ 6781.3
+Kaliumdihydrogenphosphat
+ Sigma
+ P-0662
+Material und Methoden
+ 29
+Handelsname
+ Bezugsquelle
+ Bestellnummer
+Magnesiumchlorid (Hexahydrat)
+ Roth
+ 2189.2
+Natriumchlorid
+ Roth
+ 3957.2
+Natriumdodecylsulfat / SDS
+ Roth
+ 2326.3
+Natriumhydrogenphosphat
+ Sigma
+ S-0751
+Natriumhydroxid
+ Roth
+ P031.1
+Pepton (aus Casein)
+ Roth
+ 8986.1
+Phenylmethylsulfonylfluorid (PMSF)
+ Roth
+ 6367.1
+Propangas
+ Universität Greifswald
+Rubidiumchlorid
+ Roth
+ 4471.1
+Salzsäure 37 % (rauchend)
+ Roth
+ 4625.2
+Trichlormethan / Chloroform
+ Roth
+ 3313.1
+Tris-(hydoxymethyl)-aminomethan
+ Roth
+ 4855.3
+TRIzol® Reagenz
+ Invitrogen
+ 15596-018
+Tween 20
+ Roth
+ 9127.1
+X-Gal
+ BioVectra
+ 1161
+2.1.2 Enzyme und Enzym-Puffer
+DNA-Polymerasen
+Taq-Polymerase 1 U/μl
+ Thermo Scientific
+10 x Taq Puffer mit KCl
+10 x Taq Puffer mit (NH4)2SO4
+25 mM MgCl2
+Pfu-Polymerase 2,5 U/μl
+ Thermo Scientific
+10 x Pfu Puffer mit MgSO4
+10 x Pfu Puffer
+25 mM MgSO4
+LongAmp®-Polymerase 2,5 U/μl
+ NEB
+5 x LongAmp® Puffer
+EP0403
+EP0501
+M0323G
+Material und Methoden
+ 30
+Handelsname
+ Bezugsquelle
+ Bestellnummer
+M-MuLV RT 200 U/μl
+ Thermo Scientific
+ EP0441
+5 x RevertAid RT Puffer
+Restriktionsendonukleasen
+ Thermo Scientific
+AclI (Psp1406I)
+ ER0942
+BglII
+ ER0071
+BspHI (PagI)
+ ER1282
+Bsu36I (Eco81I)
+ ER0372
+EcoRI
+ ER0271
+EcoRV (Eco32I)
+ ER0305
+HindIII
+ ER0501
+PstI
+ ER0611
+PvuI
+ ER0622
+SacII (Cfr42I)
+ ER0205
+SalI
+ ER0645
+SmaI
+ ER0665
+Dazugehörige Puffer
+ Thermo Scientific
+ B30
+10 x Buffer "blue"
+1 x: 10 mM Tris-HCl (pH 7.5 / 37°C), 10 mM MgCl2, 0.1 mg/mL BSA
+10 x Buffer "green"
+1 x: 10 mM Tris-HCl (pH 7.5 / 37°C), 10 mM MgCl2, 50 mM NaCl, 0.1 mg/mL BSA
+10 x Buffer "orange"
+1 x: 50 mM Tris-HCl (pH 7.5 / 37°C), 10 mM MgCl2, 100 mM NaCl, 0.1 mg/mL BSA
+10 x Buffer "red"
+1 x: 10 mM Tris HCl (pH 8.5 / 37°C), 10 mM MgCl2, 100 mM KCl, 0.1 mg/mL BSA
+10 x Buffer "Tango"
+1 x: 33 mM Tris-Acetat (pH 7.5 / 37°C), 10 mM Mg-Acetat, 66 mM K-Acetat, 0.1 mg/mL BSA
+Ligase
+T4-Ligase
+ Thermo Scientific
+ EL0011
+10 x Ligase Puffer
+Ribonuklease
+RNase A
+Protease-Inhibitoren
+Aprotinin
+Leupeptin (Hemisulfat)
+Pepstatin A
+Sigma (Kit)
+AppliChem
+AppliChem
+AppliChem
+Material und Methoden
+PLN70
+A2132
+A2183
+A2205
+31
+2.1.3 Weitere Reagenzien
+dNTP-Mix 10 mM
+dATP 100 mM
+dTTP 100 mM
+dGTP 100 mM
+dCTP 100 mM
+Probenpuffer
+6 x Loading Dye
+DNA-Standard (siehe auch Anhang IV)
+100 bp DNA Leiter, extended
+2-log DNA Ladder (0,1-10 kb)
+Roth
+ K039.1
+ThermoRoth
+NEB
+Scientific
+R0611
+T835.1
+N3200S
+2.1.4 Kit-Systeme
+GenEluteTM Plasmid Miniprep Kit
+Silica Bead DNA Gel Extraction Kit
+2.1.5 Plasmide
+pBluescript® II KS(-) phagemid (3 kb)
+Sigma
+Thermo Scientific
+Stratagene
+PLN70
+K0513
+212208
+Material und Methoden
+ 32
+2.1.6 Primer
+Name
+ Sequenz
+ GC-Gehalt
+β-Act_fw1
+ 5'-GGCTACAGCTTCACCACCACAGC-3'
+ 61 %
+β-Act_rev1
+ 5'-TGCTTGCTGATCCACATCTGCTGG-3'
+ 54 %
+Kip_fw1
+ 5'-GCGCATGGAAGCCCGGCAGTCG-3'
+ 72 %
+Kip_rev1
+ 5'-GGAGAGGAATCGTCGGTGGCAGG-3'
+ 65 %
+Skp_fw3
+ 5'-GCACAGTGTCTGTTCCAGATCTCC-3'
+ 54 %
+Skp_rev3
+ 5'-GCAGGTGATATTTGGTAGCATCGG-3'
+ 50 %
+Kpc_fw5
+ 5'-CCTGGCCAAGCACTTTGCTGACTCG-3'
+ 60 %
+Kpc_rev5
+ 5'-CCTGCTGGATCTCCTGAATCATGCC-3'
+ 56 %
+KpcF_Sal2
+ 5'-GCCTGTGTCGACTGACGTCGCGAGGTGC-3'
+ 68 %
+KpcF_BspH2
+ 5'-CCTCTCATGTGCAAGGTGTACC-3'
+ 54 %
+KpcR_BspH2
+ 5'-CGCTCCAGGATGCTCAACAGG-3'
+ 62 %
+KpcF_Sac
+ 5'-GCGGCTGTCAGCCTGATGAACC-3'
+ 64 %
+KpcR_Sac
+ 5'-CCGTACGCTGCTCCACACTCAG-3'
+ 64 %
+KpcF_Bsu
+ 5'-GCTTCGGGTACAGATACACACGG-3'
+ 57 %
+KpcF_N
+ 5'-CGCCATTTCTCCCTGAACACG-3'
+ 57 %
+KpcR_N
+ 5'-CGTGTTCAGGGAGAAATGGCG-3'
+ 57 %
+KpcR_Hind
+ 5'-CGAAGCTTGGTGCTACGAGCTGG-3'
+ 61 %
+Oligo(dT) 12-18
+ 5'-T12-18-3'
+ 0 %
+Material und Methoden
+ 33
+2.1.7 Lösungen und Puffer
+2.1.7.1 Lösungen zur Präparation der Entennasendrüsen
+Intrazelluläre Pufferlösung (ICB, pH 7,4)
+100 mmol/l
+ KCl
+20 mmol/l
+ NaCl
+2 mmol/l
+ MgCl2 · 6 H2O
+0,96 mmol/l
+ NaH2PO4
+0,84 mmol/l
+ CaCl
+1 mmol/l
+ EGTA
+0,5 % (v/v)
+ Tween 20
+25 mmol/l
+ HEPES, freie Säure
+Die Substanzen wurden in A. bidest gelöst, mit NaOH
+auf einen pH-Wert von 7,4 gebracht, autoklaviert und
+bei 4 °C gelagert.
+Aprotinin-Stammlösung
+2 mg/ml
+ Aprotinin
+Die Reinsubstanz wurde in ICB gelöst und bei -20 °C
+gelagert.
+Leupeptin-Stammlösung
+2 mg/ml
+ Leupeptin
+Die Reinsubstanz wurde in ICB gelöst und bei -20 °C
+gelagert.
+Pepstatin-Stammlösung
+2 mg/ml
+ Pepstatin A
+Die Reinsubstanz wurde in hochreinem DMSO gelöst
+und bei -20 °C gelagert.
+Material und Methoden
+ 34
+PMSF-Stammlösung
+17,42 mg/ml
+Lysispuffer (pH 7,2)
+14,8 ml
+15 μl
+15 μl
+15 μl
+150 μl
+PMSF
+Die Reinsubstanz wurde in unvergälltem Ethanol
+(99,8 %) gelöst und bei -20 °C gelagert.
+ICB
+Aprotinin-Stammlösung
+Leupeptin-Stammlösung
+Pepstatin-Stammlösung
+PMSF-Stammlösung
+Die Zugabe der Protease-Stammlösungen erfolgte erst
+unmittelbar vor dem Gebrauch.
+2.1.7.2 Lösungen für die Agarose-Gelelektrophorese
+20 x TAE-Puffer
+800 mmol/l
+ Tris (HCl: pH 8,0)
+20 mmol/l
+ EDTA
+Die Chemikalien wurden in A. bidest. gelöst, mit HCl
+auf einen pH-Wert von 8,0 gebracht, autoklaviert und
+anschließend bei Raumtemperatur gelagert.
+TAE-Puffer mit Ethidiumbromid (Färbebad-Lösung)
+0,0001 %
+ Ethidiumbromid in 1 x TAE-Puffer
+Agarosegel-Lösung
+1 % / 2 % (w/v)
+ Agarose
+Die Reinsubstanz wurde in 1 x TAE-Puffer gelöst und
+bei 60 °C gelagert.
+Material und Methoden
+ 35
+2.1.7.3 Lösungen für die Generierung chemisch kompetenter Bakterien
+Lösung I
+10100mmol/l
+mmol/l
+Lösung II
+10 mmol/l
+50 mmol/l
+15 % (v/v)
+RbCl2
+CaCl2 · 2 H2O
+Die Substanzen wurden in A. bidest gelöst und
+anschließend autoklaviert.
+RbCl2
+CaCl2 · 2 H2O
+Glycerin
+Die Substanzen wurden in A. bidest gelöst und
+anschließend autoklaviert.
+2.1.7.4 Lösungen für die klassische Miniprep
+P1 Puffer
+5010mmol/l
+mmol/l
+P2 Puffer
+0,11 %
+mol/l
+Tris (HCl: pH 8,0)
+EDTA
+Die Substanzen wurden in A. bidest. gelöst und bei
+Raumtemperatur gelagert.
+SDS
+NaOH
+Die Substanzen wurden erst unmittelbar vor dem
+Gebrauch in A. bidest gelöst. Falls die SDS-Stamm-
+lösung ausgefallen war, wurde sie vorher für 1 min in
+der Mikrowelle erwärmt.
+P3 Puffer
+Material und Methoden
+ 36
+3 mol/l
+Kaliumacetat (HCl: pH 4,8)
+Die Substanzen wurden in A. bidest. gelöst und bei
+Raumtemperatur gelagert.
+2.1.7.5 Lösungen für diverse Anwendungen
+Phosphatgepufferte Salzlösung (PBS, pH 7,4)
+8 g/l
+ NaCl
+0,2 g/l
+ KCl
+1,8 g/l
+ Dinatriumhydrogenphosphat
+0,24 g/l
+ Kaliumdihydrogenphosphat
+Die Substanzen wurden in A. bidest. gelöst und der
+Puffer bei Raumtemperatur gelagert.
+70%iger Ethanol
+70 %
+ Ethanol (99,8 %, unvergällt)
+Das Ethanol wurde mit A. bidest verdünnt und ggf. bei
+-20 °C gelagert.
+2.1.8 Nährmedien
+FlüssigLB-Medium
+10,50,5%
+%
+%
+LB-Agar
+1,5 % (w/v)
+Pepton
+Hefeextrakt
+NaCl
+Die Substanzen wurden in A. bidest. gelöst, auto-
+klaviert und bei 4 °C gelagert.
+Agar in flüssigem LB-Medium
+Die Lösung wurde autoklaviert und bei 4 °C lagert.
+Material und Methoden
+ 37
+Ampicillin-Lösung
+100 mg/ml
+X-Gal-Lösung
+2 % (w/v)
+Ampicillin
+Die Reinsubstanz wurde in A. bidest. gelöst und bei
+-20 °C gelagert. Die Lösung wurde im Verhältnis
+1:1.000 (100 μg/ml) zu flüssigem LB-Medium oder
+LB-Agar, kurz vor dem Gießen, zugesetzt.
+X-Gal
+Die Reinsubstanz wurde in 100 % Dimethylforamid
+gelöst und bei -20 °C gelagert. Die Lösung wurde im
+Verhältnis 1:500 (0,004 %) zu LB-Agar, zusammen mit
+der Ampicillin-Lösung, zugesetzt.
+2.1.9 Verbrauchsmittel
+Handelsname
+Einmal-Wägeschalen, groß
+Einmal-Wägeschalen, klein
+Einweg-Pasteurpipetten (graduiert)
+Küvetten (RNA/DNA) Uvette®
+Petrischalen, Gamma-sterilisiert
+Pipettenspitzen 10 μl
+Pipettenspitzen 10 μl (gestopft)
+Pipettenspitzen 200 μl
+Pipettenspitzen 200 μl (gestopft)
+Pipettenspitzen 1 ml
+Pipettenspitzen 1 ml (gestopft)
+Pipettenspitzen 5 ml
+Polypropylengefäß 15 ml
+Polypropylengefäß 50 ml
+Reagiergefäß 200 μl (PCR-Tube)
+Bezugsquelle
+Roth
+Roth
+Roth
+Eppendorf
+Roth
+Roth
+Sarstedt
+Sarstedt
+Sarstedt
+Sarstedt
+Roth
+Roth
+Sarstedt
+Sarstedt
+Sarstedt
+Bestellnummer
+2150.1
+2149.2
+EA62.1
+0030 106.300
+EN16.1
+2393.1
+70.1115.210
+70.760.002
+70.760.212
+70.762
+9773.1
+6946.1
+62.554.502
+62.547.254
+72.737
+Reagiergefäß 1,5 ml
+Reagiergefäß 2 ml
+Sekuroka®-Entsorgungsbeutel
+ssniff Chicken starter crumbs
+Sterilfilter (0,22 μm)
+Sterilindikatorband
+Sarstedt
+Sarstedt
+Roth
+ssniff
+Roth
+Roth
+Material und Methoden
+72.690
+72.695
+A195.1
+A009.1
+8221.1
+38
+2.1.10 Apparaturen und Hilfsmittel
+Name
+Agarose-Gelelektrophorese-Apparatur
+Autoklav DE45
+BioPhotometer
+Blockthermostat QBT4
+Feinwaage Explorer E10640
+Gasbrenner Gasprofi 1
+Glasgefäße (Kolben, Reagenz- & Bechergläser)
+HERAsafe® Sicherheitswerkbank Klasse 2
+Inkubationsschrank 37 °C
+Kühlschrank Liebherr Economy
+Kühlzentrifuge Biofuge fresco
+Magnetrührer ARE
+Mikrowelle 1026L
+Mikrozentrifuge Rapid
+Nichipet EX Pipetten (autoklavierbar)
+0,1-2,0 μl
+0,5-10 μl
+2-20 μl
+10-100 μl
+20-200 μl
+100-1000 μl
+1-5 ml
+Hersteller
+Eigenbau
+Systec
+Eppendorf
+Grant
+Ohaus
+WLD-TEC
+Universität Greifswald
+Heraeus
+Memmert
+Liebherr
+Heraeus
+VELP Scientifica
+Privileg
+LTF Labortechnik
+Nichiryo
+pH-Elektrode InLab® Routine Pro
+pH-Meter MP 220
+Skalpell
+Thermocycler TGradient
+Thermocycler TPersonal
+Tiefkühlschrank -20 °C
+Tiefkühlschrank -80 °C
+Trockenschrank 60 °C
+Ultra Turrax T8 & Dispergierstation T8.10
+UV/Weißlicht-Tisch NU-72
+Vacuum Concentrator 5301
+Vortex Mixer 2x3
+Material und Methoden
+ 39
+Mettler Toledo
+Mettler Toledo
+Universität Greifswald
+Biometra
+Biometra
+Liebherr
+Sanyo
+Memmert
+IKA Labortechnik
+Konrad Benda
+Eppendorf
+VELP Scientifica
+2.1.11 Lebewesen
+2.1.11.1
+ Mikroorganismen
+Escherichia coli DH5α (Hanahan, 1985)
+F– Φ80lacZΔM15 Δ(lacZYA-argF) U169 recA1 endA1 hsdR17 (rK–, mK+) phoA supE44 λ– thi-1 gyrA96 relA1
+2.1.11.2
+ Tiere
+Anas platyrhynchos
+Bezogen am ersten Lebenstag von der Duck-Tec Brüterei GmbH in Wriezen. Die
+Haltung erfolgte bei einem natürlichen Tag/Nacht-Rhythmus in Gemeinschafts-
+käfigen mit Einstreu und zeitlich getakteter Rotlichtbestrahlung. Die Tiere wurden
+mit antibiotikafreien Quick Starter Crumbs (2.1.9) und Frischwasser ad libitum
+aufgezogen.
+Material und Methoden
+ 40
+2.2 Methoden
+2.2.1 Behandlung der Enten und Präparation der Nasendrüsen
+40 Exemplare von Anas platyrhynchos wurden im Alter von 2 Wochen in 5 Gruppen
+aufgeteilt. Die Gruppen 1-2 umfassten je 8 Küken, die Gruppen 3-4 je 6 Küken und
+die 5. Gruppe stellte mit 12 Tieren die osmotisch unbelastete Kontrollgruppe dar.
+Unmittelbar vor dem Experiment wurde den Tieren für 6 Stunden das Trinkwasser
+entzogen, um einheitliche Stimulationskonditionen zu gewährleisten. Es folgte die
+Exposition
+ von
+ 1%iger
+ NaCl-Lösung
+ (entspricht
+ natürlichen
+ Brackwasser-
+bedingungen) für die Dauer von 6, 12, 24 und 48 Stunden. Die Kontrollgruppe
+bekam weiterhin normales Trinkwasser. Die Fütterung mit handelsüblichem
+Kraftfutter (2.1.9) blieb für alle Gruppen ad libitum bestehen.
+Nach Ablauf der jeweiligen Dauer der osmotischen Stimulation folgte die
+Schlachtung. Die Tiere wurden dekapitiert, die Kopfhaut entfernt und die nun
+freiliegenden Salzdrüsen wurden mit Hilfe einer Lysispuffer-Spritze (2.1.7.1) blutleer
+gespült, mit einer Schere herauspräpariert und von Bindegewebe befreit. Je eine
+Drüse der Tiere einer Gruppe kam in ein 2-ml Eppendorf-Gefäß mit 500 μl
+Lysispuffer für eventuelle Proteinextraktionen, die andere Drüse in ein
+Eppendorf-Gefäß mit 500 μl TRIzol-Reagenz (2.1.1) für RNA-Extraktionen. Die so
+nach Gruppen gepoolten Drüsengewebe wurden anschließend auf Eis in kleinere
+Stücke geschnitten und bei -80 °C eingefroren.
+2.2.2 RNA-Extraktion mittels TRIzol-Reagenz
+Aus den gewonnenen Proben (2.2.1) wurden je 100 mg Drüsengewebe abgewogen,
+mit 1 ml TRIzol-Reagenz versetzt und in 30 s Intervallen mit dem Ultra-Turrax auf Eis
+homogenisiert. Die erhaltene Suspension wurde anschließend 5 min bei
+Raumtemperatur inkubiert
+ um
+ den Nukleoproteinkomplex
+ vollständig zu
+dissoziieren. Nach Zugabe von Chloroform (200 μ/ml TRIzol; kräftig schütteln) und
+einer Inkubation für 3 min bei 30 °C erfolgte ein Zentrifugationsschritt (12.000 x g
+Material und Methoden
+ 41
+für 15 min bei 4 °C), der zu einer 3-Phasen-Trennung des Gemisches führte. Die
+RNA-haltige Phase (oberste, klare Phase) wurde entnommen und durch Zugabe von
+Isopropanol (500 μl/ initialem TRIzol-Volumen), 10-minütiger Inkubation bei Raum-
+temperatur und anschließender Zentrifugation (12.000 x g für 15 min bei 4 °C)
+präzipitiert. Der Überstand wurde verworfen und das RNA-Pellet wurde mit
+75%igem
+ Ethanol
+ (1 ml/ initialem TRIzol-Volumen)
+ gewaschen
+ und
+ erneut
+zentrifugiert (7.500 x g für 5 min bei 4 °C). Anschließend wurde der Überstand
+entfernt und das Pellet bei 37 °C inkubiert um die Restflüssigkeit zu verdampfen.
+Die Resuspension erfolgte mit 200 μl DEPC-behandeltem A. bidest bei 60 °C. Die so
+erhaltene RNA-Lösung wurde in eine neues, steriles 1,5 ml-Eppendorf-Gefäß
+überführt und bis zur weiteren Verwendung bei -20 °C weggefroren. Für die
+Konzentrationsbestimmungen mittels UV/Vis-Spektrometer (2.1.10) wurden 1:20
+und 1:40 Verdünnungen verwendet. Insgesamt wurden mit der TRIzol-Methode aus
+den gepoolten Gewebeproben jeweils drei RNA-Präparationen durchgeführt.
+2.2.3 Synthese von cDNA und Amplifikation ausgewählter Fragmente
+2.2.3.1 Reverse Transkription
+Die Reverse Transkriptions-Reaktion (RT-Reaktion) ermöglicht es aus mRNA-Proben
+oder RNA-Gemischen complementary DNA (cDNA) zu synthetisieren. Diese ist
+haltbarer als RNA und Voraussetzung für die Amplifikation durch DNA-abhängige
+DNA-Polymerasen, wie sie in der PCR (2.2.3.2) verwendet werden. Erzeugt wird die
+cDNA durch ein retrovirales Enzym, die Reverse Transkriptase.
+Aus den Gesamt-RNA Präparationen (2.2.2) wurden - entsprechend den jeweilig
+bestimmten Konzentrationen - solche Volumina gewählt, um eine Menge von
+100 ng RNA pro RT-Ansatz zu gewährleisten. Diese wurden mit 2,5 μl Oligo(dT)
+Primer (2.1.6) für semiquantitative Untersuchungen bzw. KPC-mRNA-spezifischem
+KpcR_Hind-Primer (2.1.6) für Fragmentkonstruktionen versetzt und auf ein
+Volumen von 13 μl mit A. bidest (DEPC) aufgefüllt. Um Sekundärstrukturen zu
+denaturieren wurde der Ansatz 10 min bei 70 °C inkubiert. Nach Zugabe von
+Material und Methoden
+ 42
+4 μl 5x RT-Reaktions-Puffer (2.1.2) und 2 μl dNTP-Mix (2.1.3) erfolgte die
+Hybridisierung (annealing) der Primer an die RNA-Matrize bei 37 °C für 5 min. Nach
+Zugabe der Moloney Murine Leukemia Virus Reverse Transcriptase (M-MuLV-RT;
+2.1.2) schloss sich eine 1-stündige Inkubation bei 42 °C an (elongation). Danach
+erfolgte die Inaktivierung der Reversen Transkriptase bei 70 °C für 10 min. Die
+Lagerung der generierten cDNA-Proben bis zur weiteren Verwendung erfolgte
+bei -20 °C.
+2.2.3.2 Polymerase-Kettenreaktion (PCR)
+Die polymerase chain reaction (PCR) ermöglicht die Amplifikation von DNA-
+Fragmenten in vitro. Als Matrize (template) dient präparierte DNA bzw. cDNA aus
+RT-Reaktionen. Eine thermostabile DNA-Polymerase aus thermophilen Bakterien
+(z.B. Taq) oder Archaeen (z.B. Pfu) wird dabei benötigt um die zyklischen
+Denaturierungsschritte unbeschädigt zu überstehen.
+Ein Reaktionsansatz umfasst das DNA-Template, flankierende 3'- und 5'-Primer,
+freie Nukleotide, Reaktionspuffer und MgCl2 sowie die DNA-Polymerase (2.1.2).
+Ein solcher 25-50 μl-Ansatz (siehe Tabelle 1 bis Tabelle 8) durchläuft im
+Thermocycler (2.1.10) zuerst eine initiale Denaturierungsphase bei 94 °C, in welcher
+der DNA-Doppelstrang aufgetrennt wird. Anschließend wird die Temperatur im
+Annealingschritt, je nach Schmelzpunkt der Primer, gesenkt um deren
+Hybridisierung an die DNA-Matrize zu gewährleisten. Im Elongationsschritt wird die
+Temperatur auf 72 °C erhöht, auf welcher die Polymerase optimal arbeitet und
+entsprechend der Primer den Gegenstrang synthetisiert. Dieser Zyklus verdoppelt
+theoretisch bei jedem Durchgang die Menge des Amplifikats (praktisch liegt der
+Faktor bei 1,6-1,7 [Mülhardt, 1999]), nach 40 Zyklen liegt somit die Menge des
+gewünschten Fragments theoretisch in einer billionenfachen Konzentration
+gegenüber dem Ausgangsprodukt vor. Bis zur Entnahme aus dem Thermocycler
+verbleibt die Probe bei 4 °C.
+Material und Methoden
+ 43
+Tabelle 1: β-Aktin-Amplifikation für semiquantitativen Vergleich (als Standard)
+β-Aktin (490 bp Amplifikat) 25 μl Ansatz
+Menge
+ Substanz
+ Programm
+2,5 μl
+ 10x Reaktionspuffer
+ Temperatur
+ Dauer
+2,5 μl
+ MgCl2
+ 95 °C
+ 3 min
+2,5 μl
+ β-Act_fw1 Primer
+ 95 °C
+ 0,5 min
+40
+2,5 μl
+ β-Act_rev1 Primer
+ 48 °C
+ 1 min
+Zyklen
+2,5 μl
+ cDNA-Template (Oligo-dT)
+ 72 °C
+ 1 min
+1 μl
+ dNTP-Mix
+ 72 °C
+ 10 min
+ad 25 μl
+ A. bidest
+ 4 °C
+ ∞
+0,7 μl
+ Taq-Polymerase
+Tabelle 2: Kip1-Amplifikation für Validierung der Ergebnisse von Rohlfing, 2007
+p27Kip1 (444 bp Amplifikat) 25 μl Ansatz
+Menge
+ Substanz
+ Programm
+2,5 μl
+ 10x Reaktionspuffer
+ Temperatur
+ Dauer
+2,5 μl
+ MgCl2
+ 95 °C
+ 3 min
+2,5 μl
+ Kip_fw1 Primer
+ 95 °C
+ 0,5 min
+40
+2,5 μl
+ Kip_rev1 Primer
+ 50 °C
+ 1 min
+Zyklen
+2,5 μl
+ cDNA-Template (Oligo-dT)
+ 72 °C
+ 1 min
+1 μl
+ dNTP-Mix
+ 72 °C
+ 10 min
+ad 25 μl
+ A. bidest
+ 4 °C
+ ∞
+0,7 μl
+ Taq-Polymerase
+Tabelle 3: Skp2-Amplifikation für semiquantitativen Vergleich
+Skp2 (478 bp Amplifikat) 25 μl Ansatz
+Menge
+ Substanz
+ Programm
+2,5 μl
+ 10x Reaktionspuffer
+ Temperatur
+ Dauer
+2,5 μl
+ MgCl2
+ 95 °C
+ 3 min
+2,5 μl
+ Skp_fw3 Primer
+ 95 °C
+ 0,5 min
+40
+2,5 μl
+ Skp_rev3 Primer
+ 50 °C
+ 1 min
+Zyklen
+2,5 μl
+ cDNA-Template (Oligo-dT)
+ 72 °C
+ 1 min
+1 μl
+ dNTP-Mix
+ 72 °C
+ 10 min
+ad 25 μl
+ A. bidest
+ 4 °C
+ ∞
+0,7 μl
+ Taq-Polymerase
+Material und Methoden
+ 44
+Tabelle 4: KPC1-Amplifikation für semiquantitativen Vergleich
+KPC1 (451 bp Amplifikat) 25 μl Ansatz
+Menge
+ Substanz
+ Programm
+2,5 μl
+ 10x Reaktionspuffer
+ Temperatur
+ Dauer
+2,5 μl
+ MgCl2
+ 95 °C
+ 3 min
+2,5 μl
+ Kpc_fw5 Primer
+ 95 °C
+ 0,5 min
+40
+2,5 μl
+ Kpc_rev5 Primer
+ 50 °C
+ 1 min
+Zyklen
+2,5 μl
+ cDNA-Template (Oligo-dT)
+ 72 °C
+ 1 min
+1 μl
+ dNTP-Mix
+ 72 °C
+ 10 min
+ad 25 μl
+ A. bidest
+ 4 °C
+ ∞
+0,7 μl
+ Taq-Polymerase
+Tabelle 5: PCR zur Amplifikation des ersten Viertels der KPC1-Sequenz
+KPC1 [1/4] (1051 bp Amplifikat) 50 μl Ansatz
+Menge
+ Substanz
+ Programm
+10 μl
+ 5x Reaktionspuffer
+ Temperatur
+ Dauer
+5 μl
+ KpcF_Sal2 Primer
+ 95 °C
+ 3 min
+5 μl
+ KpcR_BspH2 Primer
+ 95 °C
+ 1 min
+45
+5 μl
+ cDNA-Template (KpcR_Hind)
+ 50 °C
+ 1 min
+Zyklen
+2 μl
+ dNTP-Mix
+ 68 °C
+ 3 min
+ad 50 μl
+ A. bidest
+ 68 °C
+ 10 min
+1,2 μl
+ LongAmpTM
+-Polymerase
+ 4 °C
+ ∞
+Tabelle 6: PCR zur Amplifikation des zweiten Viertels der KPC1-Sequenz
+KPC1 [2/4] (1168 bp Amplifikat) 50 μl Ansatz
+Menge
+ Substanz
+ Programm
+10 μl
+ 5x Reaktionspuffer
+ Temperatur
+ Dauer
+5 μl
+ KpcF_BspH2 Primer
+ 95 °C
+ 3 min
+5 μl
+ KpcR_Sac Primer
+ 95 °C
+ 1 min
+45
+5 μl
+ cDNA-Template (KpcR_Hind)
+ 50 °C
+ 1 min
+Zyklen
+2 μl
+ dNTP-Mix
+ 68 °C
+ 3 min
+ad 50 μl
+ A. bidest
+ 68 °C
+ 10 min
+1,2 μl
+ LongAmpTM
+-Polymerase
+ 4 °C
+ ∞
+Material und Methoden
+ 45
+Tabelle 7: PCR zur Amplifikation des dritten Viertels der KPC1-Sequenz
+KPC1 [3/4] (1099 bp Amplifikat) 50 μl Ansatz
+Menge
+ Substanz
+ Programm
+10 μl
+ 5x Reaktionspuffer
+ Temperatur
+ Dauer
+5 μl
+ KpcF_Sac Primer
+ 95 °C
+ 3 min
+5 μl
+ Kpc_rev5 Primer
+ 95 °C
+ 1 min
+45
+5 μl
+ cDNA-Template (KpcR_Hind)
+ 50 °C
+ 1 min
+Zyklen
+2 μl
+ dNTP-Mix
+ 68 °C
+ 3 min
+ad 50 μl
+ A. bidest
+ 68 °C
+ 10 min
+1,2 μl
+ LongAmpTM
+-Polymerase
+ 4 °C
+ ∞
+Tabelle 8: PCR zur Amplifikation des vierten Viertels der KPC1-Sequenz
+KPC1 [4*/4] (1246 bp Amplifikat) 50 μl Ansatz
+Menge
+ Substanz
+ Programm
+5 μl
+ 10x Reaktionspuffer
+ Temperatur
+ Dauer
+5 μl
+ MgCl2
+ 95 °C
+ 3 min
+5 μl
+ Kpc_fw5 Primer
+ 95 °C
+ 1 min
+45
+5 μl
+ KpcR_Hind Primer
+ 50 °C
+ 1 min
+Zyklen
+5 μl
+ cDNA-Template (KpcR_Hind)
+ 72 °C
+ 3 min
+2 μl
+ dNTP-Mix
+ 72 °C
+ 10 min
+ad 50 μl
+ A. bidest
+ 4 °C
+ ∞
+1,2 μl
+ Taq-Polymerase
+2.2.4 Agarose-Gelelektrophorese
+Die gelelektrophoretische Auftrennung von Nukleinsäuren in einem Agarosegel
+ermöglicht sowohl Detektion und Größenbestimmung anhand eines Markers (DNA-
+Leiter, 2.1.3) als auch eine Reinigung von anderen, unerwünschten DNA/RNA-
+Fragmenten, übrig gebliebenen dNTPs oder anderen Bestandteilen des PCR-
+Ansatzes.
+Je nach Fragmentgröße wurde eine 1%ige (> 1 kb) oder eine 2%ige (< 1 kb)
+Agaroselösung
+ (2.1.7.2)
+ verwendet.
+ TAE-Puffer
+ (2.1.7.2)
+ diente
+ in
+ der
+Gelelektrophoresekammer dabei als Laufpuffer. Die DNA-Proben wurden mit 6x
+Probenpuffer (Loadingbuffer, 2.1.3) versetzt und entsprechend nach benötigtem
+Volumen (2-10 μl für Detektion, 10-20 μl für Extraktion) in die Geltaschen gegeben.
+Material und Methoden
+ 46
+Die Elektrophorese wurde zwischen 85-95 V durchgeführt. Das Gel wurde
+anschließend für 10-15 min in einem Bad mit Ethidiumbromidlösung (2.1.7.2)
+gefärbt, welches mit der DNA interkaliert und bei UV-Bestrahlung orangenes Licht
+emittiert. Anhand der Position der fluoreszierenden Banden aus der Probe in Bezug
+auf die DNA-Leiter mit bekannten Fragmentgrößen, kann die Größe des
+untersuchten Probenfragments abgeschätzt werden. Die Ergebnisse wurden digital-
+photographisch dokumentiert und die gewünschte DNA-Bande, sofern benötigt,
+extrahiert.
+2.2.5 DNA-Fragment Extraktion und Elution aus dem Gel
+Mit einem Skalpell (2.1.10) wurde die benötigte Bande möglichst ohne unnötigem
+Gelvolumen und möglichst schnell (geringere UV-Belastung um DNA-Schäden zu
+vermeiden) ausgeschnitten und in ein 1,5 ml Eppendorf-Gefäß gegeben. Um die
+DNA aus dem Gel zu reinigen wurde das Silica Bead DNA Gel Extraction Kit (2.1.4)
+von Thermo Scientific mit leicht verändertem Protokoll für mehr Ausbeute
+verwendet:
+17Das Gelstück wurde im Verhältnis 1:3 mit Binding Buffer versetzt und für
+mindestens 5 min bei 55 °C (oder bis das Gelstück komplett gelöst wurde) unter
+gelegentlichem Schwenken inkubiert. Anschließend wurde Glasmilch (Silica Powder
+Suspension17) in Volumina abhängig der eingesetzten DNA-Menge (zu < 2,5 μg DNA
+kamen 5 μl Glasmilch, für jedes weitere μg DNA kamen 2 μl Glasmilch hinzu)
+zugeführt und bei 55 °C 15 min inkubiert. Dabei wurde die Glasmilch abermals unter
+gelegentlichem Schwenken in Suspension gehalten. Mittels Mikrozentrifuge (2.1.10)
+wurden die Silica Beads mit der assoziierten DNA pelletiert und in 500 μl eiskaltem
+Washing Buffer17 (ethanolhaltig) resuspendiert. Dieser Waschschritt wurde 3 mal
+wiederholt und nach finaler Zentrifugation wurde das Pellet 15 min bei 37°C
+getrocknet um letzte Ethanolreste zu verdunsten. Eluiert wurde die DNA 2 mal mit
+20 μl A. bidest für je 5 min bei 55 °C. Gegebenenfalls erfolgte noch eine weitere
+Zentrifugation um restliche Silica Beads zu entfernen.
+17
+Kit-interne Reagenz; keine genauen Angaben möglich
+Material und Methoden
+ 47
+Das Endvolumen betrug in der Regel 32-37 μl wovon 2 μl zur Kontrolle nochmals
+eine Agarose-Gelelektrophorese durchliefen.
+2.2.6 Generierung eines Vektors (pKS) mit dT-Überhang
+Vektoren, präziser Plasmide, werden benutzt um einklonierte DNA-Fragmente zu
+exprimieren oder in vivo zu amplifizieren. Das hier verwendete Plasmid pBluescript®
+II KS(-) (pKS; 2.1.5) ist ein bakterielles Multicopy-Plasmid und eignet sich dazu, das
+in die multiple cloning site (MCS) einklonierte DNA-Insert in E. coli durch autonome
+Replikation seiner selbst zu vervielfältigen, ohne die Sequenzinformation zu
+exprimieren. Dazu besitzt es einen origin of replication (ORI), ein Ampicillin-
+resistenz-Gen (Amp, β-Lactamase) für die Selektion auf plasmidtragende Bakterien
+und ein Gen für das α-Fragment der β-Galaktosidase nahe der MCS, um eine
+erfolgreiche Insertion der einzuklonierenden DNA festzustellen (siehe Blau-Weiß-
+Screening, 2.2.9).
+Die Taq-Polymerase produziert selten blunt ends. Je nach 5'-Nukleotid des Primers
+hängt sie mit gewisser Wahrscheinlichkeit ein zusätzliches Nukleotid, meist ein
+Adenosin, an das 3'-Ende des Amplifikats an (Clark, 1988; Hu, 1993). Dies lässt sich
+mit der TA-Klonierung nach Marchuck et al. (1991) nutzen, denn sticky ends, auch
+wenn sie nur eine Base Überhang haben, besitzen eine höhere Ligationseffizienz als
+blunt ends. Dazu ist es nötig einen Vektor mit Thymidin-Überhang zu generieren:
+Durch SpinPrepTM (siehe 2.2.10.2) gewonnenes pKS wurde einmalig innerhalb der
+MCS mit der Restriktionsendonuklease EcoRV (blunt end-Generierung) linearisiert.
+Dazu wurde 15 μl pKS, 5 μl 10x Puffer "red" (2.1.2), 28 μl A. bidest und 2 μl EcoRV in
+einem 50 μl Ansatz 2 h bei 37 °C inkubiert, im Gel aufgetrennt und mittels Kit (siehe
+2.2.5) extrahiert. Das Plasmid-Eluat (33 μl) wurde anschließend mit 5 μl 10x Taq-
+Puffer, 5 μl MgCl2 (25 mM), 1 μl dTTP (10 mM), 1 μl Taq-Polymerase und 5 μl
+A. bidest auf 50 μl aufgefüllt und für 2 h bei 72 °C im Thermocycler inkubiert. Erneut
+folgte die Reinigung über Gelelektrophorese mit anschließender Elution per Kit.
+Material und Methoden
+ 48
+2.2.7 Ligation
+Bei der Ligation werden die 3'-Hydroxy-Enden mit den 5'-Phosphat-Enden zweier
+Nukleinsäure-Stränge durch die enzymkatalysierte Bildung einer Phosphordi-
+esterbindung miteinander verknüpft. Als Enzym verwendet man eine Ligase, für
+gewöhnlich die T4 DNA-Ligase aus dem T4-Phagen.
+Mit Hilfe der Ligationsreaktion wurden DNA-Fragment (2.2.5) und Vektor (2.2.6)
+miteinander verbunden (ligiert), wodurch der Vektor erneut zirkulär vorlag und sich
+somit selbst, nach Transformation (siehe 2.2.8), in vivo replizieren konnte. Dazu
+wurde in der Regel ein 20 μl Ansatz aus 14 μl DNA-Fragment, 3 μl pKS (dT-
+Überhang), 2 μl 10x Ligationspuffer (2.1.2) und 1 μl T4-Ligase zusammenpipettiert
+und über Nacht auf Eis inkubiert. Die optimale Ligationseffizienz erreicht man bei 3-
+bis 5-fachen Überschuss an Fragment-DNA im Verhältnis zum Vektor (Mülhardt,
+1999).
+2.2.8 Chemische Transformation kompetenter Bakterienstämme
+Die Aufnahme von freier DNA in eine Bakterienzelle bezeichnet man als
+Transformation. Allerdings können die meisten Bakterien, wie E. coli, gar nicht oder
+nur in begrenztem Umfang DNA aufnehmen (Kompetenz). Durch eine chemische
+Vorbehandlung (z.B. Calciumchlorid-Methode) kann ihre Kompetenz gesteigert
+werden.
+Für die Transformation wurden bereits fertig-aliquotierte, kompetente E. coli DH5α-
+Zellen verwendet. Im Folgenden daher exemplarisch das Protokoll für die
+Herstellung chemisch kompetenter Zellen nach der Rubidiumchlorid-Methode:
+500 ml LB-Medium (2.1.8) werden mit 5 ml einer DH5α-Übernachtkultur beimpft
+und bei 37 °C unter Schütteln inkubiert, bis die Kultur eine OD595 nm von 0,6 besitzt.
+Alle folgenden Schritte werden auf Eis durchgeführt. Die Kultur wird in ein steriles
+Zentrifugiergefäß überführt und für 15 min bei 4.000 x g und 4 °C zentrifugiert. Das
+Pellet wurde in 50 ml kalter Lösung I (2.1.7.3) resuspendiert und anschließend auf
+Eis für 20 min inkubiert. Nachdem der vorherige Zentrifugationsschritt wiederholt
+Material und Methoden
+ 49
+wurde, erfolgte eine Resuspension des Pellets in 8 ml kalter Lösung II (2.1.7.3) mit
+anschließender Aliquotierung. Die Zellen wurden bis zum Gebrauch bei -80 °C
+gelagert.
+Für die eigentliche Transformation wurden 90 μl der kompetenten E. coli Bakterien
+zu 10 μl des Ligationsansatzes pipettiert, gemischt und auf Eis für 30 min inkubiert,
+damit sich die freie DNA an die äußere Membran der Bakterienzellen anlagern kann.
+Anschließend erfolgte der Hitzeschock bei 37 °C für 5 min, bei dem die DNA, in
+einem noch immer nicht im Detail geklärten Prozess, von den Zellen aufgenommen
+wird. Danach erfolgte eine 2 minütige Kühlung auf Eis und eine 10 minütige
+Akklimatisierung bei Raumtemperatur. Als nächstes wurden 900 μl frisches LB-
+Medium hinzupipettiert und der Ansatz unter Schütteln bei 37 °C für 30-40 min
+inkubiert. Nach der Erholungsphase erfolgte die Ausplattierung auf X-Gal-haltigen
+LB-Amp-Platten (2.1.8) und die Inkubation bei 37 °C über Nacht.
+2.2.9 Blau-Weiß-Screening
+Die Blau-Weiß-Selektion beruht auf dem Mechanismus der α-Komplementierung
+(Ullmann & Perrin, 1970). E. coli codieren mit ihrem lacZ-Gen die Information für die
+β-Galaktosidase, welches nur als Homotetramer funktional ist. Für die
+Assemblierung der Untereinheiten ist eine kleine Region von unter 30 bp im N-
+terminalen Bereich des Proteins zuständig. Entfernt man diese Region (Genotyp:
+lacZΔM15), gibt es keine Enzymaktivität. Durch Einführung des fehlenden
+Polypeptids (α-Fragment) kann das β-Galaktosidase-Peptid komplementiert und
+aktiviert werden.
+Plasmide, wie pKS, besitzen nahe der MCS das Gen für das α-Fragment (lacZ_α). Bei
+einer erfolgreichen Insertion von DNA-Molekülen in die MCS wird das α-Fragment
+nicht mehr exprimiert (mögliche Stopp-Codons, Leserasterverschiebung, etc.), die
+α-Komplementation bleibt aus (Messing, 1983).
+Vorhandene β-Galaktosidase-Aktivität wird durch den Farbstoff X-Gal (2.1.1)
+ermittelt, welcher dem Medium zugesetzt wird. Dieser wird durch das Enzym zu
+Material und Methoden
+ 50
+Galactose und 5-Brom-4-chlor-indoxyl hydrolysiert, welches durch Sauerstoff
+wiederum zu dem blauen Farbstoff 5,5'-Dibrom-4,4'-dichlor-indigo oxidiert wird.
+Folglich entstehen blaue Bakterienkolonien. Findet die α-Komplementierung nicht
+statt, weil es zu einer erfolgreichen DNA-Insertion in den Vektor kam, verbleibt die
+Kolonie weiß.
+Es wurde somit auf den Platten (2.2.8) nach weißen Kolonien selektiert, die in
+Röhrchen mit 3,5 ml frischem LB-Amp-Medium (2.1.8) überimpft wurden und über
+Nacht bei 37 °C inkubierten.
+2.2.10 Präparation von Plasmid-DNA
+2.2.10.1
+ Klassische Miniprep und anschließender RNA-Verdau
+Von der Kultur (2.2.9) wurden 1,5 ml in ein Eppendorf-Gefäß gegeben und für 1 min
+bei 16.000 x g abzentrifugiert. Der Überstand wurde verworfen und das Pellet in
+200 μl P1-Puffer (2.1.7.4) resuspendiert. Anschließend wurde 400 μl P2-Puffer
+(2.1.7.4) für die alkalische Lyse der Zellen hinzugegeben und invertiert, bis sich die
+Lösung aufklärte. Dabei wurde die maximale Inkubationszeit von 5 min nicht
+überschritten, um Schäden an der DNA-Struktur zu vermeiden. Die Lyse wurde
+durch Zugabe von 300 μl P3-Puffer (2.1.7.4) gestoppt und nach mehrmaligen
+Schwenken für 10 min auf Eis gestellt, um Proteine und Membranbestandteile zu
+fällen. Im darauffolgenden Zentrifugationsschritt (15 min bei 16.000 x g und 4 °C)
+werden diese sedimentiert und der Nukleinsäure-haltige Überstand wird in ein
+neues Eppendorf-Gefäß überführt. Anschließend wird die Lösung mit 600 μl
+Isopropanol versetzt und nach mehrmaligen Invertieren für mindestens 15 min bei
+Raumtemperatur inkubiert, um die Nukleinsäure zu fällen. Der vorherige
+Zentrifugationsschritt wird wiederholt, der Überstand verworfen und das
+Nukleinsäure-Pellet wird vorsichtig mit 400 μl 70%igem Ethanol gewaschen.
+Abermals erfolgt eine Zentrifugation bei 16.000 x g und 4 °C für 5 min mit
+anschließender Trocknung des Pellets im Vacuum Concentrator (auch bekannt als
+SpeedVacTM, 2.1.10) für 2-5 min und bei 45 °C um einer Vereisung der Probe durch
+Material und Methoden
+ 51
+Verdunstungskälte zu verhindern. Das getrocknete Pellet wurde anschließend in
+40 μl A. bidest resuspendiert.
+Bevor die Kontrolle der Miniprep durch eine Agarose-Gelelektrophorese erfolgte,
+wurde die RNA verdaut, um unerwünschte Hintergrundsignale zu beseitigen. Dazu
+wurden 2 μl der Plasmid-Präparation mit A. bidest auf 10 μl aufgefüllt und mit 0,5 μl
+RNase A (2.1.2) versetzt. Die Degradation der RNA erfolgte bei 37 °C für 15 min.
+2.2.10.2
+ Miniprep mittels Kit via Säulen-Elution (SpinPrepTM)
+Da bei der klassischen Miniprep das DNA-Pellet mit RNA versetzt ist sowie Reste von
+Proteinen und Salzen aufweist, wurden die Plasmide von vielversprechenden
+Klonen mit dem GenEluteTM Plasmid Miniprep Kit (2.1.4) von Sigma-Aldrich nach der
+Säulen-Technik gewonnen. Diese Methode ähnelt der DNA-Elution mittels Silica
+Beads (2.2.5), mit dem Unterschied, dass das Silikat nicht in Form von Kugeln
+vorliegt, sondern als Membran in spezielle, zentrifugierbare Säulchen eingearbeitet
+ist.
+Der Rest der Kultur (2.2.9, ggf. erfolgte weiteres Wachstum durch Zugabe von
+neuem Medium mit anschließender Inkubation) wurde in einem 2 ml Eppendorf-
+Gefäß quantitativ abzentrifugiert (zweimal 16.000 x g für 1 min und 4 °C) und das
+Pellet mit 200 μl Resuspension Solution18 (RNase-haltig) resuspendiert. Es folgte
+durch Zugabe von 200 μl Lysis Solution18 die alkalische Lyse der Zellen. Die
+Suspension wurde geschwenkt, bis sie sich klärte, jedoch nicht länger als 5 min. Um
+die Reaktion zu stoppen wurde 350 μl Neutralization Solution18 hinzugegeben und
+das Reagiergefäß leicht invertiert. Anschließend wurde die präzipitierten
+Bestandteile durch Zentrifugation für 10 min bei 12.000 x g und 4 °C pelletiert.
+Parallel dazu wurde eines der mitgelieferten 2 ml-Tubes mit einer Binding Column
+versehen und durch Zugabe von 500 μl Column Preparation Solution18 und
+anschließender Zentrifugation für 1 min bei 12.000 x g und 4 °C für die Bindung der
+Plasmid-DNA vorbereitet. Der Durchfluss wurde verworfen und der Überstand des
+18
+Kit-interne Reagenz; keine genauen Angaben möglich
+Material und Methoden
+ 52
+Lysats wurde in das Säulchen pipettiert. Durch Zentrifugation für 1 min bei
+12.000 x g und 4 °C erfolgte die Anreicherung der Plasmide in der Silikatmatrix der
+Säule, der Durchfluss wurde verworfen. Danach folgten die Waschschritte mit
+500 μl Optional Wash Solution18 und 750 μl Wash Solution18 jeweils mit
+anschließender Zentrifugation, wie bereits dargestellt. Nachdem das Säulchen noch
+einmal für 2 min bei maximaler Drehzahl trockenzentrifugiert wurde, kam es in ein
+neues 2 ml Eppendorf-Gefäß und es folgten zwei Elutionsschritte mit 40 und 20 μl
+A. bidest durch Zentrifugation für 1 min bei 12.000 x g und 4 °C. Das aufgefangene
+Plasmid-Eluat wurde bei -20 °C weggefroren.
+2.2.11 Kontrollspaltung
+Sofern die Plasmid-Präparationen, nach gelelektrophoretischer Auftrennung,
+Inserte plausibler Größe offenbarten, wurden diese mit ihren Primern
+entsprechenden oder allgemeinen (EcoRI / HindIII) Restriktionsendonukleasen
+gespalten, um ihre Größe genauer zu bestimmen.
+Dazu wurden 2 μl der präparierten Plasmide mit A. bidest auf 8 μl aufgefüllt, mit
+1 μl des entsprechenden Restriktionspuffers (2.1.2; für EcoRI / HindIII Puffer "red")
+und je 0,5 μl der Restriktionsenzyme versetzt und anschließend für 1-2 h bei 37 °C
+inkubiert. Eine weitere Gelelektrophorese folgte.
+Bei Spaltungen mit inkompatiblen Restriktionskonditionen, wie unterschiedlich
+konzentrierte Puffer oder andere Temperaturoptima, wurden sequenzielle Verdaue
+durchgeführt. Dabei wurde mit dem Enzym begonnen, welches geringere
+Pufferkonzentrationen bzw. geringere Temperaturen benötigte und nach
+Inkubation dann das andere Enzym inklusive höher konzentriertem Puffer
+hinzupipettiert.
+Material und Methoden
+ 53
+2.2.12 Sequenzierung
+Wenn auch die Kontrollspaltung (2.2.11) auf eine Insertgröße hinwies, welche mit
+der theoretischen Größe übereinstimmte, wurden 20 μl der entsprechenden
+Plasmid-Präparation (nur SpinPrep-Isolate, 2.2.10.2) in ein neues 1,5 ml Eppendorf-
+Gefäß pipettiert und per Spezialumschlag (ungekühlt) mit der Post zur externen
+Sequenzierung geschickt.
+Dies übernahm die LGC Genomics GmbH, welche die Proben nach einer modernen
+Form der Sanger-Methode sequenzierte. Die Primer wurden so gewählt, dass sie die
+MCS flankierten. Die Vorbereitung der Proben für die Sequenzierungsreaktion
+wurde von LGC Genomics durchgeführt ("Flexi Run" Service19).
+Die Interpretation und Auswertung der Ergebnisse erfolgte durch den Abgleich mit
+der Datenbank des NCBI20 unter der Verwendung des Basic Local Alignment Search
+Tool (BLAST; nach Altschul et al., 1997).
+19
+Leistungsbroschüre:
+http://www.lgcgroup.com/LGCGroup/media/PDFs/services/DNA%20sequencing/single-sample-
+sequencing-data-sheet.pdf?ext=.pdf
+20
+National Center for Biotechnology Information
+http://www.ncbi.nlm.nih.gov/
+Ergebnisse
+ 54
+3. Ergebnisse
+3.1 Semiquantitative mRNA-Abundanz Untersuchungen
+Im Zuge dieser Arbeit wurden Verläufe der mRNA-Kinetik von p27KIP1, Skp2 und
+KPC1 in naiven Entennasendrüsen bei 1%iger NaCl-Exposition nach 6, 12, 24 und 48
+Stunden, sowie aus einer unstimulierten Kontrollgruppe (K), durch einen
+semiquantitativen Ansatz untersucht (2.2.1-2.2.4). Dazu wurde der Gesamt-RNA-
+Gehalt der Proben photometrisch (OD260/280) ermittelt, um ein einheitliches Niveau
+für die PCR zu gewährleisten. Die Validierung erfolgte durch das housekeeping gene
+des β-Aktins, von dem ausgegangen wird, dass es seine Transkription im Verlauf des
+Zellzyklus nicht signifikant ändert (Thellin et al., 1999). Es wurden insgesamt drei
+RNA-Präparationen durchgeführt, von denen jede mindestens einmal mit der
+Amplifikation eines 490 bp großen Fragments aus der β-Aktin-cDNA kontrolliert
+wurde (Abbildung 10).
+Abbildung 10: β-Aktin Kontrolle
+Gezeigt sind die Aufnahmen der Gelelektro-
+phoresen des β-Aktin Amplifikats aller drei
+RNA-Präparationen (A), (B) und (C).
+Ein Ausschnitt von 1000-300 bp ist jeweils
+dargestellt. In der linken Spur befindet sich
+als Marker (M) die 100 bp DNA Leiter
+(2.1.3). Die 500 bp Bande ist rot markiert.
+In der zweiten Spur befindet sich die Probe
+der osmotisch unbelasteten Kontrollgruppe
+(K). Die weiteren Spuren zeigen die übrigen
+Gruppen nach 6, 12, 24 und 48 stündiger
+hypertonischer Belastung durch 1%ige
+Salzlösung als Trinkwasser.
+Das amplifizierte β-Aktin Fragment besitzt
+eine theoretische Größe von 490 bp und
+läuft somit knapp unter der markierten
+500 bp Bande. (A) und (B) wurden bei einer
+Annealing-Temperatur von 45 °C, (C) bei
+48 °C durchgeführt. Die Taq-Polymerase
+kam bei allen β-Aktin PCRs zum Einsatz.
+Bei (A) und (B) sind teilweise starke
+Verzerrungen des Gels zu erkennen. Bei (C)
+wurde sowohl die PCR, als auch die Gel-
+elektrophorese optimiert.
+Ergebnisse
+ 55
+Wie in Abbildung 10 zu erkennen ist, konnten weder eine zeitliche β-Aktin-mRNA
+Kinetik während der Salzexposition, noch Unterschiede im Vergleich mit der
+Kontrollgruppe festgestellt werden. Wie erwartet ist die Translation des β-Aktin
+Gens von den gegebenen Umständen unbeeinflusst und kann somit als Standard für
+semiquantitative Vergleiche von mRNA-Abundanzen, der zu untersuchenden
+Proteine, eingesetzt werden.
+Bei 10.C konnte durch Erhöhung der Annealing-Temperatur um 3 °C und eine
+veränderte Spannung während der Gelelektrophorese, und damit verbessertem
+Laufverhalten, die Qualität der Bandensignale optimiert werden.
+3.1.1 p27KIP1-mRNA Abundanz
+Rohlfing et al. (2005) haben gezeigt, dass die p27KIP1-Regulation nicht oder nicht-
+signifikant auf mRNA-Ebene (über Transkription oder mRNA-Stabilität) erfolgt. Diese
+Erkenntnis wurde noch einmal überprüft (Abbildung 11).
+KIP1
+Abbildung 11: p27 -mRNA-Kinetik
+Gezeigt sind die Gelelektrophoresebilder
+KIP1
+der durchgeführten p27 -Amplifikationen
+aus RNA-Präparation #1 (A) und #2 (B).
+Ein Ausschnitt von 1000-300 bp ist jeweils
+dargestellt. In der linken Spur befindet sich
+als Marker (M) die 100 bp DNA Leiter
+(2.1.3), rot markiert ist die 500 bp Bande.
+Die Aufteilung der Spuren verhält sich wie
+in Abbildung 10.
+Das amplifizierte Fragment besitzt eine
+theoretische Größe von 444 bp und läuft
+somit mittig zwischen der markierten
+500 bp und der darunterliegenden 400 bp
+Bande. Die Annealing-Temperatur betrug
+50 °C, verwendet wurde die Taq-Poly-
+merase.
+Bei (A) traten starke Verzerrungen im Gel
+auf, bei (B) wurde daraufhin die Gelelektro-
+phorese optimiert.
+Es ist in Abbildung 11 ersichtlich, dass keine erkennbare mRNA-Kinetik vorliegt. Die
+Ergebnisse von Rohlfing et al. (2005) konnten somit bestätigt werden. Da es somit
+Ergebnisse
+auch zu keinen Widersprüchen zur bestehenden Theorie über die p27 KIP1-Regulation
+(1.2.3) kommt, wurde auf eine dritte Überprüfung mithilfe der RNA-Präparation #3
+verzichtet.
+56
+3.1.2 Skp2-mRNA Abundanz
+Es sind eine Reihe von Transkriptionsfaktoren bekannt (u.a. GABP, E2F1, NF-κB,
+CBF1), die im Promotorbereich von Skp2 binden können. Auch geht eine Skp2-
+Überexpression mit schlechten Prognosen in Tumoren einher. Allerdings scheint die
+hauptsächliche Regulation auf posttranslationaler Ebene, durch Proteinstabilität,
+Proteinaktivität und subzellulärer Lokalisation, zu erfolgen (Chan et al., 2010).
+Es wurde im Folgenden untersucht, ob eine Regulation auf mRNA-Ebene für die
+adaptive Proliferation der Entennasendrüsen durch hyperosmotische Belastung
+erkennbar ist (Abbildung 12).
+Abbildung 12: Skp2-mRNA-Kinetik
+Gezeigt sind die Gelelektrophoresebilder
+ausgewählter Skp2-Amplifikationen aus den
+RNA-Präparationen #1 (A) und #2 (B).
+Die Art der Darstellung verhält sich wie bei
+den vorangegangenen Abbildungen.
+Das amplifizierte Fragment besitzt eine
+theoretische Größe von 478 bp und läuft
+daher knapp unter der rot markierten
+500 bp Bande. Die Annealing-Temperatur
+betrug 50 °C, als Enzym wurde die Taq-Poly-
+merase verwendet.
+Insgesamt wurden siebzehn Skp2-PCRs durchgeführt. Die ersten Versuche mit alten
+Primern (abgeleitet aus den bekannten DNA-Sequenzen von nahen Verwandten der
+Ente) führten zu verschmierten, multiplen Bandenmustern. Erst mit der
+vollständigen Sequenzierung des Enten-Genoms durch Huang et al. (2013), konnten
+nun passendere Primer konstruiert werden, die eindeutige und diskrete
+Ergebnisse
+ 57
+Bandensignale ermöglichten. Weitere Optimierung des PCR-Protokolls lieferte
+reproduzierbare Ergebnisse, wie in Abbildung 12, dargestellt.
+Dort ist zu erkennen, dass es ebenfalls keine offensichtliche Skp2-mRNA-Kinetik
+durch osmotische Stimulation zu geben scheint, obwohl der Transkriptionsfaktor
+GABP beispielsweise selbst zellzyklusabhängig ist (Chan et al., 2010). Um
+sicherzustellen, dass es zu keinen Sättigungseffekten in der PCR kommt, wurden
+Proben schon nach 30 Zyklen entnommen und jeweils mit ihren vollständigen
+Durchläufen (40 Zyklen) verglichen (Abbildung 13).
+Abbildung 13: Sättigungsüberprüfung Skp2-PCR
+Gezeigt sind die Bilder einer Skp2-Amplifikation aus RNA-Präparation #1 nach 30 Zyklen (A) und 40
+Zyklen (B). Ein Bereich von 1000 bis <100 bp ist dargestellt, zur Beschriftung vgl. Abbildung 12.
+Man kann sehen, dass es zu keinen Sättigungseffekten bei 40 Zyklen gekommen ist.
+Die leichten Unterschiede in den Bandenintensitäten bei 30 Zyklen wurden durch
+den vollständigen Durchlauf sogar eher verstärkt, was durch die exponentielle
+Vervielfältigung bedingt wird.
+Die geringere Intensität der 12 h-Bande kann durch Probleme im Reagiergefäß
+während der PCR zurückgeführt werden. Die ausgeprägtere "Wolke", unten im
+zweistelligen Größenbereich, ist ein Indiz dafür.
+Die Sättigungsüberprüfung wurde insgesamt an zwei Skp2-PCRs durchgeführt, mit
+ähnlichem Ergebnis.
+Ergebnisse
+ 58
+3.1.3 KPC1-mRNA Abundanz
+Durch induzierte Rückenmarksschädigung bei Ratten konnten Zhao et al. (2011)
+zeigen, dass die Menge an KPC1 vor allem in Astrocyten zunimmt (damit
+einhergehend auch die p27 KIP1-Konzentration abnimmt). Die dabei verwendeten
+Methoden21 beschränken sich jedoch auf die Ebene der Proteine, über mRNA-
+Niveaus wurden keine Aussagen getroffen.
+Frühere Arbeiten unserer Arbeitsgruppe, mit dem Ziel KPC1 als Protein in der
+Nasendrüse nachzuweisen, scheiterten an der geringen Spezifität der eigens dafür
+hergestellten Kaninchen-Antikörper22 (Opitz, 2010).
+In dieser Arbeit sollte daher der endgültige Nachweis der Existenz von KPC1-mRNA
+und dessen mögliche zeitliche Kinetik unter andauernder Salzexposition in
+Entennasendrüsen erbracht werden. Ähnlich wie bei Skp2, waren auch bei KPC1
+langwierige PCR-Optimierungen sowie neue, entenspezifische Primerkonstrukte
+notwendig, um reproduzierbare Bandensignale zu erhalten (Abbildung 14).
+Abbildung 14: KPC1-mRNA-Kinetik
+Gezeigt sind die Bilder ausgewählter Ampli-
+fikationen von KPC1 aus RNA-Präparation
+#1 (A) und #3 (B).
+Siehe vorherige Bilder für die Erklärung der
+Beschriftung.
+Das amplifizierte Fragment besitzt eine
+theoretische Größe von 451 bp und läuft
+daher mittige zwischen der rot markierten
+500 bp und der darunterliegenden 400 bp
+Bande. Die Annealing-Temperatur betrug,
+wie bei Skp2, 50 °C. Ebenfalls wurde die
+Taq-Polymerase eingesetzt.
+21
+Western-Blots, Immunpräzipitation, Immunfluoreszenz und weitere Immunhistochemie.
+22
+Aufgrund der damals nicht gegebenen Verfügbarkeit kommerzieller Antikörper.
+Ergebnisse
+ 59
+Aus der Abbildung geht hervor, dass auch bei KPC1 keine signifikanten Unterschiede
+festzustellen sind. Bei der 24 h-Bande von 14.A kam es vermutlich durch eine
+fehlerhafte PCR zu keiner effektiven Amplifikation und ist daher als Ausfall zu
+betrachten. Die geringere Intensität der Kontrollgruppen-Bande bei 14.B scheint
+ebenfalls ein technisch bedingter Ausreißer zu sein, der in anderen Aufnahmen (u.a.
+14.A) nicht reproduziert werden konnte.
+Zusammenfassend konnte also festgestellt werden, dass die p27KIP1-, Skp2- und
+KPC1-mRNA in den Nasendrüsen der Ente präsent ist. Es gibt jedoch keine
+signifikanten Unterschiede in ihren Abundanzen während der adaptiven
+Proliferation durch osmotische Belastung.
+PCR-bedingte Sättigungsphänomene wurden bei Skp2 ausgeschlossen. Es wäre
+unplausibel, wenn dies für KPC1 nicht ebenfalls gelten würde.23 Ferner kann auch
+die Auswirkung einer eventuellen Verunreinigung der RNA-Präparationen durch
+chromosomale DNA ausgeschlossen werden, da sämtliche Primerpaare so gewählt
+wurden, dass ihre Amplifikate Intron/Exon-Grenzen überschreiten. Dies würde zu
+eklatanten Abweichungen von den theoretischen Fragmentgrößen führen, die
+teilweise mit der 1-minütigen Synthesephase der PCR-Programme nicht vereinbar
+wären.
+23
+Bei KPC1 wurde auf diese Überprüfung verzichtet, da die Banden sowohl in Laufweite
+(Amplifikatgröße) als auch in Intensität mit denen von Skp2 vergleichbar sind. Zudem wurde für die
+Synthese der zu klonierenden KPC1-Fragmente die Zyklenzahl teilweise sogar auf bis zu 47 erhöht,
+um die Ausbeute zu steigern. Erst bei 48 Zyklen stellte sich ein Sättigung ein.
+Ergebnisse
+ 60
+3.2 Konstruktion und Klonierung von KPC1-Fragmenten
+Um zukünftige, proteinbasierte Untersuchungen über KPC1 zu ermöglichen, wurde
+Vorarbeit zu dessen rekombinanter Expression in Zuge dieser Arbeit geleistet. Dazu
+sollte die amplifizierte DNA-Version des Transkripts in den Vektor pKS (2.1.5)
+kloniert werden. Versuche das Transkript als Ganzes zu amplifizieren, scheiterten an
+dessen enormer Größe (~4 kb). Versuche das Transkript in zwei Hälften zu
+amplifizieren, schlugen bei der ersten Hälfte fehl und bei der zweiten Hälfte war die
+Ausbeute für eine Klonierung nicht angemessen. Mittels semi-nested PCRs wurde
+versucht die Fragmentmenge zu erhöhen, allerdings führten diese zu einer
+Multimerisierung der DNA. Schließlich wurde versucht das Transkript in vier Teilen
+(je 1,1-1,2 kb; siehe Anhang I) zu amplifizieren. Nach langwieriger Anpassung24 der
+Primer (2.1.6), der Polymerasen (2.1.2) und des PCR-Protokolls (2.2.3.2) konnten die
+Fragmente in gewünschter Menge synthetisiert werden. Das Gelelektrophoresebild
+einer solchen PCR ist beispielhaft in Abbildung 15 dargestellt.
+Abbildung 15: Produktive Fragmentsynthese
+Gezeigt ist das Bild einer PCR mit 50 μl
+Ansätzen von KPC1 [1/4] und [3/4], jeweils auf
+3 Spuren aufgetragen. Der Abschnitt zeigt die
+komplette 2-log DNA Leiter (2.1.3), bei der die
+1000 bp Bande rot markiert wurde.
+KPC1 [1/4] (blau markiert) läuft mit 1051 bp,
+ebenso wie KPC1 [3/4] (gelb markiert) mit
+1099 bp, zwischen der roten 1000 bp und der
+darüber liegenden 1200 bp Bande.
+Weitere Banden deuten auf unspezifische
+Primerhybridisierungen, vervielfältigte Bruch-
+stücke oder sonstige Artefakte hin. Diese
+schmälern ebenfalls die Ausbeute des
+erwünschten Fragments.
+Die gewonnenen Fragmente wurden extrahiert (2.2.5) und in den Vektor pKS ligiert
+(2.2.7). Dies stellte sich als ungewöhnlich schwierig heraus und es wurden
+vielzählige Versuche unternommen die Ligationseffizienz zu steigern. Tabelle 9 zeigt
+einen Überblick.
+24
+Insgesamt wurden zur Gewinnung der KPC1-Fragmente über 42 PCRs durchgeführt.
+Ergebnisse
+ 61
+Tabelle 9: Überblick der angewandten Ligationsmethoden und deren Ergebnisse
+blunt-end
+Ligation
+sticky-end
+Ligation
+TA-Ligation
+cut-Ligation
+Ligation zweier DNA-Stränge ohne Basenüberhang
+Vorteil - einfache Vektorlinearisierung durch EcoRV
+Nachteil - geringe Effizienz
+- Religation wahrscheinlich
+- Taq-Polymerase generiert selten blunt ends
+- LongAmp®-Polymerase generiert nur z.T. blunt ends
+- fill-in Reaktionen notwendig (zusätzlicher Reinigungs- und
+Extraktionsschritt verringert Fragmentausbeute)
+Ergebnis - sehr wenige Transformanten, viele Religanten
+- keine blunt-end Ligation führte zu korrekten Inserten
+Ligation zweier DNA-Stränge mit mindestens 2 überhängenden Basen
+Vorteil - hohe Effizenz
+- unabhängig von verwendeter Polymerase
+- Religation unwahrscheinlich bis ausgeschlossen
+Nachteil - Vektor und Fragment muss entsprechend geschnitten werden
+- geringere Ausbeute durch zusätzliche(n) Extraktionsschritt(e)
+- Schnittstellen der Fragmente nicht immer mit Vektor
+kompatibel
+Ergebnis - sehr wenige Transformanten (vermutlich durch zu hohen
+Fragment- und Plasmidverlust, bedingt durch zusätzlichen
+Reinigungs- und Extraktionsschritt)
+Ligation zweier DNA-Stränge mit T- und A-Überhang
+Vorteil - effizienter als blunt-end Ligation
+- mit Taq-Polymerase durchführbar (generiert A-Überhang)
+Nachteil - geringere Effizienz als sticky-end Ligation
+- geringere Effizienz mit LongAmp®-Polymerase (Gemisch aus
+Taq- und Deep VentTM-Polymerase, letztere generiert blunt
+ends)
+- T-Überhang-Vektor nötig (mit Taq-Polymerase und dTTPs
+ansynthetisiert)
+Ergebnis - mäßig viele Transformanten, wie Religanten
+- diese Methode führte hauptsächlich zum Ziel
+Ähnlich blunt-end Ligation aber durch parallelen Restriktionsverdau kaum
+Religanten. (Erfolgreiche Ligation von Fragmenten in vektorielle SmaI-
+Schnittstelle zerstört diese. Bei Religation des Vektors wird diese dagegen
+wiederhergestellt. Im Reaktionsansatz befindliches SmaI erkennt und
+schneidet diese allerdings erneut.)
+Vorteil - Transformanten werden angereichert
+- sehr wenig Religanten
+Nachteil - geringe Effizienz durch (blunt-end)
+- SmaI-Schnittstelle darf nicht im Fragment vorkommen
+Ergebnis - kaum Religanten, allerdings auch kaum Transformanten
+(vermutlich durch geringe Effizienz der blunt-end Ligation)
+Ergebnisse
+ 62
+Die TA-Ligation stellte sich nach Optimierung (Verwendung von höchst möglichen
+Fragment-Konzentrationen; Ligation über Nacht) als die zielführende Methode
+heraus. 25
+Mit dem Ligationsansatz erfolgte die Transformation von E. coli DH5α nach der
+Rubidumchlorid-Methode (2.2.8). Mittels Blau-Weiß-Screening (2.2.9) wurde nach
+Klonen mit Insertionen gesucht und diese anschließend durch Plasmid-
+Präparationen (2.2.10) überprüft. Abbildung 16 zeigt beispielhaft eine Mini-Prep
+von pKS-Plasmiden zur Kontrolle der Insertion des 4. KPC1-Fragments.
+Abbildung 16: Mini-Prep #26 KPC1 [4*/4] Klone 1-7 der α-Platte
+Dargestellt sind die Plasmidpräparationen von 7 näher untersuchten Klonen. Der Ausschnitt zeigt
+die komplette Erweiterung der 100 bp-Leiter von 5000-1500 bp. Rechts in blau sind die Referenzen
+26
+R1 (Leervektor) und R2 (falsches Insert reproduzierbarer Größe) .
+Klon #1 ist der einzige mit dem gewünschten Insert. Seine theoretische Größe beträgt 3983 bp. Die
+Bande (grün) läuft jedoch bei ~2800 bp, da das Plasmid nicht linear, sondern in einer super coiled
+Struktur vorliegt. Diese kompaktere Konformation sorgt für schnellere Laufeigenschaften.
+Klon #7 besitzt offensichtlich eine Deletion, die im Blau-Weiß-Screening ebenfalls zu einer weißen
+Kolonie geführt hat. Klon #4 und #5 scheinen ein klein wenig höher zu laufen, als der Leervektor.
+Dieser befindet sich mit einer theoretischen Größe von 2961 bp knapp über der 1500 bp Bande.
+Vermutlich haben diese Klone kleine Bruchstücke inseriert. Die übrigen Klone #2, #3 und #6 haben
+das gleiche falsche Fragment inseriert, wie die Referenz R2.
+Plasmide vielversprechender Klone (wie #1 im Bild) wurden mittels Spin-Prep in
+höherer Qualität isoliert und anschließend durch spezifischen Restriktionsverdau so
+geschnitten, dass eine genauere Bestimmung der Insertgröße erfolgen konnte.
+Abbildung 17 zeigt dieses weitere Vorgehen anhand des oben bekannten Klon #1.
+25
+Insgesamt wurden 29 Ligationen durchgeführt um alle vier Fragmente in Vektoren zu inserieren.
+26
+Sonderbarerweise kam es bei dem 4. Fragment oft zu dem Einbau eines viel kleineren Fragments
+(auch zu sehen bei Klon #2, #3 und #6). Um nicht unnötigerweise solch falsch-positive Insertionen zu
+Untersuchen wurde fortan eines dieser Plasmide als zusätzliche Referenz verwendet.
+Ergebnisse
+ 63
+EcoRI/HindIII-Doppelverdau
+Haupt-Vektorfragment
+ 2949 bp
+KPC1 [4/4] Insert
+ 1247 bp
+weitere Fragmente
+HindIII <> HindIII
+11 bp
+PstI/HindIII-Doppelverdau
+Haupt-Vektorfragment
+ 2947 bp
+großes KPC1 [4/4] Fragment
+ 912 bp
+kleines KPC1 [4/4] Fragment
+ 310 bp
+weitere Fragmente
+PstI <> PstI
+HindIII <> HindIII
+2711bp
+bp
+Abbildung 17: Kontrollspaltung von KPC1 [4*/4] Klon #1
+Dargestellt sind die Kontrollspaltungen mit den theoretischen Fragmentgrößen (A) sowie Lage der
+Schnittstellen im Vektor (B), erstellt durch den NEBcutter 2.0 (nach Vincze et al., 2003).
+(A) Der Ausschnitt zeigt die komplette 100 bp-Leiter inklusive Erweiterung. Markiert sind 3000 bp
+(rot), 1000 bp (orange) und 300 bp (gelb). Links vom Marker wurde ein EcoRI/HindIII-Verdau, rechts
+ein PstRI/HindIII-Verdau durchgeführt, jeweils mit den isolierten Plasmiden von [4*/4] #1 und R2.
+Durch EcoRI/HindIII-Verdau wird das Insert komplett aus dem Vektor gespalten. Es besitzt eine
+theoretische Größe von 1247 bp (dunkelgrün) und läuft, wie zu erkennen ist, zwischen der orangen
+1000 bp und der darüberliegenden 1500 bp Bande. Der Rest vom Vektor läuft mit 2949 bp annähernd
+auf der 3000 bp Bande, wie ebenfalls zu sehen ist. Bei dem Verdau mit PstRI/HindIII wird zusätzlich
+auch das Insert gespalten und es entstehen 912 bp und 310 bp große Fragmente, die man in der
+Abbildung (hellgrün, halbe Länge) an den zu erwartenden Positionen sehen kann. Da die Signale in
+ihrer Intensität mit der Menge an DNA-Basen korrelieren, sind kleinere Fragmente auch leucht-
+schwächer. Die zusätzlich abgespaltenen Oligomere sind u.a. dadurch nicht mehr detektierbar.
+(B) Es ist auch möglich, dass das Insert in entgegengesetzter Orientierung in den Vektor geklont
+wurde und sich somit die Schnittmuster ändern können (hier nicht dargestellt, da nicht der Fall).
+Ergebnisse
+ 64
+Es konnte somit gezeigt werden, dass Klon #1 höchstwahrscheinlich das korrekte
+274. KPC1-Fragment besitzt, während die Referenz ein kürzeres Insert aufweist. In
+dieser Arbeit gelang es für alle vier KPC1-Fragmente Vektoren mit Inserten von
+plausibler Größe zu finden.
+3.3 Sequenzierung der konstruierten Fragmente
+Um letzte Gewissheit zu bekommen und die Insertionen auf PCR-bedingte
+Mutationen (v.a. Stopp-Codons und Frameshifts) zu überprüfen, wurden einige der
+vielversprechendsten Spin-Prep-Proben sequenziert (2.2.12). Tabelle 10 listet alle
+eingeschickten Proben und deren Status auf.
+Tabelle 10: Überblick über alle sequenzierten Proben
+AG intern
+ LGC sample identifier
+ Arbeitsbezeichnung
+ Status
+319
+ A575363
+ #1A
+ [1/4]
+ OK
+320
+ A575364
+ #14
+ [2/4]
+ OK
+321
+ A575365
+ #8A
+ [3/4]
+ fehlerhaft
+322
+ A575366
+ #7
+ [4/4]
+ fehlerhaft
+323
+ A575367
+ #3A
+ [1/4]
+ fehlerhaft
+324
+ A575368
+ #9A
+ [3/4]
+ OK
+327
+ A575371
+ #1A
+ [4*/4]
+ OK
+falsches Insert (Periplakin,
+328
+ A575372
+ #8B
+ [4/4]
+NCBI: XM_005025914.1)
+Für Erklärung von [4*/4] siehe Fußnote #38, Seite 71.
+Sequenziert wurde der Bereich der MCS von beiden Seiten durch die flankierenden
+Primer (M13-21F und M13-24R), da die angewandte Technik mit zunehmender
+Sequenzlänge an Genauigkeit verliert. Bei widersprüchlichen Ergebnissen wurde via
+BLAST gegen die NCBI-Datenbank das wahrscheinlichere Nukleotid abgeleitet.
+Neben den gezielt eingeführten Mutationen, direkt an den Enden der KPC1-DNA um
+Restriktionsschnittstellen zu generieren, offenbarte die Sequenzierung 20
+Abweichungen von dem vorhergesagten KPC1-Transkript (NCBI: XM_005028051.1),
+die sich als 30 veränderte Basen bzw. 12 veränderte Aminosäuren äußerten (Tabelle
+11).
+27
+Für die Kontrollspaltungen der KPC1-Fragmente 1-3 kam der Leervektor als Referenz zum Einsatz.
+Ergebnisse
+ 65
+Tabelle 11: Vergleich des KPC1-Konstrukts mit der NCBI-Datenbank
+Position28
+ Abweichung
+ Aminosäure
+ Resultat
+65
+ A->C
+ N->T
+ bleibt polar
++SR
+ +polare aa; +basische aa
+nach 250 +GTCGAG
+N->D
+ polare aa->saure aa
+1421
+ A->G
+ K->R
+ bleibt basisch
+1794
+ C->T
+ N bleibt
+ keine Auswirkung
+1902
+ T->A
+ P bleibt
+ keine Auswirkung
+nach 1968 +CAGTCC
+ +QS
+ +polare aa; +polare aa
+2295
+ T->C
+ S bleibt
+ keine Auswirkung
+2712
+ C->T
+ L bleibt
+ keine Auswirkung
+2969
+ T->A
+ L->H
+ unpolare aa->schwach basische aa
+nach 3025
+ TG->CC
+ W->P
+ bleibt unpolar
+3032
+ -A
+ Frameshift -1
+3034
+ C->T
+ PQ->ST
+ unpolare aa->polare aa; bleibt polar
+3039
+ +C
+ Frameshift +1
+3108
+ T->C
+ S bleibt
+ keine Auswirkung
+3318
+ G->A
+ P bleibt
+ keine Auswirkung
+3345
+ C->T
+ L bleibt
+ keine Auswirkung
+3525
+ G->A
+ A bleibt
+ keine Auswirkung
+3591
+ T->C
+ A bleibt
+ keine Auswirkung
+nach 3625 Unbekannt29
+ AXXXXXXA->T
+ Angaben nicht möglich
+3746
+ T->C
+ M->T
+ unpolare aa->polare aa
+Die Art und Weise der Abweichungen legt die Vermutung nahe, dass es sich hierbei
+größtenteils um natürliche Mutationen bzw. Varianten handelt.30 Knapp die Hälfte
+der Auffälligkeiten stellen stille Punktmutationen in der Wobble-Position (nach
+Crick, 1966) dar. Auch die anderen Abweichungen sind hauptsächlich neutrale
+Austausche oder Insertionen von polaren Aminosäuren mit keiner großen
+Auswirkung. Selbst der Frameshift (Leserasterverschiebung) endet bereits nach 7
+Basen.
+ Die
+ Sequenzierungsergebnisse
+ bestätigten
+ ebenfalls
+ die
+ durch
+Restriktionsverdau
+ getroffene
+ Vermutung,
+ dass
+ sämtliche
+ Fragmente
+ im
+Uhrzeigersinn (standardmäßige Plasmid-Darstellung) eingebaut wurden (vgl.
+nochmals Abbildung 17.B mit dem 4. Fragment als Beispiel).
+28
+Position bezogen auf das zusammengesetzte Konstrukt.
+29
+Die genaue Sequenz der Referenz ist an dieser Stelle für die nächsten 13 bp unbekannt (N13).
+Vermutlich liegt ein Sequenzierfehler im NCBI-Eintrag vor, daher ist die Glaubwürdigkeit dieser
+Region stark eingeschränkt. Unser Konstrukt weist diesen Bereich gar nicht auf.
+30
+Die Referenz ist eine Ente aus der chinesischen Brüterei Gold Star Duck Production Ltd (Beijing).
+Ergebnisse
+ 66
+Interessanterweise zeigt sich durch die Sequenzierung auch, dass direkt am 5'-Ende
+die ersten beiden Nukleotide des Primers KpcF_Sal2 nicht in den Vektor eingebaut
+wurden (Abbildung 18). Da das erste Fragment noch mit der LongAmp®-Polymerase
+amplifiziert wurde, liegt es möglicherweise an dessen 3'-5' Exonuklease-Aktivität,
+die aufgrund der relativ langen PCR-Laufzeit die 3'-Enden der Primer abgebaut
+haben könnte. Da sich diese Nukleotide allerding vor der SalI-Schnittstelle befinden,
+spielt diese Kuriosität für die rekombinante Expression keine weitere Rolle.
+Abbildung 18: Ausschnitt Sequenzrohdaten 319
+Dargestellt sind die Rohdaten der Sequenzierung
+31
+durch Chromas Lite (modifiziert) der Probe 319
+(1. KPC1-Fragment). Der gezeigte Ausschnitt bildet
+die Sequenz von 86-101 Basen ab.
+Links ist der Vektor pKS, linearisiert durch EcoRV
+und mit 3' dT-Überhang versehen (2.2.6). Theo-
+retisch müsste direkt danach GC kommen und erst
+dann der blau unterlegte Bereich.
+Die Peaks (unten; eigentliche Rohdaten) zeigen die
+wahrgenommenen Lichtsignale an. Je stärker sie
+überlappen, desto weniger präzise kann die
+Sequenz bestimmt werden. Die farbigen Kästchen
+(über den Basen) visualisieren die errechnete
+Irrtumswahrscheinlichkeit. Bei einem vollständig
+6
+gefüllten Kästchen beträgt diese weniger als 1:10 .
+Insgesamt ist es also gelungen alle vier KPC1-Fragmente in pKS-Vektoren zu
+klonieren. Bedauerlicherweise konnte die Gesamtkonstruktion der KPC1-Sequenz
+und dessen Klonierung in den zukünftigen Expressionsvektor pQE-30-lacI (pQE-30
+von Quiagen, modifiziert durch Müller 1998) aufgrund zeitlicher Beschränkung nicht
+mehr geleistet werden.
+31
+Chromas Lite version 2.1 (2012), Technelysium Pty Ltd, South Brisbane, Queensland, Australia.
+Diskussion
+ 67
+4. Diskussion
+4.1 Expressionsniveaus
+Wie gezeigt wurde, bleibt das mRNA-Niveau von Skp2 und KPC1 sowohl während
+der gesamten Stimulationsdauer als auch im Vergleich mit der Kontrollgruppe
+gleich. Obwohl die verwendete Methode der semi-quantitativen PCR weniger
+präzise ist, als eine quantitative real time PCR 32 , konnten reproduzierbare
+Ergebnisse geliefert werden. Sättigungsphänomene konnten nahezu, der Einfluss
+genomischer DNA definitiv ausgeschlossen werden. Zudem zeigten sich klar
+erkennbare morphologische Unterschiede der Nasendrüsen unterschiedlicher
+Gruppen, sodass eine adaptive Proliferation zweifelsfrei stattgefunden hat.
+Signifikante Schwankungen im Bereich der cDNA-Syntheseffizienz während der
+RT-Reaktion scheint es ebenfalls nicht zu geben, da auch bei unterschiedlichen
+cDNA-Proben eine große Vergleichbarkeit bestand. Falls es dennoch eine
+mRNA-Kinetik geben sollte, die aufgrund der methodischen Limitation nicht erkannt
+werden konnte, dürfte diese vermutlich nicht sonderlich relevant sein.
+Abgesehen von der bereits erwähnten real time PCR, könnte auch eine
+Quantifizierung über RNA-Sequencing (RNA-Seq) präzisere Ergebnisse liefern.
+Allerdings ist diese Methode des next generation sequencing (NGS) sehr teuer, viel
+zeitaufwändiger und würde sehr viel mRNA verbrauchen.
+Das erzielte Ergebnis für KPC1 steht in keinem Widerspruch zum dargestellten
+Modell über die p27KIP1-Kontrolle (1.2.3). Die Regulation findet offensichtlich nicht -
+oder nicht signifikant - über Änderungen der Transkriptionseffizienz oder induzierte
+RNA-Degradation statt. Übrig bleibt die Kontrolle auf translationaler Ebene
+(Ribosomenbindung, siRNA, Protein-mRNA-Interaktion, mRNA-Sekundärstrukturen)
+und posttranslationaler Ebene (v.a. durch PTMs).
+Allerdings (Meinung des Autors) darf angezweifelt werden, dass eine direkte
+Regulation von KPC1 für die p27KIP1-Degradation überhaupt stattfindet. Das Modell
+kommt, bedingt durch die cytoplasmatische Lokalisation von KPC und den Wechsel
+32
+ Beispielsweise von Rohlfing et al. (2007) zur Bestimmung der p27
+KIP1
+-Kinetik in der Rattenleber
+verwendet.
+Diskussion
+ 68
+von p27KIP1 aus dem Kern dorthin, gut ohne weitere Annahmen über
+KPC-Regulationsmechanismen zurecht. Falls es weitere Mechanismen geben sollte,
+beruhen diese vermutlich eher auf Modifikationen an p27 KIP1 selbst.33
+Möglicherweise spielt aber auch (zumindest in Entennasendrüsen) die von
+vorherigen Arbeiten beobachtete pH-Verschiebung an dieser Stelle eine Rolle.
+Denkbar wären:
+1. Die Alkalisierung sorgt direkt oder indirekt für einen erhöhten p27KIP1 -Export
+(z.B. über erhöhte Phosphorylierungsaktivität von bestimmten Kinasen).
+Der p27KIP1-Export ist nur für die Anfangsphase der Proliferation relevant,
+um den Restriktionspunkt zu überschreiten und die S-Phase einzuleiten. Ab
+da an kann der SCFSkp2 -Komplex den p27KIP1-Abbau übernehmen. Wenn die
+Alkalisierung den Export beeinflusst, muss sie also bis zu diesem Zeitpunkt
+aufrechterhalten werden. Laut Bentz et al. (1999) ist dies 12-14 h nach
+osmotischer Belastung der Fall.34 Da die Alkalisierung von den Signalen der
+mAChR bedingt wird (Bentz & Hildebrandt, 1995) und diese erst durch
+Herabregulierung der mAChR-Anzahl innerhalb von 48 h beendet wird
+(Hildebrandt & Shuttleworth, 1994), würde nichts dagegen sprechen.
+Daher sollte dies in zukünftigen Arbeiten untersucht werden.
+2. Die Alkalisierung sorgt direkt oder indirekt für höhere Ubiquitinylierungsaktivität
+(z.B. durch verbesserte Substraterkennung/-bindung).
+Rohlfing (2007) haben zwar gezeigt, dass der pHi in unstimulierten
+Nasendrüsen eine Erhöhung der p27KIP1-Ubiquitinylierung zur Folge hat,
+allerdings entspricht die dabei erreichte maximale Ubiquitinylierungs-
+effizienz der regulären U.-Effizienz im vorstimulierten Nasendrüsengewebe
+(bei ausbleibender Alkalisierung). Biologisch betrachtet wäre das ohne
+weitere Regulationsprozesse nicht sinnvoll und würde eher zu gegenteiligen
+Beobachtungen führen. Rohlfing diskutiert zwei mögliche Szenarien
+33
+ KIP1
+Kamura et al. (2004) zeigten, dass p27 mit defekter NLS im Cytoplasma stabil ist. Laut Hara et al.
+(2001) scheint jedoch KPC konstitutiv während des gesamten Zellzyklus aktiv zu sein. Dies lässt den
+KIP1
+Schluss zu, dass die Regulation an p27 stattfindet. Vermutlich durch PTMs, die im Kern erfolgen.
+Auch Hengst (2004) hält dies für möglich.
+34
+ KIP1
+Bei Rohlfing (2007) setzte die p27 -Degradation schon bei 4 h ein. Nach 8 h erreichte die Menge
+KIP1
+an p27 ihren Tiefststand und stagnierte.
+Diskussion
+ 69
+(Ablösung pH-sensitiver Ubiquitinylierungsenzyme durch pH-insensitive
+Isoformen; oder Verlust der pH-Sensitivität durch PTMs bzw. dessen
+Abwesenheit), besonders
+ ersteres erscheint
+ sehr
+ unwahrscheinlich.
+Dennoch stellt sich die Frage, warum durch PTMs (oder andere
+Mechanismen) die p27KIP1-Ubiquitinylierung auch nach der adaptiven
+Proliferation auf dem höchsten Niveau weiterlaufen soll, wenn es weitere
+Zellteilungen gerade zu verhindern gilt. Da Rohlfing et al. auch Zelllysate
+verwendeten, kann man nicht darauf schließen, welche der beiden E3-
+35
+Ligasen pH-abhängig ist.Mit der hier geleisteten Vorarbeit KPC1 rekombinant herzustellen, könnte
+dies zukünftig genauer untersucht werden.
+3. Die Alkalisierung hat keine Auswirkung auf E3, sondern auf p27KIP1 Modifikation
+(z.B. PTMs an p27KIP1 erleichtern/erschweren die Erkennung durch E3-Ligasen).
+Dass p27KIP1 eine Phosphorylierung am T187 benötigt, um von Skp2 erkannt
+zu werden, ist bereits bekannt (Willems et al., 2004). Für KPC wurde das
+bisher ausgeschlossen, jedoch ist vielleicht gerade das Ausbleiben einer
+Modifikation ein Signal für dessen Degradation. Trotz unterschiedlicher
+Meinung bezüglich dem p27KIP1-Export, sind sich sowohl Rodier et al. (2001)
+als auch Susaki et al. (2007) einig, dass das Vorkommen von S10-
+Phosphorylierungen vor allem in ruhenden Zellen auch als anti-mitogenes
+Signal gedeutet werden kann.36 So könnte beispielsweise die Alkalisierung
+KIP1eine Dephosphorylierung bewirken und p27 dadurch für KPC zugänglich
+machen. Jedoch konnte durch Ishida et al. (2002) mittels p27KIP1 S10D/E-
+Mutanten gezeigt werden, dass der Abbau dennoch erfolgt. So scheint
+dieser mögliche Mechanismus zumindest für S10-Phosphorylierungen nicht
+zuzutreffen.
+35
+Anzunehmen ist, dass KPC eher die entscheidende Rolle spielt, da dieser E3-Komplex den
+G1/S-Übergang einleiten und somit den Start des Zellzyklus kontrollieren kann. Zudem ist er
+unabhängig von der Zyklusphase präsent und aktiv (Hara et al., 2001; Kamura et al., 2004).
+36
+ KIP1
+Aufgrund des Vorkommens dieser Phosphorylierung an p27 vor allem in ruhenden Zellen und
+der nachweislich höheren Proteinstabilität. Ishida et al. (2000) und Böhm et al (2002) bestätigen dies
+ebenfalls.
+Diskussion
+ 70
+4. Eine weitere Möglichkeit wäre ein Einfluss auf den PI3K/Akt-Signalweg
+(ähnlich zu Punkt 1).
+Es ist bekannt, dass die Proteinkinase B (PKB)/Akt Einfluss auf den Zellzyklus
+hat. Sie kann p27KIP1 am T157 phosphorylieren37 (oder auch T198 nach Fujita
+et al., 2002, 2003), was dessen NLS inhibiert und somit den Import/Export-
+Zyklus stoppt (Liang et al., 2002; Shin et al., 2002; Vigletto et al., 2002). Die
+darauffolgende p27KIP1-Akkumulation im Cytoplasma, legt einen vermehrten
+Abbau durch KPC nahe. Im Gegensatz zu Punkt 1 wäre hier also nicht der
+Export verstärkt, sondern der Import inhibiert. Es konnte sogar eine
+Aufhebung G1-Arrests durch PKB-Aktivität gezeigt werden (Ramaswamy
+et al., 1999). Da der PI3K/Akt-Signalweg über G-Protein-gekoppelte
+Rezeptoren (wie mAChR) induziert werden kann, scheint dieses System
+relevant zu sein. Möglicherweise spielt die Alkalisierung hier eine Rolle,
+indem sie auf eine beteiligte Komponente wirkt und dadurch die Retention
+von p27KIP1 bedingt. Allerdings ist dieser Signalweg auch dafür bekannt über
+den mechanistic target of rapamycin (mTOR) Komplex 1 die Hypertrophie zu
+steuern (Manning & Cantley, 2007), welche auch bei zukünftigen
+osmotischen Stimulationen (nach der einmaligen adaptiven Proliferation)
+immer wieder induziert werden kann.
+Die Redundanz und vielfältigen Wechselwirkungen der Regulations- und
+Signaltransduktionssysteme erschwert die genaue Trennung von normalem
+Wachstum, adaptiver Proliferation mit kurz- und langfristigen Anpassung
+sowie Regenerationsmechanismen - sofern diese präzise Trennung in der
+Natur überhaupt gegeben ist.
+Im Gegensatz zu KPC1 überrascht die ausbleibende mRNA-Kinetik von Skp2. Auch
+wenn die Skp2 Proteinmenge hauptsächlich durch Degradation (via APC Cdh1-
+Ubiquitinylierung) erfolgt (Willems et al., 2004), so wäre zumindest ein Unterschied
+in der Transkriptmenge mit der Kontrollgruppe denkbar. Schließlich sind über sechs
+Transkriptionsfaktoren bekannt, teilweise abhängig vom Zellzyklus (Chan et al.,
+37
+ KIP1
+Die p27
+ -Version von Nagetieren besitzt diese Stelle jedoch nicht.
+Diskussion
+ 71
+2010). Es ist aber auch nicht auszuschließen, dass speziell in der unstimulierten
+Nasendrüse Skp2 auf Vorrat transkribiert wird, um nach erstmaliger osmotischer
+Stimulation eine schnelle Reaktion zu gewährleisten.
+Auch der PI3K/Akt-Signalweg hat auf Skp2 einen großen Einfluss. PKB wirkt auf die
+Transkription durch E2F1-Phosphorylierung (Auld et al., 2007; Reichert et al., 2007),
+via S64- und S72-Phosphorylierungen (durch sterische Behinderung der Assoziation
+mit Cdh1) auf die Stabilisierung (Rodier et al., 2008) und ebenfalls durch S72-
+Phosphorylierung auf die subzelluläre Lokalisation (Gao et al., 2009; Lin et al.,
+2009). Falls der pHi-Shift tatsächlich auf das PI3K/Akt-System einwirkt, könnte
+dieser neben p27KIP1 gleichzeitig Skp2 kontrollieren, was einen doppelten
+Sicherheitsmechanismus darstellen würde.
+Ein signifikanter Einfluss des pH i auf die Transkription, kann jedoch wie bei KPC und
+p27KIP1 vorerst ausgeschlossen werden.
+4.2 KPC1-Fragmentkonstruktion
+Es ist gelungen das komplette KPC1-Transkript in Form von vier Teilen in
+pKS-Vektoren zu klonieren. Die Sequenzierung offenbarte, dass sämtliche
+Fragmente im Uhrzeigersinn eingebaut wurden (aufgrund der TA-Klonierung) und
+Mutationen größtenteils natürlich bedingt sind. Einzig der Verlust zweier Basen am
+5'-Ende des 1. Fragments ist höchstwahrscheinlich durch die PCR hervorgerufen
+worden (Primerverdau wegen 3'-5' Exonukleaseaktivität). Aufgrund der Lage der
+ersten Schnittstelle besitzt dieser Fehler jedoch keine weitere Relevanz.
+Bei der Klonierung des 4. Fragments tauchte ungewöhnlich oft ein falsches Insert
+auf, daher (und wegen anderer Schwierigkeiten betreffend Ausbeute und
+Klonierung) wurde der Forward-Primer KpcF_Bsu aufgegeben und durch Kpc_fw5
+38ersetzt. Jedoch änderte die neue Primerkombination nichts am Auftauchen
+falscher Fragmente. Durch die Sequenzierung konnte geklärt werden, dass es sich
+zumindest in einem Fall dabei um ein Amplifikat aus dem Periplakin-Transkript
+38
+KpcF_Bsu und KpcR_Hind war die ursprüngliche Primerkombination für [4/4], welche ein
+Amplifikat von 1022 bp liefern sollte. Das in dieser Arbeit aufgeführte 4. Fragment entspricht dem
+neuen 1246 bp-Fragment mit der Arbeitsbezeichnung [4*/4].
+Diskussion
+ 72
+handelt, welches beidseitig durch den Reverse-Primer (KpcR_Hind) amplifiziert
+wurde. Periplakin ist ein membranassoziiertes Protein, welches in Keratinocyten
+möglicherweise die cornified envelope mit Desmosomen und Intermediärfilamenten
+verbindet.
+Am vorderen Teil des Periplakin-Transkripts hybridisierten die ersten 11 Basen des
+3'-Endes vom KpcR_Hind-Primer zu 100 % mit dem antisense strand, am hinteren
+Teil hybridisierte der Primer mit dem sense strand wie in Abbildung 19 dargestellt.
+Abbildung 19: Primerhybridisierung am 3'-Bereich von Periplakin (PPL)
+Wie zu erkennen ist, hybridisieren zwei Blöcke des Primers mit dem Periplakin-Transkript. Dazu
+muss dieses jedoch eine sterisch günstige Position einnehmen.
+Solche unspezifischen Primerhybridisierungen treten in der PCR gehäuft bei
+niedrigen Annealing-Temperaturen auf. Testläufe auf höheren Temperaturen als
+50 °C führten jedoch häufig zu unzureichenden Ausbeuten. Aufgrund dessen wurde
+die Annealing-Temperatur auf 50 °C beibehalten. Da es äußerst unwahrscheinlich
+ist, dass neben zu dem erwarteten Fragment ein zweites Amplifikat mit ähnlicher
+Größe entsteht, wurde bei der Bandenextraktion (2.2.5) weniger streng darauf
+geachtet. Offensichtlich ein Fehler, wie sich in Abbildung 20 herausstellt.
+Abbildung 20: Produktive Synthese des 4. KPC1-Fragments
+Gezeigt ist das Gelelektrophoresebild der PCR, aus dem sowohl das positiv sequenzierte 4. Fragment
+von Klon #1 (siehe vorherige Bilddokumentation) als auch das Periplakin-Amplifikat stammt. Ein
+Ausschnitt von 2000-1000 bp ist dargestellt (2-log DNA Leiter).
+Die theoretische Größe von KPC1 [4*/4] beträgt 1246 bp, die in der Sequenzierung ermittelte Größe
+von Periplakin betrug 1447 bp. Bei genauerem Hinsehen ist die Existenz von zwei Banden,
+insbesondere in der vorletzten Spalte, zu erahnen.
+Diskussion
+ 73
+Das Auftauchen reproduzierbar zu kleiner Fragmente in [4/4]- und [4*/4]-
+Klonierungen (vgl. nochmals R2 in Abbildung 16), kann dadurch allerdings nicht
+erklärt werden. Periplakin mit einer festgestellten Größe von 1447 bp ist zu groß,
+um unabsichtlich in einer [4/4]-Gelextraktion (1022 bp als erwartete Bande) mit
+ausgeschnitten zu werden. Ferner beinhaltet es drei PstI-Schnittstellen und hätte
+somit ein anderes Schnittmuster ergeben. Die kleinen Fragmente scheinen in dieser
+Hinsicht eher Verkürzungen oder amplifizierte Bruchstücke des erwünschten
+Fragments zu sein.
+4.3 Ausblick auf KPC1-Endkonstruktion
+Durch die langwierigen Versuche alle KPC1-Fragmente zu amplifizieren, erfolgreich
+in die Vektoren zu ligieren und diese auf korrekte Insertionen zu überprüfen, war es
+im zeitlichen Rahmen dieser Arbeit nicht mehr möglich, die vier Fragmente als
+KPC1-Gesamtkonstrukt in den geplanten Expressionsvektor pQE-30-lacI (2.1.5) zu
+überführen. Um diese Arbeit fortzuführen, könnten die nächsten Schritte wie folgt
+aussehen (vgl. mit visueller Darstellung in Anhang III):
+(A) Das Plasmid mit dem 4. Fragment kann als Vektor genutzt werden um die
+Fragmente 2 und 3 hineinzuklonieren. Dazu wird dieses mit einem SacII/Bsu36I-
+Doppelverdau gespalten. Das entstehende Fragment (318 bp) überlappt in der
+Sequenz mit dem 3. Fragment und kann verworfen werden. Das [3/4]-Plasmid wird
+ebenfalls mit diesen Restriktionsenzymen gespalten und das 3. Fragment (895 bp)
+wird in das linearisierte [4/4]-Plasmid kloniert, es entsteht das [3+4]-Plasmid.
+(B) Sowohl das neue, als auch das [2/4]-Plasmid werden mit SacII gespalten. Das 2.
+Fragment (1163 bp) wird anschließend in das [3+4]-Plasmid inseriert, es entsteht
+das [2+3+4]-Plasmid. Nach diesem Schritt muss anschließend auf korrekte
+Orientierung des Inserts gescreent werden, da der einfache Verdau einen Einbau
+mit und gegen den Uhrzeigersinn zulässt. Leider gibt es zu diesem Schritt keinen
+alternativen Verdau, da das 2. Fragment zwangsweise mindestens mit SacII
+herausgespalten werden muss und eine zweite SacII-Schnittstelle in der MCS keine
+weitere Möglichkeit zulässt.
+Diskussion
+ 74
+(C) Um das 1. Fragment zu inserieren, muss nun zwangsweise ein BspHI-Verdau
+durchgeführt werden. Da dem pKS-Vektor jedoch drei BspHI-Stellen inhärent sind,
+würde ein solcher Verdau zur Zerstörung führen. Leider trifft das ebenso auf den
+Expressionsvektor zu. Ergo kann die Endkonstruktion in keinem der beiden
+Vektoren erfolgen. Um dennoch das 1. Fragment mit den anderen zu ligieren, wird
+entweder ein Vektor mit einer BspHI-Schnittstelle in der MCS, downstream gefolgt
+von einer HindIII-Schnittstelle39 und upstream begleitet von einer SalI-Schnittstelle 40
+benötigt oder es wird versucht die beide Fragmente im selben Ansatz zeitgleich in
+den Expressionsvektor zu ligieren.
+(D) Sofern man einen anderen Vektor zur Hilfe genommen hat, wird im letzten
+Schritt ein SalI/HindIII-Doppelverdau durchgeführt und das freiwerdende,
+komplette KPC1-DNA-Transkript kann in den ebenso gespaltenen Expressionsvektor
+kloniert werden.
+Bei Expression in pQE-30-lacI wird das Start-Methionin um 21 Positionen upstream
+verschoben (Anhang II KPC-Protein). Bedingt wird dies u.a. durch den His6-Tag, der
+später zur Aufreinigung des Proteins via Affinitätschromatographie oder Pulldown-
+Assay benötigt wird.
+Das so gewonnene KPC1-Protein kann dann für weitere Untersuchungen (z.B.
+Ubiquitinylierungsassays, Protein-Interaktionsassays, Generierung von
+ KPC1-
+spezifischen Antikörpern, etc.) verwendet werden. Es wäre jedoch auch möglich, die
+einzelnen Fragmente in Expressionsvektoren zu klonieren, um die einzelnen
+Abschnitte genauer zu untersuchen. Vor allem das letzte Fragment mit der RING-
+Domäne wäre dabei interessant.
+39
+Weitere Schnittstellen downstream von pKS HindIII nur bedingt möglich: ClaI schneidet Konstrukt,
+alle nachfolgenden Schnittstellen (downstream SalI) nur einsetzbar, wenn am 5'-Ende auf eine SalI-
+Spaltung verzichtet werden kann, da sonst diese von SalI weggeschnitten wird.
+40
+BstXI und BssHII ebenfalls möglich. SacI schneidet jedoch Konstrukt. Möglicherweise auch weitere
+Schnittstellen außerhalb der MCS verfügbar. Konstruktlänge nimmt dann jedoch stark zu.
+Abkürzungsverzeichnis
+Abkürzungsverzeichnis
+ 75
+aa
+A. bidest
+A. dest
+AC
+ACh
+Amp
+APC/CCdh1
+ATP
+BLAST
+bp
+BSA
+CAK
+cAMP
+CBF1
+CDC25
+Cdh1
+CDK
+cDNA
+Cdt1
+CIP
+CKI
+Cks1
+CRM1
+Cul1
+DAG
+dATP
+dCTP
+amino acid (Aminosäure)
+Aqua bidestillata
+Aqua destillata
+adenylate cyclase
+Acetylcholin
+Ampicillin
+anaphase-promoting complex/cyclosome and its activator Cdh1
+Adenosintriphosphat
+Basic Local Alignment Search Tool
+base pairs (Basenpaare)
+bovines Serumalbumin
+CDK activating kinase
+cyclisches Adenosinmonophosphat
+centromere binding factor
+cell division cycle 25 (phosphatase)
+CDC20 homologue 1
+cyclin-dependent kinase
+complementary DNA
+Chromatin licensing and DNA replication factor 1
+CDK interacting protein
+CDK inhibitor
+CDK subunit 1
+(required for) chromosomal region maintenance 1
+cullin 1
+Diacylglycerin
+Desoxyadenosintriphosphat
+Desoxycytidintriphosphat
+Abkürzungsverzeichnis
+ 76
+DEPC
+dGTP
+DMSO
+DNA
+dNTP
+dTTP
+E. coli
+E1
+E2
+E3
+EDTA
+et al.
+G0/1/2-Phase
+GABP
+GBDR1
+HECT
+HEPES
+ICB
+INK4
+IP3
+kb
+kDa
+KIP
+KPC(1/2)
+LB
+LRR
+M-Phase
+M-MuLV
+mAChR
+Diethylpyrocarbonat
+Desoxguanosintriphosphat
+Dimethylsulfoxid
+deoxyribonucleic acid (Desoxyribonukleinsäure)
+2-Desoxynukleosidtriphosphat
+Desoxythymidintriphosphat
+Escherichia coli
+ubiquitin activating enyzme
+ubiquitin conjugating enzyme
+ubiquitin ligase
+Ethylendiamintetraessigsäure
+et alii ("und andere")
+gap phase 0/1/2
+GA-binding protein
+glioblastoma cell differentiation related gene 1 (siehe auch KPC2)
+homologues to the E6-AP carboxy-terminus
+2-(4-(2-Hydroxyethyl)-1-piperazinyl)-ethansulfonsäure
+intra-cellular buffer
+inhibitor of CDK4
+Inositoltrisphosphat
+kilo base pairs (Kilobasenpaare)
+Kilodalton (relative Molekularmasse; Grundeinheit in Dalton bzw. u)
+kinase inhibitory protein
+Kip1 ubiquitinylation complex (1/2 protein)
+lysogeny broth
+leucine-rich repeat
+mitotic phase
+Moloney Murine Leukemia Virus
+muscarinic acetylcholine receptor
+MCS
+miRNA
+mRNA
+mTOR
+Myt1
+NaCl
+NCBI
+NEB
+NES
+NF-κB
+NGS
+NHE
+NLS
+OD
+ORI
+PBS
+PCR
+Pfu
+PHD
+pHi
+PI3K
+PKA
+PKB/Akt
+pKS
+PLC
+PMSF
+pRB
+PTM
+Rbx1
+Abkürzungsverzeichnis
+ 77
+multiple cloning site
+micro RNA
+messenger RNA
+mechanistic target of rapamycin
+myelin transcription factor 1
+Natriumchlorid
+National Center for Biotechnology Information
+New England Biolabs
+nuclear export sequence
+nuclear factor kappa-light-chain-enhancer of activated B cells
+next generation sequencing
+Na+/H+ -exchanger
+nuclear localization sequence
+optische Dichte
+origin of replication
+phosphate buffered saline
+polymerase chain reaction
+Pyrococcus furiosus
+plant homeo domain
+intrazellulärer pH-Wert
+phosphatidylinositol-3-kinase
+protein kinase A
+protein kinase B
+pBluescript II KS(-)
+phospholipase C
+Phenylmethylsulfonylfluorid
+retinoblastoma protein
+post translational modification
+RING-box protein 1
+RING
+RNA
+RNA-Seq
+RNase
+RT
+S-Phase
+SAC
+SCF
+SDS
+Sic1
+siRNA
+Skp1/2
+STI1
+TAE
+Taq
+TRIS
+UBA
+UBL
+UV
+VIP
+w/v
+X-Gal
+Abkürzungsverzeichnis
+ 78
+really interesting new gene
+ribonucleic acid (Ribonukleinsäure)
+RNA Sequencing
+ribonuclease
+reverse Transkription, auch reverse transcriptase
+synthesis phase
+spindle assembly checkpoint
+Skp1/Cul1/F-Box containing complex
+sodium dodecyl sulfate
+Substrate/Subunit Inhibitor of CDK
+small interfering RNA
+S-phase kinase associated protein 1/2
+stress inducible protein 1
+tris-acetate-EDTA buffer
+Thermus aquaticus
+Tris(hydroxymethyl)-aminomethan
+ubiquitin associated domain
+ubiquitin like domain
+ultraviolett
+vasoactive intestinal peptide
+weight/volume
+5-Brom-4-chlor-3-indoxyl-β-D-galactopyranosid
+Literaturverzeichnis
+Literaturverzeichnis
+ 79
+Altschul S.F., Madden T.L., Schäffer A.A., Zhang J., Zhang Z., Miller W., Lipman D.J. (1997): Gapped
+BLAST and PSI-BLAST: a new generation of protein database search programs. Nucleic Acids Res.
+25(17):3389-402.
+Auld C.A., Caccia C.D., Morrison R.F. (2007): Hormonal induction of adipogenesis induces Skp2
+expression through PI3K and MAPK pathways. J Cell Biochem. 100(1):204-16.
+Bagui T.K., Mohapatra S., Haura E., Pledger W.J. (2003): P27Kip1 and p21Cip1 are not required for
+the formation of active D cyclin-cdk4 complexes. Mol Cell Biol. 23(20):7285-90.
+Barberis M., De Gioia L., Ruzzene M., Sarno S., Coccetti P., Fantucci P., Vanoni M., Alberghina L.
+(2005): The yeast cyclin-dependent kinase inhibitor Sic1 and mammalian p27Kip1 are functional
+homologues with a structurally conserved inhibitory domain. Biochem J. 387(Pt 3):639-47.
+Barrnett R.J., Mazurkiewicz J.E., Addis J.S. (1983): Avian salt gland: a model for the study of
+membrane biogenesis. Methods Enzymol. 96:627-59.
+Bashir T., Dorrello N.V., Amador V., Guardavaccaro D., Pagano M. (2004): Control of the SCF(Skp2-
+Cks1) ubiquitin ligase by the APC/C(Cdh1) ubiquitin ligase. Nature. 428(6979):190-3.
+Bashir T., Pagan J.K., Busino L., Pagano M. (2010): Phosphorylation of Ser72 is dispensable for Skp2
+assembly into an active SCF ubiquitin ligase and its subcellular localization. Cell Cycle. 9(5):971-4.
+Bentz C., Hildebrandt J.P. (1995): Adaptive differentiation of avian exocrine cells alters their pHi
+response to mAChR activation. Am J Physiol. 268:C944-C951.
+Bentz C., Schwarz M., Hildebrandt J.P. (1999): Cytosolic pH affects DNA-synthesis in nasal gland cells
+of osmotically stressed ducklings, Anas platyrhynchos. Zoology 102:10-17.
+Besson A., Gurian-West M., Chen X., Kelly-Spratt K.S., Kemp C.J., Roberts J.M. (2006): A pathway in
+quiescent cells that controls p27Kip1 stability, subcellular localization, and tumor suppression.
+Genes Dev. 20(1):47-64.
+Böhm M., Yoshimoto T., Crook M.F., Nallamshetty S., True A., Nabel G.J., Nabel E.G. (2002): A growth
+factor-dependent nuclear kinase phosphorylates p27(Kip1) and regulates cell cycle progression.
+EMBO J. 21(13):3390-401.
+Bonifacino J.S., Weissman A.M. (1998): Ubiquitin and the control of protein fate in the secretory
+and endocytic pathways. Annu Rev Cell Dev Biol. 14:19-57.
+Burke D.J., Stukenberg T.P. (2008): Linking kinetochore-microtubule binding to the spindle
+checkpoint. Dev Cell. 14(4):474–479.
+Butler D.G. (2002): Hypertonic fluids are secreted by medial and lateral segments in duck (Anas
+platyrhynchos) nasal salt glands. J Physiol. 540(Pt 3):1039-46.
+Cardozo T., Pagano M. (2004): The SCF ubiquitin ligase: insights into a molecular machine. Nat Rev
+Mol Cell Biol. 5(9):739-51.
+Carrano A.C., Eytan E., Hershko A., Pagano M. (1999): SKP2 is required for ubiquitin-mediated
+degradation of the CDK inhibitor p27. Nat Cell Biol. 1(4):193-9.
+Chan C.H., Lee S.W., Wang J., Lin H.K. (2010): Regulation of Skp2 expression and activity and its role
+in cancer progression. ScientificWorldJournal. 1;10:1001-15.
+Chen L., Shinde U., Ortolan T.G., Madura K. (2001): Ubiquitin-associated (UBA) domains in Rad23
+bind ubiquitin and promote inhibition of multi-ubiquitin chain assembly. EMBO Rep. 2(10):933-8.
+Literaturverzeichnis
+ 80
+Cheung T.H., Rando T.A. (2013): Molecular regulation of stem cell quiescence. Nat Rev Mol Cell Biol.
+14(6):329-40.
+Clark J.M. (1988): Novel non-templated nucleotide addition reactions catalyzed by procaryotic and
+eucaryotic DNA polymerases [sic!]. Nucleic Acids Res. 16(20):9677-86.
+Connor M.K., Kotchetkov R., Cariou S., Resch A., Lupetti R., Beniston R.G., Melchior F., Hengst L.,
+Slingerland J.M. (2003): CRM1/Ran-mediated nuclear export of p27(Kip1) involves a nuclear export
+signal and links p27 export and proteolysis. Mol Biol Cell. 14(1):201-13.
+Coqueret O. (2002): Linking cyclins to transcriptional control. Gene. 299(1-2):35-55.
+Coscoy L., Ganem D. (2003): PHD domains and E3 ubiquitin ligases: viruses make the connection.
+Trends Cell Biol. 13(1):7-12.
+Crick F.H. (1966): Codon--anticodon pairing: the wobble hypothesis. J Mol Biol. 19(2):548-55.
+De Paola F., Vecci A.M., Granato A.M., Liverani M., Monti F., Innoceta A.M., Gianni L., Saragoni L.,
+Ricci M., Falcini F., Amadori D., Volpi A. (2002): p27/kip1 expression in normal epithelium, benign
+and neoplastic breast lesions. J Pathol. 196(1):26-31.
+Egner I. (2009): Herstellung und Charakterisierung von rekombinanten Ubiquitinligasen aus
+exokrinen Drüsenzellen der Ente, Anas platyrhynchos. (Diplomarbeit) Ernst-Moritz-Arndt-
+Universität Greifswald, Deutschland.
+Ernst S.A., Crawford K.M., Post M.A., Cohn J.A. (1994): Salt stress increases abundance and
+glycosylation of CFTR localized at apical surfaces of salt gland secretory cells. Am J Physiol. 267(4 Pt
+1):C990-1001.
+Ernst S.A., Ellis R.A. (1969): The development of surface specialization in the secretory epithelium
+of the avian salt gland in response to osmotic stress. J Cell Biol. 40(2):305-21.
+Fänge R., Schmidt-Nielsen K., Robinson M. (1958): Control of secretion from the avian salt gland.
+Am J Physiol. 195(2):321-6.
+Fujita N., Sato S., Katayama K., Tsuruo T. (2002): Akt-dependent phosphorylation of p27Kip1
+promotes binding to 14-3-3 and cytoplasmic localization. J Biol Chem. 277(32):28706-13.
+Fujita N., Sato S., Tsuruo T. (2003): Phosphorylation of p27Kip1 at threonine 198 by p90 ribosomal
+protein S6 kinases promotes its binding to 14-3-3 and cytoplasmic localization. J Biol Chem.
+278(49):49254-60.
+Ganoth D., Bornstein G., Ko T.K., Larsen B., Tyers M., Pagano M., Hershko A. (2001): The cell-cycle
+regulatory protein Cks1 is required for SCF(Skp2)-mediated ubiquitinylation of p27. Nat Cell Biol.
+3(3):321-4.
+Gao D., Inuzuka H., Tseng A., Chin R.Y., Toker A., Wei W. (2009): Phosphorylation by Akt1 promotes
+cytoplasmic localization of Skp2 and impairs APCCdh1-mediated Skp2 destruction. Nat Cell Biol.
+11(4):397-408.
+Gerstberger R., Gray D.A. (1993): Fine structure, innervation and functional control of avian salt
+glands. International Review of Cytology. 144:129–215.
+Gerstberger R., Simon-Oppermann C., Kaul R. (1984): Cephalic osmoreceptor control of salt gland
+activation and inhibition in the salt adapted duck. Journal of Comparative Physiology B. 154(5):449-
+456.
+Hanahan D. (1985): Techniques for transformation of E. coli. DNA cloning: a practical approach. IRL
+Press, UK. 109–135.
+Literaturverzeichnis
+ 81
+Hanwell A., Linzell J.L., Peaker M. (1972): Nature and location of the receptors for salt-gland
+secretion in the goose. J Physiol. 226(2):453-72.
+Hara T., Kamura T., Kotoshiba S., Takahashi H., Fujiwara K., Onoyama I., Shirakawa M., Mizushima N.,
+Nakayama K.I. (2005): Role of the UBL-UBA protein KPC2 in degradation of p27 at G1 phase of the
+cell cycle. Mol Cell Biol. 25(21):9292-303.
+Hara T., Kamura T., Nakayama K., Oshikawa K., Hatakeyama S., Nakayama K. (2001): Degradation of
+p27(Kip1) at the G(0)-G(1) transition mediated by a Skp2-independent ubiquitination pathway. J
+Biol Chem. 276(52):48937-43.
+Harper J.W., Adams P.D. (2001): Cyclin-dependent kinases. Chem Rev. 101(8):2511-26.
+Hatakeyama S., Yada M., Matsumoto M., Ishida N., Nakayama K.I. (2001): U box proteins as a new
+family of ubiquitin-protein ligases. J Biol Chem. 276(35):33111-20
+Hayashi E., Yasui A., Oda K., Nagino M., Nimura Y., Nakanishi M., Motoyama N., Ikeda K., Matsuura A.
+(2003): Loss of p27(Kip1) accelerates DNA replication after partial hepatectomy in mice. J Surg Res.
+111(2):196-202.
+Hengst L. (2004): A second RING to destroy p27(Kip1). Nat Cell Biol. 6(12):1153-5.
+Hengst L., Reed S.I. (1996): Translational control of p27Kip1 accumulation during the cell cycle.
+Science. 271(5257):1861-4.
+Hershko A., Ciechanover A. (1998): The ubiquitin system. Annu Rev Biochem. 67:425-79.
+Hildebrandt J.P. (2001): Coping with excess salt: adaptive functions of extrarenal osmoregulatory
+organs in vertebrates. Zoology 104:209-220.
+Hildebrandt J.P., Shuttleworth T.J. (1994): Muscarinic receptor characterization in differentiating
+avian exocrine cells. Am J Physiol (Regulatory Integrative Comp Physiol 35). 266:R674-R681.
+Hochstrasser M. (1996): Ubiquitin-dependent protein degradation. Annu Rev Genet. 30:405-39.
+Holsberger D.R., Jirawatnotai S., Kiyokawa H., Cooke P.S. (2003): Thyroid hormone regulates the cell
+cycle inhibitor p27Kip1 in postnatal murine Sertoli cells. Endocrinology. 144(9):3732-8.
+Hu G. (1993): DNA polymerase-catalyzed addition of nontemplated extra nucleotides to the 3' end
+of a DNA fragment. DNA Cell Biol. 12(8):763-70.
+Huang L., Kinnucan E., Wang G., Beaudenon S., Howley P.M., Huibregtse J.M., Pavletich N.P. (1999):
+Structure of an E6AP-UbcH7 complex: insights into ubiquitination by the E2-E3 enzyme cascade.
+Science. 286(5443):1321-6.
+Huang Y., Li Y., Burt D.W., Chen H., Zhang Y., Qian W., Kim H., Gan S., Zhao Y., Li J., Yi K., Feng H., Zhu
+P., Li B., Liu Q., Fairley S., Magor K.E., Du Z., Hu X., Goodman L., Tafer H., Vignal A., Lee T., Kim K.W.,
+Sheng Z., An Y., Searle S., Herrero J., Groenen M.A., Crooijmans R.P., Faraut T., Cai Q., Webster R.G.,
+Aldridge J.R., Warren W.C., Bartschat S., Kehr S., Marz M., Stadler P.F., Smith J., Kraus R.H., Zhao Y.,
+Ren L., Fei J., Morisson M., Kaiser P., Griffin D.K., Rao M., Pitel F., Wang J., Li N. (2013): The duck
+genome and transcriptome provide insight into an avian influenza virus reservoir species. Nat
+Genet. 45(7):776-83.
+Ishida N., Hara T., Kamura T., Yoshida M., Nakayama K., Nakayama K.I. (2002): Phosphorylation of
+p27Kip1 on serine 10 is required for its binding to CRM1 and nuclear export. J Biol Chem.
+277(17):14355-8.
+Ishida N., Kitagawa M., Hatakeyama S., Nakayama K. (2000): Phosphorylation at serine 10, a major
+phosphorylation site of p27(Kip1), increases its protein stability. J Biol Chem. 275(33):25146-54.
+Literaturverzeichnis
+ 82
+Jeffrey P.D., Russo A.A., Polyak K., Gibbs E., Hurwitz J., Massagué J., Pavletich NP. (1995): Mechanism
+of CDK activation revealed by the structure of a cyclinA-CDK2 complex. Nature. 376(6538):313-20.
+Kamura T., Hara T., Matsumoto M., Ishida N., Okumura F., Hatakeyama S., Yoshida M., Nakayama K.,
+Nakayama K.I. (2004): Cytoplasmic ubiquitin ligase KPC regulates proteolysis of p27(Kip1) at G1
+phase. Nat Cell Biol. 6(12):1229-35.
+Kotake Y., Nakayama K., Ishida N., Nakayama K.I. (2005): Role of serine 10 phosphorylation in p27
+stabilization revealed by analysis of p27 knock-in mice harboring a serine 10 mutation. J Biol Chem.
+280(2):1095-102.
+Kotoshiba S., Kamura T., Hara T., Ishida N., Nakayama K.I. (2005): Molecular dissection of the
+interaction between p27 and Kip1 ubiquitylation-promoting complex, the ubiquitin ligase that
+regulates proteolysis of p27 in G1 phase. J Biol Chem. 280(18):17694-700.
+LaBaer J., Garrett M.D., Stevenson L.F., Slingerland J.M., Sandhu C., Chou H.S., Fattaey A., Harlow E.
+(1997): New functional activities for the p21 family of CDK inhibitors. Genes Dev. 11(7):847-62.
+le Sage C., Nagel R., Agami R. (2007): Diverse ways to control p27Kip1 function: miRNAs come into
+play. Cell Cycle. 6(22):2742-9.
+Lee M.H., Nikolic M., Baptista C.A., Lai E., Tsai L.H., Massagué J. (1996): The brain-specific activator
+p35 allows Cdk5 to escape inhibition by p27Kip1 in neurons. Proc Natl Acad Sci U S A. 93(8):3259-
+63.
+Liang J., Zubovitz J., Petrocelli T., Kotchetkov R., Connor M.K., Han K., Lee J.H., Ciarallo S., Catzavelos
+C., Beniston R., Franssen E., Slingerland J.M. (2002): PKB/Akt phosphorylates p27, impairs nuclear
+import of p27 and opposes p27-mediated G1 arrest. Nat Med. 2002 Oct;8(10):1153-60.
+Lim S., Kaldis P. (2013): Cdks, cyclins and CKIs: roles beyond cell cycle regulation. Development.
+140(15):3079-93.
+Lin H.K., Wang G., Chen Z., Teruya-Feldstein J., Liu Y., Chan C.H., Yang W.L., Erdjument-Bromage H.,
+Nakayama K.I., Nimer S., Tempst P., Pandolfi P.P. (2009): Phosphorylation-dependent regulation of
+cytosolic localization and oncogenic function of Skp2 by Akt/PKB. Nat Cell Biol. 11(4):420-32.
+Lorick K.L., Jensen J.P., Fang S., Ong A.M., Hatakeyama S., Weissman A.M. (1999): RING fingers
+mediate ubiquitin-conjugating enzyme (E2)-dependent ubiquitination. Proc Natl Acad Sci U S A.
+96(20):11364-9.
+Lowy R.J., Dawson D.C., Ernst S.A. (1989): Mechanism of ion transport by avian salt gland primary
+cell cultures. Am J Physiol. 256(6 Pt 2):R1184-91.
+Manning B.D., Cantley L.C. (2007): AKT/PKB signaling: navigating downstream. Cell. 129(7):1261-74.
+Marchuk D., Drumm M., Saulino A., Collins F.S. (1991): Construction of T-vectors, a rapid and
+general system for direct cloning of unmodified PCR products. Nucleic Acids Res. 19(5):1154.
+Merchant J.L., Papermaster D.S., Barrnett R.J. (1985): Correlation of Na+,K+-ATPase content and
+plasma membrane surface area in adapted and de-adapted salt glands of ducklings. J Cell Sci.
+78:233-46.
+Messing J. (1983): New M13 vectors for cloning. Methods Enzymol. 101:20-78.
+Millard S.S., Yan J.S., Nguyen H., Pagano M., Kiyokawa H., Koff A. (1997): Enhanced ribosomal
+association of p27(Kip1) mRNA is a mechanism contributing to accumulation during growth arrest.
+J Biol Chem. 272(11):7093-8.
+Mohapatra S., Agrawal D., Pledger W.J. (2001): p27Kip1 Regulates T Cell Proliferation. J Biol Chem.
+276(24):21976-83.
+Literaturverzeichnis
+ 83
+Montagnoli A., Fiore F., Eytan E., Carrano A.C., Draetta G.F., Hershko A., Pagano M. (1999):
+Ubiquitination of p27 is regulated by Cdk-dependent phosphorylation and trimeric complex
+formation. Genes Dev. 13(9):1181-9.
+Morgan D.O. (1997): Cyclin-dependent kinases: engines, clocks, and microprocessors. Annu Rev Cell
+Dev Biol. 13:261-91.
+Morgan D.O. (2006): The Cell Cycle: Principles of Control. Sinauer Associates, USA.
+Mukhopadhyay D., Riezman H. (2007): Proteasome-independent functions of ubiquitin in
+endocytosis and signaling. Science. 315(5809):201-5.
+Mülhardt C. (1999): Der Experimentator: Molekularbiologie/Genomics. Spektrum Akademischer
+Verlag, Deutschland. Auflage 7 (2013).
+Müller C., Hildebrandt J.P. (2003): Salt glands - the perfect way to get rid of too much sodium
+chloride. Biologist 50(6):255-258.
+Müller D., Thieke K., Bürgin A., Dickmanns A., Eilers M. (2000): Cyclin E-mediated elimination of p27
+requires its interaction with the nuclear pore-associated protein mNPAP60. EMBO J. 19(10):2168-
+80.
+Murray A., Hunt T. (1993): The Cell Cycle: An Introduction. Oxford University Press, USA.
+Nakayama K., Nakayama K.I. (1998): Cip/Kip cyclin-dependent kinase inhibitors: brakes of the cell
+cycle engine during development. Bioessays. 20(12):1020-9.
+Nakayama K.I., Nakayama K. (2005): Regulation of the cell cycle by SCF-type ubiquitin ligases. Semin
+Cell Dev Biol. 16(3):323-33.
+Nakayama K.I., Nakayama K. (2006): Ubiquitin ligases: cell-cycle control and cancer. Nat Rev Cancer.
+6(5):369-81.
+Opitz K. (2010): Die Ubiquitinligase Skp2 in exokrinen Drüsenzellen der Ente, Anas platyrhynchos.
+(Diplomarbeit) Ernst-Moritz-Arndt-Universität Greifswald, Deutschland.
+Pagano M., Tam S.W., Theodoras A.M., Beer-Romero P., Del Sal G., Chau V., Yew P.R., Draetta G.F.,
+Rolfe M. (1995): Role of the ubiquitin-proteasome pathway in regulating abundance of the cyclin-
+dependent kinase inhibitor p27. Science. 269(5224):682-5.
+Pardee A.B. (1974): A restriction point for control of normal animal cell proliferation. Proc Natl
+Acad Sci U S A. 71(4):1286-90.
+Pickart C.M. (2001): Mechanisms underlying ubiquitination. Annu Rev Biochem. 70:503-33.
+Polyak K., Lee M.H., Erdjument-Bromage H., Koff A., Roberts J.M., Tempst P., Massagué J. (1994):
+Cloning of p27Kip1, a cyclin-dependent kinase inhibitor and a potential mediator of extracellular
+antimitogenic signals. Cell. 78(1):59-66.
+Prescott D.M. (1976): Reproduction of eukaryotic cells. Academic Press, USA.
+Ramaswamy S., Nakamura N., Vazquez F., Batt D.B., Perera S., Roberts T.M., Sellers W.R. (1999):
+Regulation of G1 progression by the PTEN tumor suppressor protein is linked to inhibition of the
+phosphatidylinositol 3-kinase/Akt pathway. Proc Natl Acad Sci U S A. 96(5):2110-5.
+Reichert M., Saur D., Hamacher R., Schmid R.M., Schneider G. (2007): Phosphoinositide-3-kinase
+signaling controls S-phase kinase-associated protein 2 transcription via E2F1 in pancreatic ductal
+adenocarcinoma cells. Cancer Res. 67(9):4149-56.
+Literaturverzeichnis
+ 84
+Rodier G., Coulombe P., Tanguay P.L., Boutonnet C., Meloche S. (2008): Phosphorylation of Skp2
+regulated by CDK2 and Cdc14B protects it from degradation by APC(Cdh1) in G1 phase. EMBO J.
+27(4):679-91.
+Rodier G., Montagnoli A., Di Marcotullio L., Coulombe P., Draetta G.F., Pagano M., Meloche S. (2001):
+p27 cytoplasmic localization is regulated by phosphorylation on Ser10 and is not a prerequisite for
+its proteolysis. EMBO J. 20(23):6672-82.
+Rohlfing A.K. (2007): Regulation des Zellzyklus-Inhibitors p27Kip1 in epithelialen Zellen der
+Nasendrüse osmotisch belasteter Vögel und der regenerierenden Rattenleber. (Dissertation) Ernst-
+Moritz-Arndt-Universität Greifswald, Deutschland.
+Rohlfing A.K., Schill T., Müller C., Hildebrandt P., Prowald A., Hildebrandt J.P. (2005): Attenuation of
+cell cycle regulator p27Kip1 expression in vertebrate epithelial cells mediated by extracellular
+signals in vivo and in vitro. J Comp Physiol B. 175(7):511-22
+Russell P., Nurse P. (1987): Negative regulation of mitosis by wee1+, a gene encoding a protein
+kinase homolog. Cell. 49(4):559-67.
+Satyanarayana A., Kaldis P. (2009): Mammalian cell-cycle regulation: several Cdks, numerous cyclins
+and diverse compensatory mechanisms. Oncogene. 28(33):2925-39.
+Schäfer K.A. (1998): The cell cycle: a review. Vet Pathol. 35(6):461-78.
+Schmidt-Nielsen K. (1960): The salt-secreting gland of marine birds. Circulation. 21:955-67.
+Sherr C.J., Roberts J.M. (1999): CDK inhibitors: positive and negative regulators of G1-phase
+progression. Genes Dev. 13(12):1501-12.
+Shin I., Yakes F.M., Rojo F., Shin N.Y., Bakin A.V., Baselga J., Arteaga C.L. (2002): PKB/Akt mediates
+cell-cycle progression by phosphorylation of p27(Kip1) at threonine 157 and modulation of its
+cellular localization. Nat Med. 8(10):1145-52.
+Shuttleworth T.J., Hildebrandt J.P. (1999): Vertebrate salt glands: short- and long-term regulation of
+function. J Exp Zool. 283:689-701.
+Sitry D., Seeliger M.A., Ko T.K., Ganoth D., Breward S.E., Itzhaki L.S., Pagano M., Hershko A. (2002):
+Three different binding sites of Cks1 are required for p27-ubiquitin ligation. J Biol Chem.
+277(44):42233-40.
+Susaki E., Nakayama K., Nakayama K.I. (2007): Cyclin D2 translocates p27 out of the nucleus and
+promotes its degradation at the G0-G1 transition. Mol Cell Biol. 27(13):4626-40.
+Technau G. (1936): Die Nasendrüse der Vögel. J Ornithol. 84:511.
+Thellin O., Zorzi W., Lakaye B., De Borman B., Coumans B., Hennen G., Grisar T., Igout A., Heinen E.
+(1999): Housekeeping genes as internal standards: use and limits. J Biotechnol. 75(2-3):291-5.
+Tsvetkov L.M., Yeh K.H., Lee S.J., Sun H., Zhang H. (1999): p27(Kip1) ubiquitination and degradation
+is regulated by the SCF(Skp2) complex through phosphorylated Thr187 in p27. Curr Biol. 9(12):661-
+4.
+Ullmann A., Perrin D. (1970) in: Beckwith J., Zipser D. (Hrsg.): The Lactose operon. Cold Spring Harbor
+Laboratory, 143–72.
+Verma R., Oania R., Graumann J., Deshaies R.J. (2004): Multiubiquitin chain receptors define a layer
+of substrate selectivity in the ubiquitin-proteasome system. Cell. 2004 118(1):99-110.
+Vermeulen K., Van Bockstaele D.R., Berneman Z.N. (2003): The cell cycle: a review of regulation,
+deregulation and therapeutic targets in cancer. Cell Prolif. 36(3):131-49.
+Literaturverzeichnis
+ 85
+Viglietto G., Motti M.L., Bruni P., Melillo R.M., D'Alessio A., Califano D., Vinci F., Chiappetta G.,
+Tsichlis P., Bellacosa A., Fusco A., Santoro M. (2002): Cytoplasmic relocalization and inhibition of the
+cyclin-dependent kinase inhibitor p27(Kip1) by PKB/Akt-mediated phosphorylation in breast
+cancer. Nat Med. 8(10):1136-44.
+Vincze T., Posfai J., Roberts R.J. (2003): NEBcutter: A program to cleave DNA with restriction
+enzymes. Nucleic Acids Res. 31(13):3688-91.
+Wang W., Ungermannova D., Chen L., Liu X. (2003): A negatively charged amino acid in Skp2 is
+required for Skp2-Cks1 interaction and ubiquitination of p27Kip1. J Biol Chem. 278(34):32390-6.
+Welchman R.L., Gordon C., Mayer R.J. (2005): Ubiquitin and ubiquitin-like proteins as
+multifunctional signals. Nat Rev Mol Cell Biol. 6(8):599-609.
+Willems A.R., Schwab M., Tyers M. (2004): A hitchhiker's guide to the cullin ubiquitin ligases: SCF
+and its kin. Biochim Biophys Acta. 1695(1-3):133-70.
+Xu K., Belunis C., Chu W., Weber D., Podlaski F., Huang K.S., Reed S.I., Vassilev L.T. (2003): Protein-
+protein interactions involved in the recognition of p27 by E3 ubiquitin ligase. Biochem J. 371(Pt
+3):957-64.
+Zeng Y., Hirano K., Hirano M., Nishimura J., Kanaide H. (2001): Minimal requirements for the nuclear
+localization of p27(Kip1), a cyclin-dependent kinase inhibitor. Biochem Biophys Res Commun.
+274(1):37-42.
+Zhao J., Zhang S., Wu X., Huan W., Liu Z., Wei H., Shen A., Teng H. (2011): KPC1 expression and
+essential role after acute spinal cord injury in adult rat. Neurochem Res. 36(3):549-58.
+Zheng J., Yang X., Harrell J.M., Ryzhikov S., Shim E.H., Lykke-Andersen K., Wei N., Sun H., Kobayashi
+R., Zhang H. (2002): CAND1 binds to unneddylated CUL1 and regulates the formation of SCF
+ubiquitin E3 ligase complex. Mol Cell. 10(6):1519-26.
+Danksagung
+Danksagung
+ 86
+Zuerst möchte ich Prof. Dr. Jan-Peter Hildebrandt und Dr. Christian Müller für den
+Optimismus zur Wiederaufnahme des zuletzt eher unfruchtbar verlaufenden
+Salzdrüsen-Projekts und die Ausgabe dieses komplexen Themas danken. Ich
+bedanke mich auch für die exzellente Betreuung und hilfreichen Ratschläge
+während meiner Laborzeit und darüber hinaus, ebenso, wie für die vielen
+geistreichen Konversationen in den Arbeitsgruppenbesprechungen und Seminaren
+(und auch auf den Wegen zu diesen).
+Desweiteren gilt mein Dank der gesamten Arbeitsgruppe, von der ich viele
+praktische Tipps für den Laboralltag erhalten habe. Es war eine schöne
+Arbeitsatmosphäre und ich werde meine Zeit, die ich als Master-Student dort
+verbracht habe, immer in guter Erinnerung behalten.
+Zuletzt möchte ich noch meiner Familie und meinen Freunden danken, die mich
+während meines Studiums stets unterstützt haben. - Auch wenn sie vermutlich noch
+immer nicht verstanden haben, was genau ich eigentlich mache.
+Anhang
+I.
+ Theoretische KPC1-Fragmente
+Dargestellt nach NCBI: XM_005028051.1
+(50 Basen/Zeile)
+Anhang
+ 87
+KPC1 [1/4]
+Primer:
+(1051 bp)
+KpcF_Sal2
+KpcR_BspH2
+Schnittstellen:
+SalI
+BspHI
+GCCTGTGTCGACTGACGTCGCGAGGTGCTGGGCCTGCTCTCTCGAGGAAG
+AACTACAGGCTGAGCAATGAGCCGGAGAAGTCCAAGGTCGCAGGGATAGT
+GAACAGCAGGCTGCTGAATGACTACCTGCATCGCGTCTTTACCAGTGCTG
+ATGGGAACCAGCCCGCAGCTGCATACAGAAAGCACCTGACGTTCCAGAAC
+CTACAGGAACACCTGGACCGGTTGCTAGCAGAGGAGAATGGCCCTGAAGA
+CAATCAGGGAGCAGAGGGCCGGCTCGGTCCCTCTACTGTAGTGTTGGACC
+ACACGAGCGGTTTTGAGGGGCTCCTGCTGGTTGATGATGACTTACTTGGG
+GTGATTGGCCACAGTAACTTTGGCTCGATCAGGGCCACGACGTGCGTGTA
+TAAAGGGAAATGGATTTACGAGGTGCTCATCTCTTCCCAGGGGCTCATGC
+AGATTGGCTGGTGTACTCTCAACTGCAGATTTAATCAGGAGGAAGGAGTT
+GGAGATACACCAGATTCATATGCATATGACGGCAACAGGGTGCGCAAATG
+GAACGTGACCACTACCAACTATGGCAAGTCTTGGGCGGCAGGAGACATCG
+TCAGCTGTCTGATAGACCTCGATGAGGGCACCATTGCTTTCTGCCTGAAT
+GGCATATCTCTGGGAACTGCTTTTGATAACATCACAAGAGGTGCTGGAAT
+GGCATACTTCCCTGCTATCAGTCTCTCGTTCAAAGAGTCTGTTGCTTTTA
+ACTTTGGAAGCCGTCCACTTCGGTATCCAGTGGAAGGCTACCACCCCTTG
+CAAGACCCTCCTGTCGCAGACCTCGTGAAGGCTCGCAGGCTTTTAGGCTA
+CCTGAAGAACGTGATCCATATCGGGATCGATGTGACGGAGGGGAAGCTGG
+TGGAGAAGGACACATCCATGTGGCAGTTGCAGGGAGAACCCACAGTGTTG
+ATCACATTAGCCCACATCTTCAATTATTTCTCCCCTCTCATGTGCAAGGT
+GTACCTGGTGGAAGATGTGCTCATGACCTTCCTGTTGAGCATCCTGGAGC
+G
+Anhang
+ 88
+KPC1 [2/4]
+Primer:
+(1168 bp)
+KpcF_BspH2
+KpcR_Sac
+Schnittstellen:
+BspHI
+SacII
+CCTCTCATGTGCAAGGTGTACCTGGTGGAAGATGTGCTCATGACCTTCCT
+GTTGAGCATCCTGGAGCGAGGAGGGGCAGTGGAGGCCCATCCCCTTATTC
+AGCAGCTGCTGGATCTCATGTGGCTTCTCATGGAGGAGTATGAAGTGCAC
+GAGTGCCTCAAGCAGCTGCTGATGTCACTGCTGCGGGCTTACAGGTTTTC
+TCCCATCATCCCAGACCTGGGTTTGCAGATTCACTACCTCCGGCTCACCA
+TTGCAGTCTTGAAGCATGAGAAATCCAGGAAATATCTACTCAGCAATGTT
+CTCTTTGATGTGCTCCGCTCGGTCGTGTTCTTCTACATCAAGAGCCCGCT
+TCGCGTGGAGGAGGCTGGTTTGCAAGAGCTCATTCCCACCACGTGGTGGC
+CAAACCGCTTCACCAAGGAGGGCAAGGAGAGTAAGGATGTGAAGGAGGAG
+AGTGCTGAGGAAAGGCTGAGGCGGCGGGCGTATGAAAGAGGCTGCCAGCG
+GCTCAAGAAACGCATCGAAGTGGTGGAAGGTCTCCAGGTTCAGATTCTGA
+AGTTGCTACTGAACAACAAAGACAGAGGAGGGGGAGAAGCCTCCAGATAC
+ATCTTCCTAAACAAATTCCGCAAGTTTCTTCAGGAAAATGCTAGCAACAG
+AGGGAACTTGACTGTGCTGTGCCCGCCAGAGTACATGGTGTGCTTCCTGC
+ACCGGCTTATTGCTGCCCTGCGTTTCTTCTGGGATGGCCACAAGGCGAAG
+ACCCCTGCTGCACTGAGCAGTGATGAGGCGTATGTCCCTCCCCAGCTTTT
+CTATAACGGGAAGGTGGATTATTTTGACCTTCAGCGACTTGGAGGTCTCC
+TGTCTCATCTCAAGAAGACCCTGAAAGATGACCTGGCTGCAAAAGCCAAT
+GTCTTGATTGACCCTGCAGAACTGCAGTCAGTGACTATGGATGATCTTGA
+TGAAGATGAGGAATCAGCGACATCAGCAGCACAGCGTCCCTCCGCCGCCT
+TGGCCATCGGTGGAGCTCTTGCCAGACCTGGCTGGCTCAGCTCGCCCACC
+CTGGGCCGCGCCAACCGTTTCCTCAGCACGGCGGCTGTCAGCCTGATGAA
+CCCGCGGCGCCCGCTGGGCACCCTCGAGAAGGTCAAAGTGCGCACACTGA
+GTGTGGAGCAGCGTACGG
+Anhang
+ 89
+KPC1 [3/4]
+Primer:
+(1099 bp)
+KpcF_Sac
+Kpc_rev5
+Schnittstellen:
+SacII
+Bsu36I
+GCGGCTGTCAGCCTGATGAACCCGCGGCGCCCGCTGGGCACCCTCGAGAA
+GGTCAAAGTGCGCACACTGAGTGTGGAGCAGCGTACGGAGGAGGACATTG
+AAGGCACCCATGGAAATGAGGGTCTCTTACTGGGGAGACCCCCAGAGGAG
+CCAGACCAGCCCATCACAGAGAACTCCCTCCTGGAAATCCTGGATGGGAT
+AGTGATGATGTACAACCTCAGTGTCCACCAGCAGCTCGGGAAGATGGTTG
+GTGTGTCAGATGATGTGAATGAGTATGCCATGGCACTGAAAGACACAGAG
+GAAAAAATCAGCCGCTGCCCAAAGAGGAGGAGAGACATCCATGAGGAGCT
+GCTGAAGAGCCAAAAGGTCTTCTCTGAGAAACTCAATCACCTGAGTCGTC
+GCCTGGCTTGGATAAATGTCACCATCTATTCAAAGGAGAAGATGCAGGAT
+ATCTACTGGCTGCTGCGAGTGTGCATCCGCACCATCGAGCACGGCGACAG
+GACAGGCTCGCTTTTTGCTTTCATGCCAGAGTTCTACCTCAGCGTGGCTA
+TGAACAGCTACAGTGCACTCAAGAACTACTTCAGCCCTGTCAATAGCATG
+GAGGAGCTTCCAGGCTATGAAGAGACTCTGATGCGCCTCGCTGCCATCCT
+GGCCAAGCACTTTGCTGACTCGAGGATTGTGGGCACAGACATCCGGGACT
+CCCTGATGCAGGCACTGGCCAGCTATGTCTGCTACCCCCACTCGCTGCGT
+GCTGTAGAGAGGATCCCCGAAGAGCAGCGGATCTCCATGATGAAGAACCT
+CCTGGCTCCCTACGAGCAGCGGCCCTGGGCACAGACCAACTGGATTCTCG
+TCAGGCTGTGGCGGGGCTGTGGCTTCGGGTACAGATACACACGGCTCCCA
+CACTTGCTGAAAACCAAGCCTGAGGACGCCAGCCTCCCCAGCCTGCAGAA
+GTGGTGCCCACCCCAGCTGCTGCAGAGGCACATGGCAGACCTGCTGCGCA
+GCGACCGGGACTTGGCCCCCAGCTTCCTCAACAGTGTCCTCAACCAGCTC
+AACTGGGCTTTCTCCGAGTTCATCGGCATGATTCAGGAGATCCAGCAGG
+Anhang
+ 90
+KPC1 [4*/4]Primer:
+(1246 bp)
+Kpc_fw5
+KpcR_Hind
+Schnittstellen:
+Bsu36I
+HindIII
+CCTGGCCAAGCACTTTGCTGACTCGAGGATTGTGGGCACAGACATCCGGG
+ACTCCCTGATGCAGGCACTGGCCAGCTATGTCTGCTACCCCCACTCGCTG
+CGTGCTGTAGAGAGGATCCCCGAAGAGCAGCGGATCTCCATGATGAAGAA
+CCTCCTGGCTCCCTACGAGCAGCGGCCCTGGGCACAGACCAACTGGATTC
+TCGTCAGGCTGTGGCGGGGCTGTGGCTTCGGGTACAGATACACACGGCTC
+CCACACTTGCTGAAAACCAAGCCTGAGGACGCCAGCCTCCCCAGCCTGCA
+GAAGTGGTGCCCACCCCAGCTGCTGCAGAGGCACATGGCAGACCTGCTGC
+GCAGCGACCGGGACTTGGCCCCCAGCTTCCTCAACAGTGTCCTCAACCAG
+CTCAACTGGGCTTTCTCCGAGTTCATCGGCATGATTCAGGAGATCCAGCA
+GGCAGCGGAGCGCTTGGAGAGAAACTTTGTGGACAGCCGCCAGCTGAAGG
+TGTGTGCCACCTGCTTCGACCTGTCGGTGAGCTTGCTCAGGGTGCTGGAA
+ATGACCGTCACGCTGGCCCCCGAGATCTTTCTGGACTGGAATCGCCCGTC
+GTCAGAGCTGCTGCTTCGGAGGCTCGCCCAGCTCTTGAACCAGGTTCTGA
+ATCGTGTGACAGCTGAAAGGAACTTGTTTGACAGAGTGGTCAACCTCCGT
+TTGCCAGGGTTGGAGAGTGTGGACCATTACCCAATTCTCGTGGCTGTGAC
+GGGAATACTGGTCCGGCTGCTTGTGGACACTGATGCTCAGGGGGCTGAGC
+GTGCGACAGCAGTGATGCTGGCAGACCCCTGCTTCCAGCTGCGCTCCATC
+CAGTACCTGCTGGGCCACGCTGAGCCCTCAGCCCTGGCGGCTGCTGCCCC
+GGCCGCCGANNNNNNNNNNNNNGCCGAGAAGCGCCATTTCTCCCTGAACA
+CGTACACAGAGTACATCAGTACGGAGGAGCTGGCGAAGGTGGACAAGATG
+CTGAGCCACCTGAGTGAGGAGTCCAAGCAGGCGGCTGCCACCATGCTGCC
+CACCAGCGAGGAGGATCTCTGCCCCATCTGTTACGCACACCCCATCTCAG
+CCATCTTCAGGCCCTGCTCCCACAAGTCGTGCAAAGCCTGCATCAACCAG
+CACCTGATGAACAACAAGGACTGCTTCTTCTGCAAGGCCACCATCACGGG
+CGTGGACGACTTCACCAAGCCCGCCAGCTCGTAGCACCAAGCTTCG
+Anhang
+ 91
+II.
+ Ergebnisse der Sequenzierung
+An Restriktionsschnittstellen zusammengesetzte Sequenz (50 Basen/Zeile)
+KPC1 (3948 bp)
+ ursprüngliches Start- und Stopp-Codon grau unterlegt
+CTGTGTCGACTGACGTCGCGAGGTGCTGGGCCTGCTCTCTCGAGGAAGAA
+CTACAGGCTGAGCACTGAGCCGGAGAAGTCCAAGGTCGCAGGGATAGTGA
+ACAGCAGGCTGCTGAATGACTACCTGCATCGCGTCTTTACCAGTGCTGAT
+GGGAACCAGCCCGCAGCTGCATACAGAAAGCACCTGACGTTCCAGAACCT
+ACAGGAACACCTGGACCGGTTGCTAGCAGAGGAGAATGGCCCTGAAGACA
+GTCGAGATCAGGGAGCAGAGGGCCGGCTCGGTCCCTCTACTGTAGTGTTG
+GACCACACGAGCGGTTTTGAGGGGCTCCTGCTGGTTGATGATGACTTACT
+TGGGGTGATTGGCCACAGTAACTTTGGCTCGATCAGGGCCACGACGTGCG
+TGTATAAAGGGAAATGGATTTACGAGGTGCTCATCTCTTCCCAGGGGCTC
+ATGCAGATTGGCTGGTGTACTCTCAACTGCAGATTTAATCAGGAGGAAGG
+AGTTGGAGATACACCAGATTCATATGCATATGACGGCAACAGGGTGCGCA
+AATGGAACGTGACCACTACCAACTATGGCAAGTCTTGGGCGGCAGGAGAC
+ATCGTCAGCTGTCTGATAGACCTCGATGAGGGCACCATTGCTTTCTGCCT
+GAATGGCATATCTCTGGGAACTGCTTTTGATAACATCACAAGAGGTGCTG
+GAATGGCATACTTCCCTGCTATCAGTCTCTCGTTCAAAGAGTCTGTTGCT
+TTTAACTTTGGAAGCCGTCCACTTCGGTATCCAGTGGAAGGCTACCACCC
+CTTGCAAGACCCTCCTGTCGCAGACCTCGTGAAGGCTCGCAGGCTTTTAG
+GCTACCTGAAGAACGTGATCCATATCGGGATCGATGTGACGGAGGGGAAG
+CTGGTGGAGAAGGACACATCCATGTGGCAGTTGCAGGGAGAACCCACAGT
+GTTGATCACATTAGCCCACATCTTCAATTATTTCTCCCCTCTCATGTGCA
+AGGTGTACCTGGTGGAAGATGTGCTCATGACCTTCCTGTTGAGCATCCTG
+GAGCGAGGAGGGGCAGTGGAGGCCCATCCCCTTATTCAGCAGCTGCTGGA
+TCTCATGTGGCTTCTCATGGAGGAGTATGAAGTGCACGAGTGCCTCAAGC
+AGCTGCTGATGTCACTGCTGCGGGCTTACAGGTTTTCTCCCATCATCCCA
+GACCTGGGTTTGCAGATTCACTACCTCCGGCTCACCATTGCAGTCTTGAA
+GCATGAGAAATCCAGGAAATATCTACTCAGCAATGTTCTCTTTGATGTGC
+TCCGCTCGGTCGTGTTCTTCTACATCAAGAGCCCGCTTCGCGTGGAGGAG
+GCTGGTTTGCAAGAGCTCATTCCCACCACGTGGTGGCCAAACCGCTTCAC
+CAAGGAGGGCAAGGAGAGTAGGGATGTGAAGGAGGAGAGTGCTGAGGAAA
+GGCTGAGGCGGCGGGCGTATGAAAGAGGCTGCCAGCGGCTCAAGAAACGC
+ATCGAAGTGGTGGAAGGTCTCCAGGTTCAGATTCTGAAGTTGCTACTGAA
+CAACAAAGACAGAGGAGGGGGAGAAGCCTCCAGATACATCTTCCTAAACA
+AATTCCGCAAGTTTCTTCAGGAAAATGCTAGCAACAGAGGGAACTTGACT
+GTGCTGTGCCCGCCAGAGTACATGGTGTGCTTCCTGCACCGGCTTATTGC
+TGCCCTGCGTTTCTTCTGGGATGGCCACAAGGCGAAGACCCCTGCTGCAC
+TGAGCAGTGATGAGGCGTATGTCCCTCCCCAGCTTTTCTATAATGGGAAG
+Anhang
+ 92
+GTGGATTATTTTGACCTTCAGCGACTTGGAGGTCTCCTGTCTCATCTCAA
+GAAGACCCTGAAAGATGACCTGGCTGCAAAAGCCAATGTCTTGATTGACC
+CAGCAGAACTGCAGTCAGTGACTATGGATGATCTTGATGAAGATGAGGAA
+TCAGCGACATCAGCAGCACAGTCCCAGCGTCCCTCCGCCGCCTTGGCCAT
+CGGTGGAGCTCTTGCCAGACCTGGCTGGCTCAGCTCGCCCACCCTGGGCC
+GCGCCAACCGTTTCCTCAGCACGGCGGCTGTCAGCCTGATGAACCCGCGG
+CGCCCGCTGGGCACCCTCGAGAAGGTCAAAGTGCGCACACTGAGTGTGGA
+GCAGCGTACGGAGGAGGACATTGAAGGCACCCATGGAAATGAGGGTCTCT
+TACTGGGGAGACCCCCAGAGGAGCCAGACCAGCCCATCACAGAGAACTCC
+CTCCTGGAAATCCTGGATGGGATAGTGATGATGTACAACCTCAGCGTCCA
+CCAGCAGCTCGGGAAGATGGTTGGTGTGTCAGATGATGTGAATGAGTATG
+CCATGGCACTGAAAGACACAGAGGAAAAAATCAGCCGCTGCCCAAAGAGG
+AGGAGAGACATCCATGAGGAGCTGCTGAAGAGCCAAAAGGTCTTCTCTGA
+GAAACTCAATCACCTGAGTCGTCGCCTGGCTTGGATAAATGTCACCATCT
+ATTCAAAGGAGAAGATGCAGGATATCTACTGGCTGCTGCGAGTGTGCATC
+CGCACCATCGAGCACGGCGACAGGACAGGCTCGCTTTTTGCTTTCATGCC
+AGAGTTCTACCTCAGCGTGGCTATGAACAGCTACAGTGCACTCAAGAACT
+ACTTCAGCCCTGTCAATAGCATGGAGGAGCTTCCAGGCTATGAAGAGACT
+CTGATGCGCCTTGCTGCCATCCTGGCCAAGCACTTTGCTGACTCGAGGAT
+TGTGGGCACAGACATCCGGGACTCCCTGATGCAGGCACTGGCCAGCTATG
+TCTGCTACCCCCACTCGCTGCGTGCTGTAGAGAGGATCCCCGAAGAGCAG
+CGGATCTCCATGATGAAGAACCTCCTGGCTCCCTACGAGCAGCGGCCCTG
+GGCACAGACCAACTGGATTCTCGTCAGGCTGTGGCGGGGCTGTGGCTTCG
+GGTACAGATACACACGGCACCCACACTTGCTGAAAACCAAGCCTGAGGAC
+GCCAGCCTCCCCAGCCTGCAGAAGCCGTGCCCCTCCACCCTGCTGCAGAG
+GCACATGGCAGACCTGCTGCGCAGCGACCGGGACTTGGCCCCCAGCTTCC
+TCAACAGCGTCCTCAACCAGCTCAACTGGGCTTTCTCCGAGTTCATCGGC
+ATGATTCAGGAGATCCAGCAGGCAGCGGAGCGCTTGGAGAGAAACTTTGT
+GGACAGCCGCCAGCTGAAGGTGTGTGCCACCTGCTTCGACCTGTCGGTGA
+GCTTGCTCAGGGTGCTGGAAATGACCGTCACGCTGGCCCCCGAGATCTTT
+CTGGACTGGAATCGCCCATCGTCAGAGCTGCTGCTTCGGAGGCTTGCCCA
+GCTCTTGAACCAGGTTCTGAATCGTGTGACAGCTGAAAGGAACTTGTTTG
+ACAGAGTGGTCAACCTCCGTTTGCCAGGGTTGGAGAGTGTGGACCATTAC
+CCAATTCTCGTGGCTGTGACGGGAATACTGGTCCGGCTGCTTGTGGACAC
+TGATGCTCAGGGGGCTGAGCGTGCAACAGCAGTGATGCTGGCAGACCCCT
+GCTTCCAGCTGCGCTCCATCCAGTACCTGCTGGGCCACGCCGAGCCCTCA
+GCCCTGGCGGCTGCTGCCCCGGCCACCGAGAAGCGCCATTTCTCCCTGAA
+CACGTACACAGAGTACATCAGTACGGAGGAGCTGGCGAAGGTGGACAAGA
+TGCTGAGCCACCTGAGTGAGGAGTCCAAGCAGGCGGCTGCCACCACGCTG
+CCCACCAGCGAGGAGGATCTCTGCCCCATCTGTTACGCACACCCCATCTC
+AGCCATCTTCAGGCCCTGCTCCCACAAGTCGTGCAAAGCCTGCATCAACC
+Anhang
+AGCACCTGATGAACAACAAGGACTGCTTCTTCTGCAAGGCCACCATCACG
+GGCGTGGACGACTTCACCAAGCCCGCCAGCTCGTAGCACCAAGCTTCG
+93
+Translatierte Aminosäurensequenz
+ (50 aa/Zeile)
+KPC1-Protein (1311 aa)
+ nur bis Stopp-Signal
+LCRLTSRGAGPALSRKNYRLSTEPEKSKVAGIVNSRLLNDYLHRVFTSAD
+GNQPAAAYRKHLTFQNLQEHLDRLLAEENGPEDSRDQGAEGRLGPSTVVL
+DHTSGFEGLLLVDDDLLGVIGHSNFGSIRATTCVYKGKWIYEVLISSQGL
+MQIGWCTLNCRFNQEEGVGDTPDSYAYDGNRVRKWNVTTTNYGKSWAAGD
+IVSCLIDLDEGTIAFCLNGISLGTAFDNITRGAGMAYFPAISLSFKESVA
+FNFGSRPLRYPVEGYHPLQDPPVADLVKARRLLGYLKNVIHIGIDVTEGK
+LVEKDTSMWQLQGEPTVLITLAHIFNYFSPLMCKVYLVEDVLMTFLLSIL
+ERGGAVEAHPLIQQLLDLMWLLMEEYEVHECLKQLLMSLLRAYRFSPIIP
+DLGLQIHYLRLTIAVLKHEKSRKYLLSNVLFDVLRSVVFFYIKSPLRVEE
+AGLQELIPTTWWPNRFTKEGKESRDVKEESAEERLRRRAYERGCQRLKKR
+IEVVEGLQVQILKLLLNNKDRGGGEASRYIFLNKFRKFLQENASNRGNLT
+VLCPPEYMVCFLHRLIAALRFFWDGHKAKTPAALSSDEAYVPPQLFYNGK
+VDYFDLQRLGGLLSHLKKTLKDDLAAKANVLIDPAELQSVTMDDLDEDEE
+SATSAAQSQRPSAALAIGGALARPGWLSSPTLGRANRFLSTAAVSLMNPR
+RPLGTLEKVKVRTLSVEQRTEEDIEGTHGNEGLLLGRPPEEPDQPITENS
+LLEILDGIVMMYNLSVHQQLGKMVGVSDDVNEYAMALKDTEEKISRCPKR
+RRDIHEELLKSQKVFSEKLNHLSRRLAWINVTIYSKEKMQDIYWLLRVCI
+RTIEHGDRTGSLFAFMPEFYLSVAMNSYSALKNYFSPVNSMEELPGYEET
+LMRLAAILAKHFADSRIVGTDIRDSLMQALASYVCYPHSLRAVERIPEEQ
+RISMMKNLLAPYEQRPWAQTNWILVRLWRGCGFGYRYTRHPHLLKTKPED
+ASLPSLQKPCPSTLLQRHMADLLRSDRDLAPSFLNSVLNQLNWAFSEFIG
+MIQEIQQAAERLERNFVDSRQLKVCATCFDLSVSLLRVLEMTVTLAPEIF
+LDWNRPSSELLLRRLAQLLNQVLNRVTAERNLFDRVVNLRLPGLESVDHY
+PILVAVTGILVRLLVDTDAQGAERATAVMLADPCFQLRSIQYLLGHAEPS
+ALAAAAPATEKRHFSLNTYTEYISTEELAKVDKMLSHLSEESKQAAATTL
+PTSEEDLCPICYAHPISAIFRPCSHKSCKACINQHLMNNKDCFFCKATIT
+GVDDFTKPASS-
+Durch Insertion in den Expressionsvektor verändert sich der N-Terminus wie folgt:
+MRGSHHHHHHGSACELGTPGRLTS...
+------------------LCRLTS...
+---------------------MTS...
+Konstrukt in pQE-30-lacI
+Konstrukt
+KPC1 (original)
+III.
+ Endkonstruktion von KPC1 in pQE-30-lacI
+Anhang
+ 94
+IV.
+DNA-Marker
+100 bp DNA Leiter, extended
+Anhang
+2-log DNA Ladder (0,1-10 kb)
+95
+
