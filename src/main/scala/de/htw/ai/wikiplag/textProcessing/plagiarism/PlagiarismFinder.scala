@@ -31,18 +31,16 @@ class PlagiarismFinder extends Serializable {
     val client = MongoDbClient(sc, "hadoop03.f4.htw-berlin.de", 27020, "wikiplag", "wikiplag", "Ku7WhY34")
     MongoDbClient.open()
 
-    println("Get Index ...")
-    val index = client.getInvIndexRDD(InverseIndexBuilderImpl.buildIndexKeySet(inputText))
-    println("Got Index ...")
-
     /*
     Here we call our function
      */
     println("Start splitting Text ...")
     val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
+
+    val indicies = textParts.map(x => client.getInvIndexRDD(x._1.toSet))
+
     println("Done splitting Text ...")
-    val tmp = textParts.flatMap(x => PlagiarismFinder.checkForPlagiarism(index, sc, x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize, h_textSplitStep))
-    // val tmp = PlagiarismFinder.checkForPlagiarism(index, sc, textParts(55), h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize, h_textSplitStep)
+    val tmp = textParts.flatMap(x => PlagiarismFinder.checkForPlagiarism(indicies, sc, x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize, h_textSplitStep))
 
     val tmp2 = tmp.groupBy(_._2).mapValues(x => {
       val y = x.sortBy(_._3)
@@ -270,6 +268,7 @@ object PlagiarismFinder extends Serializable {
   def getPointerToRegions(regions: List[(ID, List[(InPos, WikPos, Delta)])], h_textSplitStep: Int): List[((InPos, ID, WikPos), (InPos, ID, WikPos))] =
     regions.map(r => ((r._2.head._1, r._1, r._2.head._2), (r._2.last._1 + h_textSplitStep, r._1, r._2.last._2)))
 
+  var i = 0
   /**
     * Initiates the Check for Plagiarism Algorithm
     * Calls several functions and returns a list of DocumentIDs and Positions where a Plagiarism is detected
@@ -281,13 +280,13 @@ object PlagiarismFinder extends Serializable {
     * @param h_minGroupSize
     * @return minimum size of a relevant group
     */
-  def checkForPlagiarism(index: RDD[(String, List[(ID, List[WikPos])])], sc: SparkContext, tokens: (List[String], InPos), h_matchingWordsPercentage: Double,
+  def checkForPlagiarism(indieces: List[RDD[(String, List[(ID, List[WikPos])])]], sc: SparkContext, tokens: (List[String], InPos), h_matchingWordsPercentage: Double,
                          h_maximalDistance: Int, h_maxNewDistance: Int, h_minGroupSize: Int, h_textSplitStep: Int): List[(InPos, ID, WikPos)] = {
     println("start finding")
     println("Grouping Tokens ...")
     val tokensMap = groupTokens(tokens)
     println("Fetch index ...")
-    val indexValues: (RDD[List[(ID, List[WikPos])]], InPos) = getIndexValues(index, sc, tokensMap)
+    val indexValues: (RDD[List[(ID, List[WikPos])]], InPos) = getIndexValues(indieces(i), sc, tokensMap)
     println("Grouping by ID ...")
     val groupedDocumentIds: (RDD[(ID, Iterable[WikPos])], InPos) = groupByDocumentId(indexValues)
     println("Filtering relevant documents ...")
@@ -302,7 +301,7 @@ object PlagiarismFinder extends Serializable {
     println("Clean findings ...")
     val result: RDD[(InPos, ID, WikPos)] = getPointerToRegions(splittedRegions, h_textSplitStep)
     println("end finding")
+    i += 1
     result.collect().toList
-    List((0,0,0))
   }
 }
