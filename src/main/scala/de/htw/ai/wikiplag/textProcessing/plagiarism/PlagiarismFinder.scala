@@ -3,13 +3,35 @@ package de.htw.ai.wikiplag.textProcessing.plagiarism
 
 import de.htw.ai.wikiplag.data.{InverseIndexBuilderImpl, MongoDbClient}
 import org.apache.spark.SparkContext
-import org.apache.spark.broadcast.Broadcast
-import org.apache.spark.rdd.RDD
+
+class Hyper(val h_textSplitLength: Int = 20, val h_textSplitStep: Int = 15,
+            val h_matchingWordsPercentage: Double = 0.70, val h_maximalDistance: Int = 3, val h_maxNewDistance: Int = 7,
+            val h_minGroupSize: Int = 10) extends Serializable {}
+
+class Start(val positionInputText: PlagiarismFinder.InPos,
+            val documentID: PlagiarismFinder.ID,
+            val positionWikiText: PlagiarismFinder.WikPos) extends Serializable {
+  override def toString: String = s"[InText: $positionInputText, DocID: $documentID, WikiText: $positionWikiText]"
+}
+class End(val positionInputText: PlagiarismFinder.InPos,
+          val documentID: PlagiarismFinder.ID,
+          val positionWikiText: PlagiarismFinder.WikPos) extends Serializable {
+  override def toString: String = s"[InText: $positionInputText, DocID: $documentID, WikiText: $positionWikiText]"
+}
+/** One match with start, end and score  */
+class Match(val start: Start, val end: End, val score: Double) {
+  override def toString: String = s"[Start:\t $start \n End:\t $end \n\t Score: [$score]]"
+}
 
 /**
   * Created by _ on 11/2/16.
   */
-class PlagiarismFinder extends Serializable {
+object PlagiarismFinder extends Serializable {
+  type InPos = Int
+  type ID = Long
+  type WikPos = Int
+  type Delta = Int
+
   /**
     * Starts the PlagiarismFinder Object
     * Wraps the functions of the Object.
@@ -17,46 +39,42 @@ class PlagiarismFinder extends Serializable {
     * @param sc spark context
     * @param inputText text to process
     * @param h_textSplitLength number of tokens per slice
-    * @param h_textSplitStep  stepsize for slicing process (overlap)
+    * @param h_textSplitStep  step size for slicing process (overlap)
     * @param h_matchingWordsPercentage the minimum percentage of matching words to fulfill
     * @param h_maximalDistance the maximal distance between words to be considered in further processing
     * @param h_maxNewDistance maximal distance between regions
     * @param h_minGroupSize minimum size of a relevant group
+    * @return List of Matches
     */
   def apply(sc: SparkContext, inputText: String, h_textSplitLength: Int = 20, h_textSplitStep: Int = 15,
             h_matchingWordsPercentage: Double = 0.70, h_maximalDistance: Int = 3, h_maxNewDistance: Int = 7,
-            h_minGroupSize: Int = 10): List[((Int, Long, Int), (Int, Long, Int), Double)] = {
-
-    // todo: Password auslagern
+            h_minGroupSize: Int = 10): Map[ID, List[Match]] = {
     val client = MongoDbClient(sc, "hadoop03.f4.htw-berlin.de", 27020, "wikiplag", "wikiplag", "Ku7WhY34")
     MongoDbClient.open()
 
-    /*
-    Here we call our function
-     */
-    println("Start splitting Text ...")
-    val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep)
+    val hyper = new Hyper(h_textSplitLength, h_textSplitStep, h_matchingWordsPercentage, h_maximalDistance,
+                          h_maxNewDistance, h_minGroupSize)
 
-    val indicies = textParts.map(x => client.getInvIndexRDD(x._1.toSet))
+    println("Start splitting Text ...")
+    val textParts = PlagiarismFinder.splitText(inputText, h_textSplitLength, h_textSplitStep).zipWithIndex
+    val indices = textParts.map(x => client.getInvIndexRDD(x._1._1.toSet))
 
     println("Done splitting Text ...")
-    val tmp = textParts.flatMap(x => PlagiarismFinder.checkForPlagiarism(indicies, sc, x, h_matchingWordsPercentage, h_maximalDistance, h_maxNewDistance, h_minGroupSize, h_textSplitStep))
-
-    val tmp2 = tmp.groupBy(_._2).mapValues(x => {
-      val y = x.sortBy(_._3)
-      (y.head._2, (y.head._1, y.head._3, 0)) :: y.zip(y.tail).map(z => (z._2._2, (z._2._1, z._2._3, z._2._3 - z._1._3)))
+    val processed = textParts.flatMap(x => {
+      PlagiarismFinder.checkForPlagiarism(indices(x._2).collect.toList, x, hyper)
+    })
+    val cleaned: List[(ID, List[(InPos, (WikPos, WikPos, Double), Delta)])] = processed.groupBy(_._2).mapValues(x => {
+      val y = x.sortBy(_._3._1)
+      (y.head._2, (y.head._1, y.head._3, 0)) :: y.zip(y.tail).map(z => (z._2._2, (z._2._1, z._2._3, z._2._3._1 - z._1._3._2)))
     }).toList.map(x => (x._1, x._2.map(y => (y._2._1, y._2._2, y._2._3))))
 
-    val t3 = PlagiarismFinder.getPointerToRegions(PlagiarismFinder.splitIntoRegions(tmp2, 50, 0), h_textSplitStep)
-    t3.map(x => (x._1, x._2, 0.0))
+    val regions = PlagiarismFinder.splitIntoRegions(cleaned, 50, 0)
+    val pointer = PlagiarismFinder.getPointerToRegions(regions, h_textSplitStep)
+    pointer
+      .map(x => new Match(new Start(x._1._1, x._1._2, x._1._3), new End(x._2._1, x._2._2, x._2._3), x._3))
+      .groupBy(_.start.documentID)
+      .mapValues(_.sortBy(_.start.positionInputText))
   }
-}
-
-object PlagiarismFinder extends Serializable {
-  type InPos = Int
-  type ID = Long
-  type WikPos = Int
-  type Delta = Int
 
   /**
     * Returns the tokens for a text.
@@ -98,9 +116,9 @@ object PlagiarismFinder extends Serializable {
     * @param tokensMap the relevant tokens
     * @return A List of Lists for each Token with its DocumentIds and Positions where it occurs
     */
-  def getIndexValues(index: RDD[(String, List[(ID, List[WikPos])])], sc: SparkContext, tokensMap: (Map[String, Int], InPos)): (RDD[List[(ID, List[WikPos])]], InPos) = {
+  def getIndexValues(index: List[(String, List[(ID, List[WikPos])])], tokensMap: (Map[String, Int], InPos)): (List[List[(ID, List[WikPos])]], InPos) = {
     val _tm = tokensMap._1.map(identity)
-    (index.filter(x => _tm.contains(x._1)).map(_._2).cache, tokensMap._2)
+    (index.filter(x => _tm.contains(x._1)).map(_._2), tokensMap._2)
   }
 
   /**
@@ -119,9 +137,9 @@ object PlagiarismFinder extends Serializable {
     * @param indexValues the values for each token in the index
     * @return the index Values grouped by the documentIds
     */
-  def groupByDocumentId(indexValues: (RDD[List[(ID, List[WikPos])]], InPos)): (RDD[(ID, Iterable[WikPos])], InPos) = {
-    val groupedByDID: RDD[(PlagiarismFinder.ID, Iterable[PlagiarismFinder.WikPos])] = indexValues._1.flatMap(identity).groupByKey().mapValues(_.flatten)
-    (groupedByDID, indexValues._2)
+  def groupByDocumentId(indexValues: (List[List[(ID, List[WikPos])]], InPos)): (List[(ID, Iterable[WikPos])], InPos) = {
+    val groupedByDID: Map[PlagiarismFinder.ID, Iterable[PlagiarismFinder.WikPos]] = indexValues._1.flatten.groupBy(_._1).mapValues(_.flatMap(_._2))
+    (groupedByDID.toList, indexValues._2)
   }
 
   /**
@@ -130,8 +148,8 @@ object PlagiarismFinder extends Serializable {
     * @param indexValues the values for each token in the index
     * @return the number of tokens
     */
-  def countMatchingTokens(indexValues: (RDD[List[(ID, List[WikPos])]], InPos)): Int =
-    indexValues._1.count.toInt
+  def countMatchingTokens(indexValues: (List[List[(ID, List[WikPos])]], InPos)): Int =
+    indexValues._1.size
 
   /**
     * Returns the DocumentIds which fulfill the minimum number of matching words
@@ -139,18 +157,17 @@ object PlagiarismFinder extends Serializable {
     * @param indexValues               the extracted values for each token from the index
     * @param h_matchingWordsPercentage the minimum percentage of matching words to fulfill
     * @return a list of fulfilling DocumentIds
+    *
     */
-  def getRelevantDocuments(indexValues: (RDD[List[(ID, List[WikPos])]], InPos), h_matchingWordsPercentage: Double): Iterable[ID] = {
-    indexValues._1.cache()
-    indexValues._1.localCheckpoint()
+  def getRelevantDocuments(indexValues: (List[List[(ID, List[WikPos])]], InPos), h_matchingWordsPercentage: Double): Iterable[ID] = {
     //the minimum number of matching tokens for further processing
     val minimumNumberMatchingWords: Int = (countMatchingTokens(indexValues) * h_matchingWordsPercentage).toInt
     //create a set per token value
-    val allIDs: RDD[ID] = indexValues._1.flatMap(_.map(_._1).distinct)
+    val allIDs: List[ID] = indexValues._1.flatMap(_.map(_._1).distinct)
     //count the number of matching tokens by each documentId
-    val numberMatchingTokensByDocumentId: RDD[(PlagiarismFinder.ID, Long)] = allIDs.map(x => (x, 1)).groupByKey.map(x => (x._1, x._2.size))
+    val numberMatchingTokensByDocumentId: Map[PlagiarismFinder.ID, Long] = allIDs.map(x => (x, 1)).groupBy(_._1).mapValues(_.size)
     //return documentIds which fulfill the minimumnumberMatchingWords
-    val result = numberMatchingTokensByDocumentId.filter(_._2 >= minimumNumberMatchingWords).keys.collect()
+    val result = numberMatchingTokensByDocumentId.filter(_._2 >= minimumNumberMatchingWords).keys
     result
   }
 
@@ -169,8 +186,8 @@ object PlagiarismFinder extends Serializable {
     * @param h_matchingWordsPercentage the minimum percentage of matching Words
     * @return the filtered list of documentIds and their positions
     */
-  def filterRelevantDocuments(groupedDocumentIds: (RDD[(ID, Iterable[WikPos])], InPos), indexValues: (RDD[List[(ID, List[WikPos])]], InPos),
-                              h_matchingWordsPercentage: Double): (RDD[(ID, Iterable[WikPos])], InPos) = {
+  def filterRelevantDocuments(groupedDocumentIds: (List[(ID, Iterable[WikPos])], InPos), indexValues: (List[List[(ID, List[WikPos])]], InPos),
+                              h_matchingWordsPercentage: Double): (List[(ID, Iterable[WikPos])], InPos) = {
     val relevantDocumentsList: List[ID] = getRelevantDocuments(indexValues, h_matchingWordsPercentage).toList
     (groupedDocumentIds._1.filter((kv: (ID, Iterable[WikPos])) => relevantDocumentsList.contains(kv._1)), indexValues._2)
   }
@@ -187,15 +204,13 @@ object PlagiarismFinder extends Serializable {
     * @param h_maximalDistance the maximal distance between words to be considered in further processing
     * @return the (DocumentId, (Position,Distance)) tuples
     */
-  def filterMaximalDistance(relevantDocuments: (RDD[(ID, Iterable[WikPos])], InPos), h_maximalDistance: Int): (RDD[(ID, List[(WikPos, Delta)])], InPos) = {
-    //slices the sorted list of positions into (predecessorposition, postion) slices
-    val positionAndPredecessorPosition: RDD[(ID, List[List[WikPos]])] = relevantDocuments._1.map(x => (x._1, x._2.toList.sorted.sliding(2).toList))
-    //maps the tupels on (position, distance to predecessor) tupels
+  def filterMaximalDistance(relevantDocuments: (List[(ID, Iterable[WikPos])], InPos), h_maximalDistance: Int): (List[(ID, List[(WikPos, Delta)])], InPos) = {
+    val sortedRD: List[(ID, List[WikPos])] = relevantDocuments._1.map(x => (x._1, x._2.toList.sorted))
+    val positionAndPredecessorPosition: List[(ID, List[(WikPos, WikPos)])] = sortedRD.map(x => (x._1, (x._2.head, x._2.head) :: x._2.zip(x._2.tail)))
     (positionAndPredecessorPosition
-      .map(x => (x._1, x._2.filter(_.size > 1).map(y => (y(1), y(1) - y.head))))
+      .map(x => (x._1, x._2.map(y => (y._1, y._2 - y._1))))
       .map(x => (x._1, x._2.filter(y => y._2 <= h_maximalDistance)))
       .filter(x => x._2.nonEmpty), relevantDocuments._2)
-    //filters on the h_maximalDistance and documentIds with no single fulfilling word are filtered out afterwards
   }
 
   /**
@@ -210,21 +225,19 @@ object PlagiarismFinder extends Serializable {
     * @return tupels of (documentId, List(Position,Distance to Predecessor))
     */
 
-  def computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance: (RDD[(ID, List[(WikPos, Delta)])], InPos)): (RDD[(ID, List[(WikPos, Delta)])], InPos) = {
-    relevantDocumentsWithSignificance._1.cache()
-    relevantDocumentsWithSignificance._1.localCheckpoint()
-    val filteredSingleTupels: RDD[(ID, List[(WikPos, Delta)])] = relevantDocumentsWithSignificance._1.filter(x => !(x._2.length < 2))
+  def computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance: (List[(ID, List[(WikPos, Delta)])], InPos)): (List[(ID, List[(WikPos, Delta)])], InPos) = {
+    val filteredSingleTupels: List[(ID, List[(WikPos, Delta)])] = relevantDocumentsWithSignificance._1.filter(x => !(x._2.length < 2))
     //get documentId and only positions (not distances to predecessor)
-    val positions: RDD[(ID, List[WikPos])] = filteredSingleTupels.map(x => (x._1, x._2.map(y => y._1)))
+    val positions: List[(ID, List[WikPos])] = filteredSingleTupels.map(x => (x._1, x._2.map(y => y._1)))
     //create tupels of (predecessor position, position)
-    val positionAndPredecessorPosition: RDD[(ID, List[List[WikPos]])] = positions.map(x => (x._1, x._2.sorted.sliding(2).toList))
+    val positionAndPredecessorPosition: List[(ID, List[(WikPos, WikPos)])] = positions.map(x => (x._1, (x._2.head, x._2.head) :: x._2.zip(x._2.tail)))
     //documentId with tupels of (position, distance to predecessor)
 
-    (positionAndPredecessorPosition.map(x => (x._1, x._2.filter(_.size > 1).map(y => (y(1), y(1) - y.head)))), relevantDocumentsWithSignificance._2)
+    (positionAndPredecessorPosition.map(x => (x._1, x._2.map(y => (y._1, y._2 - y._1)))), relevantDocumentsWithSignificance._2)
   }
 
   /**
-    * Groupes suspicious Positions into Regions with high density.
+    * Groups suspicious Positions into Regions with high density.
     * These regions indicate a plagiarism
     *
     * @param newDistances tupels of (documentId, List(Position,Distance to Predecessor))
@@ -232,8 +245,8 @@ object PlagiarismFinder extends Serializable {
     * @param h_minGroupSize   minimum size of a relevant group
     * @return List of DocumentID and Positions
     */
-  def splitIntoRegions(newDistances: (RDD[(ID, List[(WikPos, Delta)])], InPos),
-                       h_maxNewDistance: Int, h_minGroupSize: Int): (RDD[(ID, List[(WikPos, Delta)])], InPos) = {
+  def splitIntoRegions(newDistances: (List[(ID, List[(WikPos, Delta)])], InPos),
+                       h_maxNewDistance: Int, h_minGroupSize: Int): (List[(ID, List[(WikPos, Delta)])], InPos) = {
     var key = 0
     (for {
       (text_id, text_pos) <- newDistances._1
@@ -244,13 +257,13 @@ object PlagiarismFinder extends Serializable {
     } yield (text_id, chunk._2), newDistances._2)
   }
 
-  def splitIntoRegions(newDistances: List[(ID, List[(InPos, WikPos, Delta)])],
-                       h_maxNewDistance: Int, h_minGroupSize: Int): List[(ID, List[(InPos, WikPos, Delta)])] = {
+  def splitIntoRegions(newDistances: List[(ID, List[(InPos, (WikPos, WikPos, Double), Delta)])],
+                       h_maxNewDistance: Int, h_minGroupSize: Int): List[(ID, List[(InPos, (WikPos, WikPos, Double), Delta)])] = {
     var key = 0
     for {
       (text_id, text_pos) <- newDistances
       chunk <- text_pos.groupBy(dist => {
-        if (dist._3 > h_maxNewDistance) key += 1; key
+        if (dist._3 > h_maxNewDistance) key += 1; (key, dist._1)
       }).toSeq
       if chunk._2.size >= h_minGroupSize
     } yield (text_id, chunk._2)
@@ -262,11 +275,11 @@ object PlagiarismFinder extends Serializable {
     * @param regions documentID with List of Positions and Distances
     * @return List of Regions defined by DocumentID and a single Position
     */
-  def getPointerToRegions(regions: (RDD[(ID, List[(WikPos, Delta)])], InPos), h_textSplitStep: Int): RDD[(InPos, ID, WikPos)] =
-    regions._1.map(r => (regions._2, r._1, r._2.head._1))
+  def getPointerToRegions(regions: (List[(ID, List[(WikPos, Delta)], Double)], InPos), h_textSplitStep: Int): List[(InPos, ID, (WikPos, WikPos, Double))] =
+    regions._1.map(r => (regions._2, r._1, (r._2.head._1, r._2.last._1, r._3)))
 
-  def getPointerToRegions(regions: List[(ID, List[(InPos, WikPos, Delta)])], h_textSplitStep: Int): List[((InPos, ID, WikPos), (InPos, ID, WikPos))] =
-    regions.map(r => ((r._2.head._1, r._1, r._2.head._2), (r._2.last._1 + h_textSplitStep, r._1, r._2.last._2)))
+  def getPointerToRegions(regions: List[(ID, List[(InPos, (WikPos, WikPos, Double), Delta)])], h_textSplitStep: Int): List[((InPos, ID, WikPos), (InPos, ID, WikPos), Double)] =
+    regions.map(r => ((r._2.head._1, r._1, r._2.head._2._1), (r._2.last._1 + h_textSplitStep, r._1, r._2.last._2._2), r._2.head._2._3))
 
   var i = 0
   /**
@@ -274,34 +287,25 @@ object PlagiarismFinder extends Serializable {
     * Calls several functions and returns a list of DocumentIDs and Positions where a Plagiarism is detected
     *
     * @param tokens  list of Tokens to check
-    * @param h_matchingWordsPercentage the minimum percentage of matching words to fulfill
-    * @param h_maximalDistance the maximal distance between words to be considered in further processing
-    * @param h_maxNewDistance maximal distance between regions
-    * @param h_minGroupSize
     * @return minimum size of a relevant group
     */
-  def checkForPlagiarism(indieces: List[RDD[(String, List[(ID, List[WikPos])])]], sc: SparkContext, tokens: (List[String], InPos), h_matchingWordsPercentage: Double,
-                         h_maximalDistance: Int, h_maxNewDistance: Int, h_minGroupSize: Int, h_textSplitStep: Int): List[(InPos, ID, WikPos)] = {
+  def checkForPlagiarism(index: List[(String, List[(ID, List[WikPos])])], tokens: ((List[String], InPos), Int), hyper: Hyper): List[(InPos, ID, (WikPos, WikPos, Double))] = {
     println("start finding")
-    println("Grouping Tokens ...")
-    val tokensMap = groupTokens(tokens)
-    println("Fetch index ...")
-    val indexValues: (RDD[List[(ID, List[WikPos])]], InPos) = getIndexValues(indieces(i), sc, tokensMap)
-    println("Grouping by ID ...")
-    val groupedDocumentIds: (RDD[(ID, Iterable[WikPos])], InPos) = groupByDocumentId(indexValues)
-    println("Filtering relevant documents ...")
-    val relevantDocuments: (RDD[(ID, Iterable[WikPos])], InPos) = filterRelevantDocuments(groupedDocumentIds, indexValues, h_matchingWordsPercentage)
-    println("Filtering by max distance ...")
-    val relevantDocumentsWithSignificance : (RDD[(ID, List[(WikPos, Delta)])], InPos) = filterMaximalDistance(relevantDocuments, h_maximalDistance)
-    //val relevantDocumentsWithSignificance : (RDD[(ID, List[(WikPos, Delta)])], InPos) = filterMaximalDistance(groupedDocumentIds, h_maximalDistance)
-    println("Compute distances between relevant documents ... ")
-    val newDistances: (RDD[(ID, List[(WikPos, Delta)])], InPos) = computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)
-    println("Split findings into regions ...")
-    val splittedRegions: (RDD[(ID, List[(WikPos, Delta)])], InPos) = splitIntoRegions(newDistances, h_maxNewDistance, h_minGroupSize)
-    println("Clean findings ...")
-    val result: RDD[(InPos, ID, WikPos)] = getPointerToRegions(splittedRegions, h_textSplitStep)
+    val tokensMap = groupTokens(tokens._1)
+    val indexValues: (List[List[(ID, List[WikPos])]], InPos) = getIndexValues(index, tokensMap)
+    val groupedDocumentIds: (List[(ID, Iterable[WikPos])], InPos) = groupByDocumentId(indexValues)
+    val relevantDocuments: (List[(ID, Iterable[WikPos])], InPos) = filterRelevantDocuments(groupedDocumentIds, indexValues, hyper.h_matchingWordsPercentage)
+    val relevantDocumentsWithSignificance : (List[(ID, List[(WikPos, Delta)])], InPos) = filterMaximalDistance(relevantDocuments, hyper.h_maximalDistance)
+    val newDistances: (List[(ID, List[(WikPos, Delta)])], InPos) = computeDistancesBetweenRelevantPositions(relevantDocumentsWithSignificance)
+    val splittedRegions: (List[(ID, List[(WikPos, Delta)])], InPos) = splitIntoRegions(newDistances, hyper.h_maxNewDistance, hyper.h_minGroupSize)
+    val scoredRegions: (List[(ID, List[(WikPos, Delta)], Double)], InPos) = calcScore(splittedRegions, hyper)
+    val result: List[(InPos, ID, (WikPos, WikPos, Double))] = getPointerToRegions(scoredRegions, hyper.h_textSplitStep)
     println("end finding")
     i += 1
-    result.collect().toList
+    result
+  }
+
+  def calcScore(regions: (List[(ID, List[(WikPos, Delta)])], InPos), hyper: Hyper): (List[(ID, List[(WikPos, Delta)], Double)], InPos) = {
+    (regions._1.map(doc => (doc._1, doc._2, (doc._2.foldLeft(0.0)(_ + _._2) / doc._2.size) / hyper.h_maxNewDistance)), regions._2)
   }
 }

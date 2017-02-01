@@ -33,7 +33,7 @@ assemblyMergeStrategy in assembly := {
  */
 organization := "HTW Berlin"
 name := "WikiPlagAnalyzer"
-version := "0.0.1"
+version := "0.0.3"
 scalaVersion := "2.10.4"
 libraryDependencies ++= testDependencies
 libraryDependencies += spark
