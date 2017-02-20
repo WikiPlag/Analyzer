@@ -177,13 +177,13 @@ object PlagiarismFinder extends Serializable {
     * (ein, 1),              ...
     * (plagiat,1))          ...]
     *
-    * @param tokensMap Relevant tokens
+    * @param tokensBag Relevant tokens
     * @return          A List of Lists for each Token with its DocumentIds and Positions where they occurs
     */
-  def getIndexValues(index: List[(String, List[(ID, List[ArtPos])])], tokensMap: (Set[String], InPos))
+  def getIndexValues(index: List[(String, List[(ID, List[ArtPos])])], tokensBag: (Set[String], InPos))
   : (List[List[(ID, List[ArtPos])]], InPos) = {
 
-    val (tokenBag, inPos) = tokensMap
+    val (tokenBag, inPos) = tokensBag
     (index.filter { case (key, _) => tokenBag.contains(key) }.map { case ((_, value)) => value }, inPos)
   }
 
@@ -226,7 +226,7 @@ object PlagiarismFinder extends Serializable {
     // The minimum number of matching tokens for further processing
     val minimumNumberMatchingWords: Int = (index.size * hyper.matchingWords).toInt
 
-    // Create a set per token value
+    // Create a list of IDs which come from different words
     val allIDs: List[ID] = index.flatMap(_.map { case (id, _) => id }.distinct)
 
     // Count the number of matching tokens by each documentId
@@ -272,8 +272,8 @@ object PlagiarismFinder extends Serializable {
     * (1, List(10, 11, 12, 13))
     * (3, List(15, 20, 3))
     * =>
-    * (2, List((5, 1), (6, 1)))
-    * (1, List((11, 1), (12, 1), (13, 1)))
+    * (2, List((4, 0), (5, 1), (6, 1)))
+    * (1, List((10, 0), (11, 1), (12, 1), (13, 1)))
     *
     *
     * @param relevantDocuments Documents to be filtered
@@ -283,14 +283,30 @@ object PlagiarismFinder extends Serializable {
   def filterMaximalDistance(relevantDocuments: (List[(ID, Iterable[ArtPos])], InPos), hyper: Hyper)
   : (List[(ID, List[(ArtPos, Delta)])], InPos) = {
 
+    // some magic happens here
     val (docs, inPos) = relevantDocuments
-    val sortedRD: List[(ID, List[ArtPos])] = docs.map { case ((id, posL)) => (id, posL.toList.sorted) }
+    val sorted: List[(ID, List[ArtPos])] = docs.map { case ((id, posL)) => (id, posL.toList.sorted) }
     val positionAndPredecessorPosition: List[(ID, List[(ArtPos, ArtPos)])] =
-      sortedRD.map { case ((id, posL)) => (id, (posL.head, posL.head) :: posL.zip(posL.tail)) }
+      sorted.map { case ((id, posL)) => (id, (posL.head, posL.head) :: posL.tail.zip(posL)) }
     (positionAndPredecessorPosition
-      .map { case ((id, posL)) => (id, posL.map { case ((pre, post)) => (pre, post - pre) }) }
-      .map { case ((id, deltas)) => (id, deltas.filter { case ((_, delta)) => delta <= hyper.maxDistanceAlpha }) }
-      .filter { case ((_, deltas)) => deltas.nonEmpty }, inPos)
+      .map { case ((id, posL)) => {
+          val posLwithD = posL.map { case ((pre, post)) => (pre, pre - post) }
+          (id, posLwithD.zip(posLwithD.tail))
+        }
+      }
+      .map { case ((id, deltas)) => {
+          val ((deltasHPos, _), _) = deltas.head
+          val ( _, (deltasLPos, _)) = deltas.last
+          (id, deltas.filter {
+            case ((fPos, deltaL), (lPos, deltaR)) =>
+              if (deltasHPos == fPos)      deltaL <= hyper.maxDistanceAlpha && deltaR <= hyper.maxDistanceAlpha
+              else if (deltasLPos == lPos) deltaR <= hyper.maxDistanceAlpha
+              else                         deltaL <= hyper.maxDistanceAlpha || deltaR <= hyper.maxDistanceAlpha
+          })
+        }
+      }
+      .filter { case ((_, deltas)) => deltas.nonEmpty }
+      .map { case ((id, deltasLR)) => (id, deltasLR.head._1 :: deltasLR.map(_._2))}, inPos)
   }
 
   /**
