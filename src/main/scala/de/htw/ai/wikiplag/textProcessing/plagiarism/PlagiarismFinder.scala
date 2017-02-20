@@ -289,24 +289,22 @@ object PlagiarismFinder extends Serializable {
     val positionAndPredecessorPosition: List[(ID, List[(ArtPos, ArtPos)])] =
       sorted.map { case ((id, posL)) => (id, (posL.head, posL.head) :: posL.tail.zip(posL)) }
     (positionAndPredecessorPosition
-      .map { case ((id, posL)) => {
-          val posLwithD = posL.map { case ((pre, post)) => (pre, pre - post) }
-          (id, posLwithD.zip(posLwithD.tail))
-        }
+      .map { case ((id, posL)) =>
+        val posLwithD = posL.map { case ((pre, post)) => (pre, pre - post) }
+        (id, posLwithD.zip(posLwithD.tail))
       }
-      .map { case ((id, deltas)) => {
-          val ((deltasHPos, _), _) = deltas.head
-          val ( _, (deltasLPos, _)) = deltas.last
-          (id, deltas.filter {
-            case ((fPos, deltaL), (lPos, deltaR)) =>
-              if (deltasHPos == fPos)      deltaL <= hyper.maxDistanceAlpha && deltaR <= hyper.maxDistanceAlpha
-              else if (deltasLPos == lPos) deltaR <= hyper.maxDistanceAlpha
-              else                         deltaL <= hyper.maxDistanceAlpha || deltaR <= hyper.maxDistanceAlpha
-          })
-        }
+      .map { case ((id, deltas)) =>
+        val ((deltasHPos, _), _) = deltas.head
+        val ( _, (deltasLPos, _)) = deltas.last
+        (id, deltas.filter {
+          case ((fPos, deltaL), (lPos, deltaR)) =>
+            if (deltasHPos == fPos)      deltaL <= hyper.maxDistanceAlpha && deltaR <= hyper.maxDistanceAlpha
+            else if (deltasLPos == lPos) deltaR <= hyper.maxDistanceAlpha
+            else                         deltaL <= hyper.maxDistanceAlpha || deltaR <= hyper.maxDistanceAlpha
+        })
       }
       .filter { case ((_, deltas)) => deltas.nonEmpty }
-      .map { case ((id, deltasLR)) => (id, deltasLR.head._1 :: deltasLR.map(_._2))}, inPos)
+      .map { case ((id, deltasLR)) => (id,  deltasLR.map(_._1) :+ deltasLR.last._2)}, inPos)
   }
 
   /**
@@ -316,18 +314,18 @@ object PlagiarismFinder extends Serializable {
     * (2, List((5, 1), (6, 1)))
     * (1, List((11, 1), (12, 1), (13, 1), (52, 2), (53, 1)))
     * =>
-    * (2, List((6, 1)))
-    * (1, List((12, 1), (13, 1), (52, 39), (53, 1)))
+    * (2, List((5, 0), (6, 1)))
+    * (1, List((11, 1), (12, 1), (13, 1), (52, 39), (53, 1)))
     *
     *
-    * @param documentsWithSignificance DocumentIds with their positions and distances
+    * @param docPositionsWithSignificance DocumentIds with their positions and distances
     * @return Tupels of (documentId, List(Position,Distance to Predecessor))
     */
 
-  def computeDistancesBetweenRelevantPositions(documentsWithSignificance: (List[(ID, List[(ArtPos, Delta)])], InPos))
+  def computeDistancesBetweenRelevantPositions(docPositionsWithSignificance: (List[(ID, List[(ArtPos, Delta)])], InPos))
   : (List[(ID, List[(ArtPos, Delta)])], InPos) = {
 
-    val (docs, inPos) = documentsWithSignificance
+    val (docs, inPos) = docPositionsWithSignificance
 
     // Filter out the outliners
     val filteredOutliners: List[(ID, List[(ArtPos, Delta)])] = docs.filter { case ((_, deltas)) => !(deltas.length < 2) }
