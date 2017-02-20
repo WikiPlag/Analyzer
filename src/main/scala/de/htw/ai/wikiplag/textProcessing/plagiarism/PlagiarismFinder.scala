@@ -487,6 +487,6 @@ object PlagiarismFinder extends Serializable {
   : (List[(ID, List[(ArtPos, Delta)], Double)], InPos) = {
 
     val (regs, inPos) = regions
-    (regs.map{ case ((id, reg)) => (id, reg, reg.size / reg.foldLeft(0.0)(_ + _._2)) }, inPos)
+    (regs.map{ case ((id, reg)) => (id, reg, (reg.size - 1) / reg.tail.foldLeft(0.0)(_ + _._2)) }, inPos)
   }
 }
