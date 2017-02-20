@@ -6,7 +6,7 @@ import org.scalatest.junit.JUnitRunner
 
 
 /**
-  * Created by kapoor on 06.06.2016.
+  * Created by kuro on 06.06.2016.
   */
 
 @RunWith(classOf[JUnitRunner])
