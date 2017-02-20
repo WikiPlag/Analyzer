@@ -336,11 +336,11 @@ object PlagiarismFinder extends Serializable {
 
     // Create tupels of (predecessor position, position)
     val positionAndPredecessorPosition: List[(ID, List[(ArtPos, ArtPos)])] =
-      positions.map { case ((id, posL)) => (id, (posL.head, posL.head) :: posL.zip(posL.tail)) }
+      positions.map { case ((id, posL)) => (id, (posL.head, posL.head) :: posL.tail.zip(posL)) }
 
     // DocumentId with tupels of (position, distance to predecessor)
     (positionAndPredecessorPosition.map {
-      case ((id, posLT)) => (id, posLT.map { case ((pre, post)) => (pre, post - pre) })
+      case ((id, posLT)) => (id, posLT.map { case ((pre, post)) => (pre, pre - post) })
     }, inPos)
   }
 
